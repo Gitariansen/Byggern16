@@ -8,9 +8,6 @@
 #ifndef UART_H_
 #define UART_H_
 
-#include <stdio.h>
-#include <avr/io.h>
-
 #define F_CPU 4915200
 
 #include <util/delay.h>

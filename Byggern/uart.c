@@ -7,6 +7,9 @@
 
 #include "uart.h"
 
+#include <stdio.h>
+#include <avr/io.h>
+
 int UART_init(unsigned int ubrr){
 	/* Set Baud rate */
 	UBRR0H = (unsigned char)(ubrr >> 8);
