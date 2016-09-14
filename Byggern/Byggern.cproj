@@ -109,29 +109,37 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="adc.h">
+    <Compile Include="src\adc.c">
       <SubType>compile</SubType>
+      <Link>adc.c</Link>
     </Compile>
-    <Compile Include="adc.c">
+    <Compile Include="src\adc.h">
       <SubType>compile</SubType>
+      <Link>adc.h</Link>
     </Compile>
-    <Compile Include="byggern.h">
+    <Compile Include="src\byggern.h">
       <SubType>compile</SubType>
+      <Link>byggern.h</Link>
     </Compile>
-    <Compile Include="sram.c">
+    <Compile Include="src\main.c">
       <SubType>compile</SubType>
+      <Link>main.c</Link>
     </Compile>
-    <Compile Include="sram.h">
+    <Compile Include="src\sram.c">
       <SubType>compile</SubType>
+      <Link>sram.c</Link>
     </Compile>
-    <Compile Include="uart.c">
+    <Compile Include="src\sram.h">
       <SubType>compile</SubType>
+      <Link>sram.h</Link>
     </Compile>
-    <Compile Include="uart.h">
+    <Compile Include="src\uart.c">
       <SubType>compile</SubType>
+      <Link>uart.c</Link>
     </Compile>
-    <Compile Include="main.c">
+    <Compile Include="src\uart.h">
       <SubType>compile</SubType>
+      <Link>uart.h</Link>
     </Compile>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />

@@ -12,17 +12,20 @@
 
 #include <stdlib.h>
 #include <util/delay.h>
+#include <avr/interrupt.h>
 
 int main(void)
 {	
 	ADC_init();
+//	sei();
 	SRAM_init();
 	UART_init(MYUBRR);
-	printf("Hello worldsadasdsa");
+	printf("Hello world\n");
 	while(1){
-		ADC_JoystickPos();
-		ADC_SliderPos();
-		_delay_ms(500);
+		printf("%i\n",ADC_read(0));
+		//ADC_JoystickPos();
+		//ADC_SliderPos();
+		//_delay_ms(500);
 		//SRAM_test();
 	}
 }

@@ -10,18 +10,24 @@
 #include <stdio.h>
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/interrupt.h>
 
 #define XAXIS 0x05;
 #define YAXIS 0x04;
 #define ADC_MEMORY 0x1400;
 
+///INT0_vect()
+//{
+//	printf("Interrupt");
+//}
 
 int ADC_init(void){
 	/* Enables external memory interface, and releases PC7-PC4 from external memory. */
 	MCUCR |= (1 << SRE);
 	SFIOR |= (1 << XMM2);
 	/* Set the interrupt pin to input */
-	//DDRE &= ~(1 << DDE0);
+	//GICR |= (1 << INT0);
+	//EMCUCR &= ~((1 << ISC00)|(1 << ISC01));
 	
 	return 0;
 }
@@ -30,7 +36,6 @@ uint8_t ADC_read(uint8_t chan) {
 	volatile uint8_t *ext_adc = (uint8_t*) 0x1400;
 	*ext_adc = 0x04 | chan;
 	_delay_us(60);
-	
 	return *ext_adc;
 }
 
