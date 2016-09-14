@@ -6,9 +6,11 @@
  */ 
 
 #include "uart.h"
+#include "byggern.h"
 
 #include <stdio.h>
 #include <avr/io.h>
+#include <util/delay.h>
 
 int UART_init(unsigned int ubrr){
 	/* Set Baud rate */
