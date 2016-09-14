@@ -12,10 +12,6 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
-#define XAXIS 0x05;
-#define YAXIS 0x04;
-#define ADC_MEMORY 0x1400;
-
 ///INT0_vect()
 //{
 //	printf("Interrupt");
@@ -33,21 +29,10 @@ int ADC_init(void){
 }
 
 uint8_t ADC_read(uint8_t chan) {
-	volatile uint8_t *ext_adc = (uint8_t*) 0x1400;
+	volatile uint8_t *ext_adc = (uint8_t*) ADC_DATA;
 	*ext_adc = 0x04 | chan;
 	_delay_us(60);
 	return *ext_adc;
-}
-
-// TODO: Make own module
-int ADC_JoystickPos(void) {
-	uint8_t x = ADC_read(1);
-	uint8_t y = ADC_read(0);
-	
-	int x_pos = 2 * 100 * ((float)(x - 127) / (0xFF - 1));
-	int y_pos = 2 * 100 * ((float)(y - 127) / (0xFF - 1));
-	
-	printf("x: %i\ny: %i\n\n", x_pos, y_pos);
 }
 
 // TODO: Make own module

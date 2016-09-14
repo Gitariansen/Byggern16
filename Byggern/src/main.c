@@ -9,6 +9,7 @@
 #include "sram.h"
 #include "uart.h"
 #include "adc.h"
+#include "analog_control.h"
 
 #include <stdlib.h>
 #include <util/delay.h>
@@ -16,16 +17,16 @@
 
 int main(void)
 {	
-	ADC_init();
-//	sei();
+	ANALOG_init();
 	SRAM_init();
 	UART_init(MYUBRR);
 	printf("Hello world\n");
 	while(1){
-		printf("%i\n",ADC_read(0));
+		joystick pos = ANALOG_get_joystick();
+		printf("x: %i\ny: %i\n\n", pos.x_pos, pos.y_pos);
 		//ADC_JoystickPos();
 		//ADC_SliderPos();
-		//_delay_ms(500);
+		_delay_ms(1000);
 		//SRAM_test();
 	}
 }
