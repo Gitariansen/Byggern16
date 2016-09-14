@@ -11,22 +11,32 @@
 #include "adc.h"
 #include "analog_control.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <avr/io.h>
 
 int main(void)
 {	
 	ANALOG_init();
 	SRAM_init();
 	UART_init(MYUBRR);
+	
 	printf("Hello world\n");
+	
+	SRAM_test();
+	
 	while(1){
-		joystick pos = ANALOG_get_joystick();
-		printf("x: %i\ny: %i\n\n", pos.x_pos, pos.y_pos);
+		//joystick pos = ANALOG_get_joystick();
+		//printf("x: %i\ny: %i\n\n", pos.x_pos, pos.y_pos);
+		//printf("HELLO");
+		slider pos = ANALOG_get_slider();
+		printf("left: %i\nright: %i\n\n", pos.left, pos.right);
 		//ADC_JoystickPos();
 		//ADC_SliderPos();
 		_delay_ms(1000);
-		//SRAM_test();
+		
+		
 	}
 }

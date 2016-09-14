@@ -25,3 +25,14 @@ joystick ANALOG_get_joystick() {
 	
 	return joystick_t;
 }
+
+slider ANALOG_get_slider(){
+	slider slider_t;
+	uint8_t left_slider_voltage = ADC_read(LEFT_SLIDER_CHANNEL);
+	uint8_t right_slider_voltage = ADC_read(RIGHT_SLIDER_CHANNEL);
+	
+	slider_t.left = 100 * ((float)left_slider_voltage / (0xFF - 1));
+	slider_t.right = 100 * ((float)right_slider_voltage / (0xFF - 1));
+	
+	return slider_t;
+}

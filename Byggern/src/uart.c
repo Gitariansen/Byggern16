@@ -17,23 +17,23 @@ int UART_init(unsigned int ubrr){
 	UBRR0H = (unsigned char)(ubrr >> 8);
 	UBRR0L = (unsigned char)ubrr;
 	/* Enable receiver and transmitter*/
-	UCSR0B = (0x1 << RXEN0)|(0x1 << TXEN0);
+	UCSR0B = (1 << RXEN0)|(1 << TXEN0);
 	/* Set frame format: 8data, 2stop bit */
-	UCSR0C = (0x1 << URSEL0)|(0x1 << USBS0)|(0x11 << UCSZ00);
-	
+	UCSR0C = (1 << URSEL0)|(1 << USBS0)|(3 << UCSZ00);
+	//enable printf
 	fdevopen(&UART_transmit, &UART_receive);
 	
 	return 0;
 }
 
 int UART_transmit(char data){
-	while ( !( UCSR0A & (0x1 << UDRE0)));
+	while ( !( UCSR0A & (1 << UDRE0)));
 	UDR0 = data;
 	
 	return 0;
 }
 
 unsigned char UART_receive(void){
-	while(!(UCSR0A & (0x1 << RXC0)));
+	while(!(UCSR0A & (1 << RXC0)));
 	return UDR0;
 }

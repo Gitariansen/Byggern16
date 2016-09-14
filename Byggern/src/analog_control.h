@@ -21,5 +21,6 @@ typedef struct {
 
 void ANALOG_init(void);
 joystick ANALOG_get_joystick();
+slider ANALOG_get_slider();
 
 #endif /* INCFILE1_H_ */

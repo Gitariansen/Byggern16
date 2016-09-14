@@ -9,6 +9,7 @@
 #ifndef ADC_H_
 #define ADC_H_
 
+#include "byggern.h"
 #include <stdint.h>
 
 int ADC_init(void);
