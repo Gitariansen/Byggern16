@@ -5,10 +5,13 @@
  *  Author: audunel
  */ 
 
+#include "byggern.h"
 #include "sram.h"
 #include "uart.h"
 #include "adc.h"
+
 #include <stdlib.h>
+#include <util/delay.h>
 
 int main(void)
 {	
@@ -17,8 +20,8 @@ int main(void)
 	UART_init(MYUBRR);
 	printf("Hello worldsadasdsa");
 	while(1){
-		printf("%i\n",ADC_test());
+		//printf("%i\n",ADC_test());
 		_delay_ms(500);
-		//SRAM_test();
+		SRAM_test();
 	}
 }

@@ -5,6 +5,7 @@
  *  Author: elsala
  */ 
 #include "adc.h"
+#include "byggern.h"
 
 #include <stdio.h>
 #include <avr/io.h>
@@ -21,11 +22,11 @@ int ADC_init(void){
 }
 
 uint8_t ADC_test(void){
-	volatile char *ext_adc = (char *) 0x1400;
+	volatile uint8_t *ext_adc = (uint8_t *) 0x1400;
 	*ext_adc = 0x04 | 0;
 	_delay_us(6000);
 	//printf("ADC: %i \n", *ext_adc);
-	return (uint8_t) *ext_adc;
+	return *ext_adc;
 	
 	return 0;
 }
