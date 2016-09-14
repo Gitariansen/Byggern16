@@ -20,8 +20,9 @@ int main(void)
 	UART_init(MYUBRR);
 	printf("Hello worldsadasdsa");
 	while(1){
-		//printf("%i\n",ADC_test());
+		ADC_JoystickPos();
+		ADC_SliderPos();
 		_delay_ms(500);
-		SRAM_test();
+		//SRAM_test();
 	}
 }
