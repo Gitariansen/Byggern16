@@ -25,6 +25,6 @@
 //Function declarations
 
 int UART_init(unsigned int ubrr);
-int UART_transmit(char data, FILE* f);
+int UART_transmit(char data);
 unsigned char UART_receive(void);
 #endif /* BYGGERN_H_ */

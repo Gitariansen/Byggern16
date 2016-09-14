@@ -24,7 +24,7 @@ int UART_init(unsigned int ubrr){
 	return 0;
 }
 
-int UART_transmit(char data, FILE* f){
+int UART_transmit(char data){
 	while ( !( UCSR0A & (1 << UDRE0)));
 	UDR0 = data;
 	

@@ -5,15 +5,20 @@
  *  Author: audunel
  */ 
 
+#include "sram.h"
 #include "uart.h"
+#include "adc.h"
 #include <stdlib.h>
 
 int main(void)
-{
-	UART_init(MYUBRR);
+{	
+	ADC_init();
 	SRAM_init();
-	SRAM_test();
-	while(1) {
-		print("Hello!")
+	UART_init(MYUBRR);
+	printf("Hello worldsadasdsa");
+	while(1){
+		printf("%i\n",ADC_test());
+		_delay_ms(500);
+		//SRAM_test();
 	}
 }
