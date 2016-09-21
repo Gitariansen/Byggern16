@@ -8,15 +8,21 @@
 #include "oled.h"
 #include "byggern.h"
 #include "adc.h"
-
-#include <util/delay.h>
 #include "font5x7.h"
+
+#include <stdio.h>
+#include <util/delay.h>
 
 volatile uint8_t *command	= (uint8_t *) OLED_COMMAND;
 volatile uint8_t *data		= (uint8_t *) OLED_DATA;
 
 static uint8_t line		= 0;
 static uint8_t column	= 0;
+
+// How to printf
+// static FILE oled_stdout = FDEV_SETUP_STREAM(oled_printf, NULL, _FDEV_SETUP_WRITE)
+// Implementer oled_printf
+// stdout = oled_stdout
 
 void OLED_init() {
 	ADC_init();
