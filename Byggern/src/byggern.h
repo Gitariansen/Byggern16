@@ -13,12 +13,6 @@
 #define ADC_DATA		0x1400
 #define SRAM_DATA		0x1800
 
-// ADC channels
-#define Y_JOYSTICK_CHANNEL		0
-#define X_JOYSTICK_CHANNEL		1
-#define LEFT_SLIDER_CHANNEL		2
-#define RIGHT_SLIDER_CHANNEL	3
-
 // Macros
 #define BitGet(reg,bit)((reg)&(bit))
 #define BitSet(reg,bit)((reg)|=(bit))

@@ -12,9 +12,10 @@
 typedef struct {
 	int x;
 	int y;
-} joystick_position;
+	int click;
+} joystick_state;
 
 void JOYSTICK_init(void);
-joystick_position JOYSTICK_get_position();
+joystick_state JOYSTICK_get_state();
 
 #endif /* ANALOG_H_ */

@@ -9,19 +9,28 @@
 #include "joystick.h"
 #include "adc.h"
 
+#include <avr/io.h>
+
 void JOYSTICK_init(void)
 {
 	ADC_init();
+	
+	DDRB &= ~(1 << PB0);
+	PORTB |= (1 << PB0);
 }
 
-joystick_position JOYSTICK_get_position() {
-	joystick_position position;
+joystick_state JOYSTICK_get_state() {
+	joystick_state state;
 	
+	// Position
 	uint8_t x_voltage = ADC_read(X_JOYSTICK_CHANNEL);
 	uint8_t y_voltage = ADC_read(Y_JOYSTICK_CHANNEL);
 	
-	position.x = 2 * 100 * ((float)(x_voltage - 127) / (0xFF - 1));
-	position.y = 2 * 100 * ((float)(y_voltage - 127) / (0xFF - 1));
+	state.x = 2 * 100 * ((float)(x_voltage - 127) / (0xFF - 1));
+	state.y = 2 * 100 * ((float)(y_voltage - 127) / (0xFF - 1));
 	
-	return position;
+	// Click
+	state.click = (PINB & 1) == 0;
+	
+	return state;
 }
