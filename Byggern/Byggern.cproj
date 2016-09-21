@@ -133,10 +133,16 @@
     <Compile Include="src\byggern.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\analog_control.h">
+    <Compile Include="src\slider.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\analog_control.c">
+    <Compile Include="src\slider.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\joystick.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\joystick.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\main.c">

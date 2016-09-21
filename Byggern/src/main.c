@@ -9,7 +9,8 @@
 #include "sram.h"
 #include "uart.h"
 #include "adc.h"
-#include "analog_control.h"
+#include "joystick.h"
+#include "slider.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,7 +20,8 @@
 
 int main(void)
 {	
-	ANALOG_init();
+	JOYSTICK_init();
+	SLIDER_init();
 	SRAM_init();
 	UART_init(MYUBRR);
 	
@@ -28,11 +30,11 @@ int main(void)
 	SRAM_test();
 	
 	while(1){
-		//joystick pos = ANALOG_get_joystick();
-		//printf("x: %i\ny: %i\n\n", pos.x_pos, pos.y_pos);
+		joystick_position pos1 = JOYSTICK_get_position();
+		printf("x: %i\ny: %i\n\n", pos1.x, pos1.y);
 		//printf("HELLO");
-		slider pos = ANALOG_get_slider();
-		printf("left: %i\nright: %i\n\n", pos.left, pos.right);
+		slider_position pos2 = SLIDER_get_position();
+		printf("left: %i\nright: %i\n\n", pos2.left, pos2.right);
 		//ADC_JoystickPos();
 		//ADC_SliderPos();
 		_delay_ms(1000);

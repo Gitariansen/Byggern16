@@ -12,18 +12,21 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
-///INT0_vect()
-//{
-//	printf("Interrupt");
-//}
+
+ISR(INT0_vect)
+{
+	//printf("Interrupt");
+}
 
 int ADC_init(void){
 	/* Enables external memory interface, and releases PC7-PC4 from external memory. */
 	MCUCR |= (1 << SRE);
 	SFIOR |= (1 << XMM2);
 	/* Set the interrupt pin to input */
-	//GICR |= (1 << INT0);
-	//EMCUCR &= ~((1 << ISC00)|(1 << ISC01));
+	/*DDRD |= (1 << PD2);
+	GICR |= (1 << INT0);
+	MCUCR |= ((1 << ISC01));
+	sei();*/
 	
 	return 0;
 }
