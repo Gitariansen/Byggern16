@@ -32,17 +32,8 @@ int ADC_init(void){
 }
 
 uint8_t ADC_read(uint8_t chan) {
-	volatile uint8_t *ext_adc = (uint8_t*) ADC_DATA;
+	volatile uint8_t *ext_adc = (uint8_t *) ADC_DATA;
 	*ext_adc = 0x04 | chan;
 	_delay_us(60);
 	return *ext_adc;
-}
-
-// TODO: Make own module
-int ADC_SliderPos(void) {
-	uint8_t pos = ADC_read(2);
-	
-	int pos_percentage = 100 * ((float)pos / (0xFF - 1));
-	
-	printf("pos: %i\n\n",pos_percentage);
 }

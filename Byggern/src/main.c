@@ -11,6 +11,7 @@
 #include "adc.h"
 #include "joystick.h"
 #include "slider.h"
+#include "oled.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,6 +25,7 @@ int main(void)
 	SLIDER_init();
 	SRAM_init();
 	UART_init(MYUBRR);
+	OLED_init();
 	
 	printf("Hello world\n");
 	
@@ -32,13 +34,8 @@ int main(void)
 	while(1){
 		joystick_position pos1 = JOYSTICK_get_position();
 		printf("x: %i\ny: %i\n\n", pos1.x, pos1.y);
-		//printf("HELLO");
 		slider_position pos2 = SLIDER_get_position();
 		printf("left: %i\nright: %i\n\n", pos2.left, pos2.right);
-		//ADC_JoystickPos();
-		//ADC_SliderPos();
 		_delay_ms(1000);
-		
-		
 	}
 }

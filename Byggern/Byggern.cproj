@@ -133,6 +133,12 @@
     <Compile Include="src\byggern.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\oled.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\oled.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\slider.c">
       <SubType>compile</SubType>
     </Compile>
