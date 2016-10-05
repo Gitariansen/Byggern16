@@ -14,31 +14,31 @@ menu_t* current_menu;
 int selected_index = 0;
 
 menu_t* main_menu_children[] = { &play_menu, &options_menu, &highscore_menu };
-const menu_t main_menu = {
+menu_t main_menu = {
 	.name = "Main menu",//&menu_names[0],
 	.children = main_menu_children,
 	.num_children = sizeof(main_menu_children)/sizeof(menu_t*),
 };
 
-const menu_t play_menu = {
+menu_t play_menu = {
 	.name = "Play game",//&menu_names[1]
 	.parent = &main_menu,
 };
 
 menu_t* options_menu_children[] = { &contrast_menu };
-const menu_t options_menu = {
+menu_t options_menu = {
 	.name = "Options",//&menu_names[2]
 	.parent = &main_menu,
 	.children = options_menu_children,
 	.num_children = sizeof(options_menu_children)/sizeof(menu_t*),
 };
 
-const menu_t highscore_menu = {
+menu_t highscore_menu = {
 	.name = "Highscore",//&menu_names[3]
 	.parent = &main_menu,
 };
 
-const menu_t contrast_menu = {
+menu_t contrast_menu = {
 	.name = "Set Contrast",//&menu_names[4],
 	.parent = &options_menu,
 };

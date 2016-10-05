@@ -18,7 +18,7 @@ typedef struct menu_t {
 } menu_t;
 
 //const char* const menu_names[] = {"Main menu", "Play game", "Options", "Highscore", "Set Contrast"};
-const menu_t main_menu, play_menu, options_menu, highscore_menu, contrast_menu;
+menu_t main_menu, play_menu, options_menu, highscore_menu, contrast_menu;
 
 void MENU_init();
 void MENU_open_menu(menu_t* menu);

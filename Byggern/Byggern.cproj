@@ -134,6 +134,12 @@
     <Compile Include="src\drivers\adc.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\drivers\can.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\can.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\drivers\font5x7.h">
       <SubType>compile</SubType>
     </Compile>
@@ -141,6 +147,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\drivers\joystick.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\MCP2515.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\MCP2515.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\drivers\oled.c">
@@ -153,6 +165,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\drivers\slider.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\spi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\spi.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\drivers\sram.c">

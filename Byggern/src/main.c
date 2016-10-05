@@ -9,10 +9,9 @@
 #include "menu.h"
 #include "drivers/sram.h"
 #include "drivers/uart.h"
-#include "drivers/adc.h"
 #include "drivers/joystick.h"
 #include "drivers/slider.h"
-#include "drivers/oled.h"
+#include "drivers/can.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,12 +25,9 @@ int main(void)
 	JOYSTICK_init();
 	SLIDER_init();
 	SRAM_init();
-	OLED_init();
-	
-	//SRAM_test();
-	
 	MENU_init();
-	
+	CAN_init();
+/*
 	joystick_state_t joystick_state = JOYSTICK_get_state();
 	while(1){
 		joystick_state_t new_joystick_state = JOYSTICK_get_state();
@@ -71,8 +67,6 @@ int main(void)
 		}
 		_delay_ms(20);
 		joystick_state = new_joystick_state;
-		
 	}
-	
-	
+*/
 }
