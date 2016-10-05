@@ -13,6 +13,8 @@
 #include "slider.h"
 #include "oled.h"
 
+#include "menu.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <util/delay.h>
@@ -27,15 +29,37 @@ int main(void)
 	SRAM_init();
 	OLED_init();
 	
-	printf("Hello world\n");
+	//SRAM_test();
 	
-	SRAM_test();
+	MENU_init();
 	
+	joystick_state_t joystick_state;
 	while(1){
-		joystick_state pos1 = JOYSTICK_get_state();
-		printf("x: %i\ny: %i\nclick: %i\n\n", pos1.x, pos1.y, pos1.click);
-		slider_position pos2 = SLIDER_get_position();
-		printf("left: %i\nright: %i\n\n", pos2.left, pos2.right);
-		_delay_ms(1000);
+		joystick_state_t new_joystick_state = JOYSTICK_get_state();
+		if(new_joystick_state.y_dirn != joystick_state.y_dirn) {
+			switch(new_joystick_state.y_dirn) {
+				case UP:
+				printf("UP\n");
+				MENU_decrease_index();
+				break;
+				case DOWN:
+				printf("DOWN\n");
+				MENU_increase_index();
+				break;
+				case Y_NEUTRAL:
+				printf("NEUTRAL\n");
+				break;
+			}
+		}
+		if(new_joystick_state.click != joystick_state.click) {
+			if(new_joystick_state.click == 1) {
+				MENU_perform_action();
+			}
+		}
+		_delay_ms(20);
+		joystick_state = new_joystick_state;
+		
 	}
+	
+	
 }

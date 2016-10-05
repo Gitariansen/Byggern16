@@ -39,7 +39,7 @@ void OLED_set_command(uint8_t cmd);
 void OLED_write_data(uint8_t data);
 
 void OLED_print_char(char c);
-void OLED_print_string(char* c);
+void OLED_printf(const char* fmt, ...);
 void OLED_clear();
 
 void OLED_home();

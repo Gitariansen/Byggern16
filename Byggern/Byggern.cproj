@@ -136,6 +136,12 @@
     <Compile Include="src\font5x7.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\menu.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\menu.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\oled.h">
       <SubType>compile</SubType>
     </Compile>

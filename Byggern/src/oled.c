@@ -19,8 +19,7 @@ volatile uint8_t *data		= (uint8_t *) OLED_DATA;
 static uint8_t line		= 0;
 static uint8_t column	= 0;
 
-// How to printf
-// static FILE oled_stdout = FDEV_SETUP_STREAM(oled_printf, NULL, _FDEV_SETUP_WRITE)
+static FILE oled_stdout = FDEV_SETUP_STREAM(OLED_print_char, NULL, _FDEV_SETUP_WRITE);
 // Implementer oled_printf
 // stdout = oled_stdout
 
@@ -51,8 +50,8 @@ void OLED_init() {
 	OLED_set_command(0xAF); // Display on
 	
 	OLED_reset();
-	OLED_print_string("Hello\n");
-	OLED_print_string("Elsa er awesome");
+	//OLED_print_string("Hello\n");
+	//OLED_print_string("Elsa er awesome");
 }
 
 void OLED_reset() {
@@ -105,12 +104,11 @@ void OLED_print_char(char c){
 	}
 }
 
-void OLED_print_string(char* s){
-	int i = 0;
-	while(s[i] != '\0'){
-		OLED_print_char(s[i]);
-		i++;
-	}
+void OLED_printf(const char* fmt, ...){
+	va_list args;
+	va_start(args, fmt);
+	vfprintf(&oled_stdout, fmt, args);
+	va_end(args);
 }
 
 void OLED_clear_line(uint8_t line) {
