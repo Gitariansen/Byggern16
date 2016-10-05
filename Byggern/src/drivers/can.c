@@ -25,14 +25,14 @@ void CAN_message_send(struct can_message_t* msg){
 	// Not using extended ID
 	data[2] = 0;
 	data[3] = 0;
-	// length to TB0DLC
+	// length to TXB0DLC
 	data[4] = msg->length;
 	// Fill rest of array with message data
 	for(int i = 5; i < data_length; i++) {
 		data[i] = msg->data[i - 5];
 	}
 	// Write starting from TXB0SIDH
-	MCP2515_write(MCP_TXB0CTRL, data, data_length); 
+	MCP2515_write(MCP_TXB0CTRL + 1, data, data_length); 
 	// Request to send from buffer TX0
 	MCP2515_request_to_send(1);
 }
