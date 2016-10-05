@@ -6,6 +6,7 @@
  */ 
 
 
+#include "../byggern.h"
 #include "sram.h"
 #include <avr/io.h>
 

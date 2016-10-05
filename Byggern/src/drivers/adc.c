@@ -5,7 +5,7 @@
  *  Author: elsala
  */ 
 #include "adc.h"
-#include "byggern.h"
+#include "../byggern.h"
 
 #include <stdio.h>
 #include <avr/io.h>

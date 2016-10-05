@@ -7,47 +7,40 @@
 
 
 #include "menu.h"
-#include "oled.h"
-#include "joystick.h"
-
+#include "drivers/oled.h"
+#include "drivers/joystick.h"
 
 menu_t* current_menu;
 int selected_index = 0;
 
-const menu_t* const main_menu_children[] = { &play_menu, &options_menu, &highscore_menu };
-menu_t main_menu = {
-	.name = "Main menu",// menu_names[0]
+menu_t* main_menu_children[] = { &play_menu, &options_menu, &highscore_menu };
+const menu_t main_menu = {
+	.name = "Main menu",//&menu_names[0],
 	.children = main_menu_children,
 	.num_children = sizeof(main_menu_children)/sizeof(menu_t*),
 };
 
-menu_t play_menu = {
+const menu_t play_menu = {
 	.name = "Play game",//&menu_names[1]
 	.parent = &main_menu,
 };
 
-menu_t* options_menu_children[] = { &contrast_menu, &return_menu };
-menu_t options_menu = {
+menu_t* options_menu_children[] = { &contrast_menu };
+const menu_t options_menu = {
 	.name = "Options",//&menu_names[2]
 	.parent = &main_menu,
 	.children = options_menu_children,
 	.num_children = sizeof(options_menu_children)/sizeof(menu_t*),
 };
 
-menu_t highscore_menu = {
+const menu_t highscore_menu = {
 	.name = "Highscore",//&menu_names[3]
 	.parent = &main_menu,
 };
 
-menu_t contrast_menu = {
+const menu_t contrast_menu = {
 	.name = "Set Contrast",//&menu_names[4],
 	.parent = &options_menu,
-};
-
-menu_t return_menu = {
-	.name = "Return",//&menu_names[5],
-	.parent = &options_menu,
-	.function_ptr = MENU_return_to_parent,
 };
 
 void MENU_init() {
@@ -55,6 +48,9 @@ void MENU_init() {
 }
 
 void MENU_open_menu(menu_t* menu) {
+	if(menu == NULL) {
+		return;
+	}
 	current_menu = menu;
 	selected_index = 0;
 	MENU_print_menu();
@@ -68,6 +64,9 @@ void MENU_print_menu() {
 		} else {
 			OLED_printf("%s\n", current_menu->children[i]->name);
 		}
+	}
+	if(current_menu->parent != NULL) {
+		OLED_printf("<-\n");
 	}
 }
 
@@ -98,6 +97,7 @@ void MENU_perform_action() {
 }
 
 void MENU_return_to_parent() {
-	printf("FJEOWAJWAO");
-	MENU_open_menu(current_menu->parent);
+	if(current_menu->parent != NULL) {
+		MENU_open_menu(current_menu->parent);
+	}
 }

@@ -110,6 +110,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\" />
+    <Folder Include="src\drivers" />
     <Folder Include="VHDL\" />
   </ItemGroup>
   <ItemGroup>
@@ -124,16 +125,46 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\adc.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\adc.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\byggern.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\font5x7.h">
+    <Compile Include="src\drivers\adc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\adc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\font5x7.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\joystick.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\joystick.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\oled.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\oled.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\slider.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\slider.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\sram.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\sram.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\uart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\uart.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\menu.c">
@@ -142,37 +173,7 @@
     <Compile Include="src\menu.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\oled.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\oled.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\slider.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\slider.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\joystick.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\joystick.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\main.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\sram.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\sram.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\uart.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\uart.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

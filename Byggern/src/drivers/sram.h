@@ -5,9 +5,6 @@
  *  Author: audunel
  */ 
 
-
-
-#include "byggern.h"
 #ifndef SRAM_H_
 #define SRAM_H_
 

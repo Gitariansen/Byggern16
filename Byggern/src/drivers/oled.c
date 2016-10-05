@@ -5,8 +5,8 @@
  *  Author: elsala
  */ 
 
+#include "../byggern.h"
 #include "oled.h"
-#include "byggern.h"
 #include "adc.h"
 #include "font5x7.h"
 
@@ -20,8 +20,6 @@ static uint8_t line		= 0;
 static uint8_t column	= 0;
 
 static FILE oled_stdout = FDEV_SETUP_STREAM(OLED_print_char, NULL, _FDEV_SETUP_WRITE);
-// Implementer oled_printf
-// stdout = oled_stdout
 
 void OLED_init() {
 	ADC_init();
@@ -50,8 +48,6 @@ void OLED_init() {
 	OLED_set_command(0xAF); // Display on
 	
 	OLED_reset();
-	//OLED_print_string("Hello\n");
-	//OLED_print_string("Elsa er awesome");
 }
 
 void OLED_reset() {

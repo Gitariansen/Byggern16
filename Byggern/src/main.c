@@ -6,14 +6,13 @@
  */ 
 
 #include "byggern.h"
-#include "sram.h"
-#include "uart.h"
-#include "adc.h"
-#include "joystick.h"
-#include "slider.h"
-#include "oled.h"
-
 #include "menu.h"
+#include "drivers/sram.h"
+#include "drivers/uart.h"
+#include "drivers/adc.h"
+#include "drivers/joystick.h"
+#include "drivers/slider.h"
+#include "drivers/oled.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,7 +32,7 @@ int main(void)
 	
 	MENU_init();
 	
-	joystick_state_t joystick_state;
+	joystick_state_t joystick_state = JOYSTICK_get_state();
 	while(1){
 		joystick_state_t new_joystick_state = JOYSTICK_get_state();
 		if(new_joystick_state.y_dirn != joystick_state.y_dirn) {
@@ -49,6 +48,20 @@ int main(void)
 				case Y_NEUTRAL:
 				printf("NEUTRAL\n");
 				break;
+			}
+		}
+		if(new_joystick_state.x_dirn != joystick_state.x_dirn) {
+			switch(new_joystick_state.x_dirn) {
+				case LEFT:
+					printf("LEFT\n");
+					MENU_return_to_parent();
+					break;
+				case RIGHT:
+					printf("RIGHT\n");
+					break;
+				case X_NEUTRAL:
+					printf("NEUTRAL\n");
+					break;
 			}
 		}
 		if(new_joystick_state.click != joystick_state.click) {
