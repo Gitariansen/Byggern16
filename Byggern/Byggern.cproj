@@ -114,7 +114,6 @@
     <Folder Include="src\Atmega162" />
     <Folder Include="src\Atmega162\drivers" />
     <Folder Include="src\communication" />
-    <Folder Include="src\communication\can" />
     <Folder Include="VHDL\" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +131,30 @@
     <Compile Include="src\Atmega162\memory_layout.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\communication\can.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\communication\can.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\communication\MCP2515.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\communication\MCP2515.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\communication\spi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\communication\spi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\communication\uart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\communication\uart.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\main.c">
       <SubType>compile</SubType>
     </Compile>
@@ -142,9 +165,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\Atmega162\drivers\adc.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\Atmega162\drivers\can.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\Atmega162\drivers\can.h">
@@ -159,12 +179,6 @@
     <Compile Include="src\Atmega162\drivers\joystick.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\MCP2515.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\Atmega162\drivers\MCP2515.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\Atmega162\drivers\oled.c">
       <SubType>compile</SubType>
     </Compile>
@@ -177,22 +191,10 @@
     <Compile Include="src\Atmega162\drivers\slider.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\spi.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\Atmega162\drivers\spi.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\Atmega162\drivers\sram.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\Atmega162\drivers\sram.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\Atmega162\drivers\uart.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\Atmega162\drivers\uart.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\Atmega162\menu.c">
