@@ -13,8 +13,6 @@
 #include "drivers/slider.h"
 #include "drivers/can.h"
 
-#include "drivers/oled.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <util/delay.h>
@@ -42,8 +40,6 @@ int main(void)
 	_delay_ms(1000);
 	receive_msg = CAN_data_receive();
 	printf("ID: %d, DATA: %d\n", receive_msg.id, receive_msg.data[0]);
-	
-	OLED_printf("HELLO WORLD!\n");
 	
 	joystick_state_t joystick_state = JOYSTICK_get_state();
 	while(1){

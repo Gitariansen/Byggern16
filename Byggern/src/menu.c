@@ -8,7 +8,6 @@
 
 #include "menu.h"
 #include "drivers/oled.h"
-#include "drivers/joystick.h"
 
 menu_t* current_menu;
 int selected_index = 0;
@@ -44,6 +43,7 @@ menu_t contrast_menu = {
 };
 
 void MENU_init() {
+	OLED_init();
 	MENU_open_menu(&main_menu);
 }
 

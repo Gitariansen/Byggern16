@@ -81,7 +81,7 @@ void OLED_home() {
 }
 
 void OLED_goto_line(uint8_t l) {
-	if(line < NUM_LINES) {
+	if(l < NUM_LINES) {
 		OLED_set_command(SET_PAGE_ADDRESS);
 		line = l;
 		OLED_set_command(line);
@@ -90,7 +90,7 @@ void OLED_goto_line(uint8_t l) {
 }
 
 void OLED_goto_column(uint8_t col) {
-	if(column < NUM_COLUMNS) {
+	if(col < NUM_COLUMNS) {
 		OLED_set_command(SET_COLUMN_ADDRESS);
 		column = col;
 		OLED_set_command(column);
