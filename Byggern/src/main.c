@@ -27,6 +27,21 @@ int main(void)
 	SRAM_init();
 	MENU_init();
 	CAN_init();
+	
+	const uint8_t data = 42;
+	struct can_message_t send_msg = {
+		.id = 1,
+		.data[0] = data,
+		.length = 3
+	};
+	struct can_message_t receive_msg;
+
+	while(1) {
+		CAN_message_send(&send_msg);
+		_delay_ms(1000);
+		receive_msg = CAN_data_receive();
+		printf("ID: %d, DATA: %d\n", receive_msg.id, receive_msg.data[0]);
+	}
 /*
 	joystick_state_t joystick_state = JOYSTICK_get_state();
 	while(1){

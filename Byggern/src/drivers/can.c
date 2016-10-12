@@ -8,20 +8,44 @@
 #include "can.h"
 #include "MCP2515.h"
 
-void CAN_init(){
+#include <avr/interrupt.h>
+
+uint8_t rx_flag;
+
+void CAN_init() {
 	// Initialize MCP2515
 	MCP2515_init();
 	// Set loopback mode
 	MCP2515_bit_modify(MCP_CANCTRL, MODE_MASK, MODE_LOOPBACK);
 	// Enable interrupts for receive and error
-	MCP2515_bit_modify(MCP_CANINTE, 0xFF, MCP_RX_INT | (1 << 5));
+	MCP2515_bit_modify(MCP_CANINTE, 0xFF, MCP_RX_INT | MCP_ERRIE);
+	// Set the interrupt pin to input
+	DDRD	&= ~(1 << PD2);
+	GICR	|= (1 << INT0);
+	MCUCR	|= (1 << ISC01);
+	sei();
+}
+
+ISR(INT0_vect) {
+	CAN_int_vect();
+}
+
+void CAN_int_vect() {
+	uint8_t interrupt = MCP2515_read(MCP_CANINTF);
+	if(interrupt & MCP_ERRIF) {
+		CAN_error();
+	}
+	if(interrupt & MCP_RX0IF) {
+		rx_flag = 1;
+	}
+	MCP2515_bit_modify(MCP_CANINTF, 0xFF, 0);
 }
 
 void CAN_message_send(struct can_message_t* msg){
 	int data_length = 5 + msg->length;
 	uint8_t data[data_length];
-	data[0] = msg->id << 5; // Bit 3 to 10 to TXB0SIDH
-	data[1] = msg->id >> 3; // Bit 0 to 2 to TXB0SIDL
+	data[0] = msg->id >> 3; // Bit 0 to 2 to TXB0SIDH
+	data[1] = msg->id << 5; // Bit 3 to 10 to TXB0SIDL
 	// Not using extended ID
 	data[2] = 0;
 	data[3] = 0;
@@ -32,7 +56,7 @@ void CAN_message_send(struct can_message_t* msg){
 		data[i] = msg->data[i - 5];
 	}
 	// Write starting from TXB0SIDH
-	MCP2515_write(MCP_TXB0CTRL + 1, data, data_length); 
+	MCP2515_write(MCP_TXB0SIDH, data, data_length); 
 	// Request to send from buffer TX0
 	MCP2515_request_to_send(1);
 }
@@ -40,10 +64,28 @@ void CAN_message_send(struct can_message_t* msg){
 struct can_message_t CAN_data_receive() {
 	// TODO: actually check that there is a message in buffer
 	struct can_message_t msg;
-	msg.id = MCP2515_read((MCP_RXB0SIDH >> 3) | ((MCP_RXB0SIDL) << 5));
-	msg.length = (0x0F) & MCP2515_read(MCP_RXB0DLC);
-	for(int i = 0; i < msg.length; i++) {
-		msg.data[i] = MCP2515_read(MCP_RXB0D0 + i);
+	if(rx_flag) {
+		msg.id = (MCP2515_read(MCP_RXB0SIDH) << 3) | (MCP2515_read(MCP_RXB0SIDL) >> 5);
+		msg.length = (0x0F) & MCP2515_read(MCP_RXB0DLC);
+		for(int i = 0; i < msg.length; i++) {
+			msg.data[i] = MCP2515_read(MCP_RXB0D0 + i);
+		} 
+		rx_flag = 0;
+	} else {
+		printf("(W) can.c: Buffer empty. Returning empty message\n");
 	}
 	return msg;
 }
+
+void CAN_error() {
+	uint8_t error = MCP2515_read(MCP_EFLG);
+	if(error & MCP_TXWAR) {
+		printf("(E) can.c: Transmission error\n");
+	}
+	if(error & MCP_RXWAR) {
+		printf("(E) can.c: Receive error\n");
+	}
+}
+
+
+

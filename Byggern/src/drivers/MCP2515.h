@@ -68,8 +68,11 @@ void	MCP2515_reset();
 #define MCP_CANINTF		0x2C
 #define MCP_EFLG		0x2D
 #define MCP_TXB0CTRL	0x30
+#define MCP_TXB0SIDH	0x31
 #define MCP_TXB1CTRL	0x40
+#define MCP_TXB1SIDH	0x41
 #define MCP_TXB2CTRL	0x50
+#define MCP_TXB2SIDH	0x51
 #define MCP_RXB0CTRL	0x60
 #define MCP_RXB0SIDH	0x61
 #define MCP_RXB0SIDL	0x62
@@ -85,6 +88,7 @@ void	MCP2515_reset();
 #define MCP_TX_INT		0x1C		// Enable all transmit interrupts
 #define MCP_TX01_INT	0x0C		// Enable TXB0 and TXB1 interrupts
 #define MCP_RX_INT		0x03		// Enable receive interrupts
+#define MCP_ERRIE		0x20		// Enable error interrupts
 #define MCP_NO_INT		0x00		// Disable all interrupts
 
 #define MCP_TX01_MASK	0x14
@@ -170,5 +174,10 @@ void	MCP2515_reset();
 #define MCP_ERRIF		0x20
 #define MCP_WAKIF		0x40
 #define MCP_MERRF		0x80
+
+// EFLG Register Bits
+#define MCP_EWARN		0x01
+#define MCP_RXWAR		0x02
+#define MCP_TXWAR		0x04
 
 #endif

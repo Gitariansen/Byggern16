@@ -20,7 +20,6 @@ struct can_message_t {
 void CAN_init();
 void CAN_message_send(struct can_message_t* msg);
 void CAN_error();
-void CAN_transmit_complete();
 struct can_message_t CAN_data_receive();
 void CAN_int_vect();
 
