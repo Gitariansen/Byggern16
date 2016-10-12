@@ -113,6 +113,7 @@
     <Folder Include="src\Atmega2560" />
     <Folder Include="src\Atmega162" />
     <Folder Include="src\Atmega162\drivers" />
+    <Folder Include="src\Atmega2560\drivers" />
     <Folder Include="src\communication" />
     <Folder Include="VHDL\" />
   </ItemGroup>

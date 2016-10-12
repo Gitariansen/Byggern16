@@ -176,6 +176,7 @@ void	MCP2515_reset();
 #define MCP_MERRF		0x80
 
 // EFLG Register Bits
+
 #define MCP_EWARN		0x01
 #define MCP_RXWAR		0x02
 #define MCP_TXWAR		0x04
