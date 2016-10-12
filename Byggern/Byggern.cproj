@@ -128,6 +128,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\Atmega162\drivers\MCP2515.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Atmega162\drivers\MCP2515.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Atmega162\drivers\spi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Atmega162\drivers\spi.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\Atmega162\memory_layout.h">
       <SubType>compile</SubType>
     </Compile>
@@ -135,18 +147,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\communication\can.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\communication\MCP2515.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\communication\MCP2515.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\communication\spi.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\communication\spi.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\communication\uart.c">

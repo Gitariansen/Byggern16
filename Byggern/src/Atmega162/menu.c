@@ -87,12 +87,11 @@ void MENU_decrease_index() {
 
 void MENU_perform_action() {
 	menu_t* selected_menu = (current_menu->children[selected_index]);
-	printf("\n\n%s\n\n",selected_menu->name);
 	if(selected_menu->children != NULL) {
 		MENU_open_menu(selected_menu);
-		return;
+	} else if(selected_menu->function_ptr != NULL) {
+		selected_menu->function_ptr();
 	}
-	selected_menu->function_ptr();
 }
 
 void MENU_return_to_parent() {

@@ -6,7 +6,11 @@
  */ 
 
 #include "can.h"
-#include "MCP2515.h"
+#if defined(__AVR_ATmega162__)
+	#include "../Atmega162/drivers/MCP2515.h"
+#elif defined(__AVR_ATmega2560__)
+	#include "../Atmega2560/drivers/MCP2551.h"
+#endif
 
 #include <avr/interrupt.h>
 
