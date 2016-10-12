@@ -5,7 +5,6 @@
  *  Author: elsala
  */ 
 
-#include "../byggern.h"
 #include "joystick.h"
 #include "adc.h"
 

@@ -5,7 +5,6 @@
  *  Author: audunel
  */ 
 
-#include "../byggern.h"
 #include "uart.h"
 
 #include <stdio.h>

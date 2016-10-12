@@ -5,7 +5,6 @@
  *  Author: elsala
  */ 
 
-#include "../byggern.h"
 #include "spi.h"
 #include <avr/io.h>
 

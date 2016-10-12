@@ -5,13 +5,13 @@
  *  Author: audunel
  */ 
 
-#include "byggern.h"
-#include "menu.h"
-#include "drivers/sram.h"
-#include "drivers/uart.h"
-#include "drivers/joystick.h"
-#include "drivers/slider.h"
-#include "drivers/can.h"
+#include "Atmega162/atmega162.h"
+#include "Atmega162/menu.h"
+#include "Atmega162/drivers/sram.h"
+#include "Atmega162/drivers/uart.h"
+#include "Atmega162/drivers/joystick.h"
+#include "Atmega162/drivers/slider.h"
+#include "Atmega162/drivers/can.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,13 +28,15 @@ int main(void)
 	MENU_init();
 	CAN_init();
 	
+	SRAM_test();
+	
 	const uint8_t data = 42;
 	struct can_message_t send_msg = {
 		.id = 1,
 		.data[0] = data,
 		.length = 3
 	};
-	struct can_message_t receive_msg;
+	struct can_message_t receive_msg = CAN_data_receive();
 
 	CAN_message_send(&send_msg);
 	_delay_ms(1000);
