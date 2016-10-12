@@ -24,28 +24,41 @@ static FILE oled_stdout = FDEV_SETUP_STREAM(OLED_print_char, NULL, _FDEV_SETUP_W
 void OLED_init() {
 	ADC_init();
 	
-	OLED_set_command(0xAE); // Display off
-	OLED_set_command(0xA1); // Segment remap
-	OLED_set_command(0xDA); // Common pads hardware: alternative
-	OLED_set_command(0x12);
-	OLED_set_command(0xC8); // Common output scan direction: com63~com0
-	OLED_set_command(0xA8); // Multiplex ration mode: 63
-	OLED_set_command(0x3F);
-	OLED_set_command(0xD5); // Display divide ratio/osc. freq. mode
-	OLED_set_command(0x80);
-	OLED_set_command(0x81); // Contrast control
+	OLED_set_command(SET_DISPLAY_OFF);
+
+	OLED_set_command(SET_SEGMENT_REMAP);
+
+	OLED_set_command(SET_COM_PIN_HARDWARE_CONF);
+	OLED_set_command(0x12); // Common pads hardware: alternative
+
+	OLED_set_command(SET_COM_OUTPUT_SCAN_DIR_REMAP); // Common output scan direction: com63~com0
+
+	OLED_set_command(SET_MULTIPLEX_RATIO);
+	OLED_set_command(0x3F); // Multiplex ration mode: 63
+
+	OLED_set_command(SET_CLCK_DIV_RATIO_OSC_FREQ);
+	OLED_set_command(0x80); // Display divide ratio/osc. freq. mode
+
+	OLED_set_command(SET_CONSTART_CONTROL);
 	OLED_set_command(0x50);
-	OLED_set_command(0xD9); // Set pre-charge period
+
+	OLED_set_command(SET_PRECHARGE_PERIOD);
 	OLED_set_command(0x21);
-	OLED_set_command(0x20); // Set memory addressing mode
-	OLED_set_command(0x00);
-	OLED_set_command(0xDB); // VCOM deselect level mode
+
+	OLED_set_command(SET_MEMORY_ADDRESSING_MODE);
+	OLED_set_command(0x00); // Horizontal addressing mode
+
+	OLED_set_command(SET_VCOM_DESELECT_LEVEL);
 	OLED_set_command(0x30);
-	OLED_set_command(0xAD); // Master configuration
-	OLED_set_command(0x00);
-	OLED_set_command(0xA4); // Out follows RAM content
-	OLED_set_command(0xA6); // Set normal display
-	OLED_set_command(0xAF); // Display on
+
+	OLED_set_command(SELECT_IREF);
+	OLED_set_command(0x00); // Iref external
+
+	OLED_set_command(DISPLAY_ON_FOLLOW_RAM); // Out follows RAM content
+
+	OLED_set_command(SET_NORMAL_DISPLAY);
+
+	OLED_set_command(SET_DISPLAY_ON);
 	
 	OLED_reset();
 }
@@ -69,7 +82,7 @@ void OLED_home() {
 
 void OLED_goto_line(uint8_t l) {
 	if(line < NUM_LINES) {
-		OLED_set_command(0x22);
+		OLED_set_command(SET_PAGE_ADDRESS);
 		line = l;
 		OLED_set_command(line);
 		OLED_set_command(0x7);
@@ -78,7 +91,7 @@ void OLED_goto_line(uint8_t l) {
 
 void OLED_goto_column(uint8_t col) {
 	if(column < NUM_COLUMNS) {
-		OLED_set_command(0x21);
+		OLED_set_command(SET_COLUMN_ADDRESS);
 		column = col;
 		OLED_set_command(column);
 		OLED_set_command(0x7F);
