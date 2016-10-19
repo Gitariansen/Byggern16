@@ -21,6 +21,7 @@ typedef struct {
 } joystick_state_t;
 
 void JOYSTICK_init(void);
+void JOYSTICK_calibrate();
 joystick_state_t JOYSTICK_get_state();
 
 #endif /* ANALOG_H_ */

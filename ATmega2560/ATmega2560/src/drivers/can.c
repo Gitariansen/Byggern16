@@ -6,43 +6,45 @@
  */ 
 
 #include "can.h"
-#if defined(__AVR_ATmega162__)
-	#include "../Atmega162/drivers/MCP2515.h"
-#elif defined(__AVR_ATmega2560__)
-	#include "../Atmega2560/drivers/MCP2551.h"
-#endif
+#include "MCP2551.h"
 
 #include <avr/interrupt.h>
 
 uint8_t rx_flag;
 
 void CAN_init() {
-	// Initialize MCP2515
-	MCP2515_init();
+	// Initialize MCP25**
+	MCP2551_init();
 	// Set loopback mode
-	MCP2515_bit_modify(MCP_CANCTRL, MODE_MASK, MODE_LOOPBACK);
+	MCP2551_bit_modify(MCP_CANCTRL, MODE_MASK, MODE_NORMAL);
+	
+	uint8_t value = MCP2551_read_data(MCP_CANSTAT);
+	if ((value & MODE_MASK) != MODE_NORMAL) {
+		printf("MCP2551 is NOT in normal mode after reset!\n");
+		return 1;
+	}
+	
 	// Enable interrupts for receive and error
-	MCP2515_bit_modify(MCP_CANINTE, 0xFF, MCP_RX_INT | MCP_ERRIE);
-	// Set the interrupt pin to input
-	DDRD	&= ~(1 << PD2);
-	GICR	|= (1 << INT0);
-	MCUCR	|= (1 << ISC01);
+	MCP2551_bit_modify(MCP_CANINTE, 0xFF, MCP_RX_INT | MCP_ERRIE);
+	
+	EICRA	|= (1 << ISC21);
+	EIMSK	|= (1 << INT2);
 	sei();
 }
 
-ISR(INT0_vect) {
+ISR(INT2_vect) {
 	CAN_int_vect();
 }
 
 void CAN_int_vect() {
-	uint8_t interrupt = MCP2515_read(MCP_CANINTF);
+	uint8_t interrupt = MCP2551_read_data(MCP_CANINTF);
 	if(interrupt & MCP_ERRIF) {
 		CAN_error();
 	}
 	if(interrupt & MCP_RX0IF) {
 		rx_flag = 1;
 	}
-	MCP2515_bit_modify(MCP_CANINTF, 0xFF, 0);
+	MCP2551_bit_modify(MCP_CANINTF, 0xFF, 0);
 }
 
 void CAN_message_send(struct can_message_t* msg){
@@ -60,19 +62,20 @@ void CAN_message_send(struct can_message_t* msg){
 		data[i] = msg->data[i - 5];
 	}
 	// Write starting from TXB0SIDH
-	MCP2515_write(MCP_TXB0SIDH, data, data_length); 
+	MCP2551_write_data(MCP_TXB0SIDH, data, data_length); 
 	// Request to send from buffer TX0
-	MCP2515_request_to_send(1);
+	MCP2551_request_to_send(1);
 }
 
 struct can_message_t CAN_data_receive() {
-	// TODO: actually check that there is a message in buffer
+	// TODO: enable interrupts to use rx_flag
 	struct can_message_t msg;
+
 	if(rx_flag) {
-		msg.id = (MCP2515_read(MCP_RXB0SIDH) << 3) | (MCP2515_read(MCP_RXB0SIDL) >> 5);
-		msg.length = (0x0F) & MCP2515_read(MCP_RXB0DLC);
+		msg.id = (MCP2551_read_data(MCP_RXB0SIDH) << 3) | (MCP2551_read_data(MCP_RXB0SIDL) >> 5);
+		msg.length = (0x0F) & MCP2551_read_data(MCP_RXB0DLC);
 		for(int i = 0; i < msg.length; i++) {
-			msg.data[i] = MCP2515_read(MCP_RXB0D0 + i);
+			msg.data[i] = MCP2551_read_data(MCP_RXB0D0 + i);
 		} 
 		rx_flag = 0;
 	} else {
@@ -82,7 +85,7 @@ struct can_message_t CAN_data_receive() {
 }
 
 void CAN_error() {
-	uint8_t error = MCP2515_read(MCP_EFLG);
+	uint8_t error = MCP2551_read_data(MCP_EFLG);
 	if(error & MCP_TXWAR) {
 		printf("(E) can.c: Transmission error\n");
 	}

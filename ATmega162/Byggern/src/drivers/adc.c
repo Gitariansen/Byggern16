@@ -5,7 +5,7 @@
  *  Author: elsala
  */ 
 #include "adc.h"
-#include "../atmega162.h"
+#include "../ATmega162.h"
 #include "../memory_layout.h"
 
 #include <stdio.h>

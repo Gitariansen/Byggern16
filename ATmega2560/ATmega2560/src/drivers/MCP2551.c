@@ -5,26 +5,29 @@
  *  Author: elsala
  */ 
 
-#include "MCP2515.h"
+#include <util/delay.h>
+
+#include "MCP2551.h"
 #include "spi.h"
 
-uint8_t MCP2515_init(){
+uint8_t MCP2551_init(){
 	volatile uint8_t value;
 	
 	SPI_master_init();
 	
-	MCP2515_reset();
+	MCP2551_reset();
+	_delay_ms(10);
 	
 	// Self test
-	value = MCP2515_read(MCP_CANSTAT);
+	value = MCP2551_read_data(MCP_CANSTAT);
 	if ((value & MODE_MASK) != MODE_CONFIG) {
-		printf("MCP2515 is NOT in configuration mode after reset!\n");
+		printf("MCP2551 is NOT in configuration mode after reset!\n");
 		return 1;
 	}
 	return 0;
 }
 
-uint8_t MCP2515_read(uint8_t address) {
+uint8_t MCP2551_read_data(uint8_t address) {
 	uint8_t result;
 	SPI_SS_low(); // Select CAN controller
 	SPI_transcieve(MCP_READ);
@@ -34,7 +37,7 @@ uint8_t MCP2515_read(uint8_t address) {
 	return result;
 }
 
-void MCP2515_write(uint8_t address, uint8_t* data, int data_size) {
+void MCP2551_write_data(uint8_t address, uint8_t* data, int data_size) {
 	SPI_SS_low(); // Select CAN controller
 	SPI_transcieve(MCP_WRITE);
 	SPI_transcieve(address);
@@ -44,13 +47,13 @@ void MCP2515_write(uint8_t address, uint8_t* data, int data_size) {
 	SPI_SS_high(); // Deselect CAN controller
 }
 
-void MCP2515_request_to_send(uint8_t command) {
+void MCP2551_request_to_send(uint8_t command) {
 	SPI_SS_low();
 	SPI_transcieve(MCP_RTS | (command & 0x07));
 	SPI_SS_high();
 }
 
-uint8_t MCP2515_read_status(uint8_t address) {
+uint8_t MCP2551_read_status(uint8_t address) {
 	uint8_t result;
 	SPI_SS_low();
 	SPI_transcieve(MCP_READ_STATUS);
@@ -60,7 +63,7 @@ uint8_t MCP2515_read_status(uint8_t address) {
 	return result;
 }
 
-void MCP2515_bit_modify(uint8_t address, uint8_t mask, uint8_t data) {
+void MCP2551_bit_modify(uint8_t address, uint8_t mask, uint8_t data) {
 	SPI_SS_low();
 	SPI_transcieve(MCP_BITMOD);
 	SPI_transcieve(address);
@@ -69,7 +72,7 @@ void MCP2515_bit_modify(uint8_t address, uint8_t mask, uint8_t data) {
 	SPI_SS_high();
 }
 
-void MCP2515_reset() {
+void MCP2551_reset() {
 	SPI_SS_low(); // Select CAN controller
 	SPI_transcieve(MCP_RESET);
 	SPI_SS_high(); // Deselect CAN controller

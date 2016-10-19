@@ -5,13 +5,13 @@
  *  Author: audunel
  */ 
 
-#include "Atmega162/atmega162.h"
-#include "Atmega162/menu.h"
-#include "Atmega162/drivers/sram.h"
-#include "Atmega162/drivers/joystick.h"
-#include "Atmega162/drivers/slider.h"
-#include "communication/uart.h"
-#include "communication/can.h"
+#include "ATmega162.h"
+#include "menu.h"
+#include "drivers/sram.h"
+#include "drivers/joystick.h"
+#include "drivers/slider.h"
+#include "drivers/uart.h"
+#include "drivers/can.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,13 +28,28 @@ int main(void)
 	MENU_init();
 	CAN_init();
 	
-	SRAM_test();
-	
-	const uint8_t data = 42;
+	struct can_message_t send_msg = {
+		.id = 42,
+		.length = 2
+	};
+	joystick_state_t joystick_state;
+	while(1) {
+		joystick_state = JOYSTICK_get_state();
+		send_msg.data[0] = joystick_state.x;
+		send_msg.data[1] = joystick_state.y;
+		
+		printf("Sending message\n");
+		printf("x: %d y: %d\n\n", send_msg.data[0], send_msg.data[1]);
+		
+		CAN_message_send(&send_msg);
+		_delay_ms(1000);
+	}
+	/*
+	const uint8_t data = 24;
 	struct can_message_t send_msg = {
 		.id = 1,
 		.data[0] = data,
-		.length = 3
+		.length = 1
 	};
 	struct can_message_t receive_msg;
 
@@ -83,4 +98,5 @@ int main(void)
 		_delay_ms(20);
 		joystick_state = new_joystick_state;
 	}
+	*/
 }

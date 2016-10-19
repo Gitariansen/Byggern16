@@ -13,7 +13,7 @@
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
     <AssemblyName>Byggern</AssemblyName>
-    <Name>Byggern</Name>
+    <Name>ATmega162</Name>
     <RootNamespace>Byggern</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
@@ -110,11 +110,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\" />
-    <Folder Include="src\Atmega2560" />
-    <Folder Include="src\Atmega162" />
-    <Folder Include="src\Atmega162\drivers" />
-    <Folder Include="src\Atmega2560\drivers" />
-    <Folder Include="src\communication" />
+    <Folder Include="src\drivers\" />
     <Folder Include="VHDL\" />
   </ItemGroup>
   <ItemGroup>
@@ -129,79 +125,76 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\Atmega162\drivers\MCP2515.c">
+    <Compile Include="src\ATmega162.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\MCP2515.h">
+    <Compile Include="src\drivers\adc.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\spi.c">
+    <Compile Include="src\drivers\adc.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\spi.h">
+    <Compile Include="src\drivers\can.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\memory_layout.h">
+    <Compile Include="src\drivers\can.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\communication\can.c">
+    <Compile Include="src\drivers\font5x7.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\communication\can.h">
+    <Compile Include="src\drivers\joystick.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\communication\uart.c">
+    <Compile Include="src\drivers\joystick.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\communication\uart.h">
+    <Compile Include="src\drivers\MCP2515.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\main.c">
+    <Compile Include="src\drivers\MCP2515.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\atmega162.h">
+    <Compile Include="src\drivers\oled.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\adc.c">
+    <Compile Include="src\drivers\oled.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\adc.h">
+    <Compile Include="src\drivers\slider.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\can.h">
+    <Compile Include="src\drivers\slider.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\font5x7.h">
+    <Compile Include="src\drivers\spi.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\joystick.c">
+    <Compile Include="src\drivers\spi.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\joystick.h">
+    <Compile Include="src\drivers\sram.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\oled.c">
+    <Compile Include="src\drivers\sram.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\oled.h">
+    <Compile Include="src\drivers\uart.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\slider.c">
+    <Compile Include="src\drivers\uart.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\slider.h">
+    <Compile Include="src\ATmega162.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\sram.c">
+    <Compile Include="src\memory_layout.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\drivers\sram.h">
+    <Compile Include="src\menu.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Atmega162\menu.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\Atmega162\menu.h">
+    <Compile Include="src\menu.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

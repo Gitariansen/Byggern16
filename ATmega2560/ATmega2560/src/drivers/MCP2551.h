@@ -15,13 +15,13 @@ Copyright 2003 Kimberly Otten Software Consulting
 
 #include <stdio.h>
 
-uint8_t	MCP2515_init();
-uint8_t	MCP2515_read(uint8_t address);
-void	MCP2515_write(uint8_t address, uint8_t* data, int data_size);
-void	MCP2515_request_to_send(uint8_t command);
-uint8_t	MCP2515_read_status(uint8_t address);
-void	MCP2515_bit_modify(uint8_t address, uint8_t mask, uint8_t data);
-void	MCP2515_reset();
+uint8_t	MCP2551_init();
+uint8_t	MCP2551_read_data(uint8_t address);
+void	MCP2551_write_data(uint8_t address, uint8_t* data, int data_size);
+void	MCP2551_request_to_send(uint8_t command);
+uint8_t	MCP2551_read_status(uint8_t address);
+void	MCP2551_bit_modify(uint8_t address, uint8_t mask, uint8_t data);
+void	MCP2551_reset();
 
 // Define MCP2515 register addresses
 

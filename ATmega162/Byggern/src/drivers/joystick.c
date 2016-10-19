@@ -10,23 +10,31 @@
 
 #include <avr/io.h>
 
-void JOYSTICK_init(void)
-{
+float x_voltage_neutral, y_voltage_neutral;
+
+void JOYSTICK_init(void) {
 	ADC_init();
 	
 	DDRB &= ~(1 << PB0);
 	PORTB |= (1 << PB0);
+	
+	JOYSTICK_calibrate();
+}
+
+void JOYSTICK_calibrate() {
+		x_voltage_neutral = (float)ADC_read(X_JOYSTICK_CHANNEL);
+		y_voltage_neutral = (float)ADC_read(Y_JOYSTICK_CHANNEL);
 }
 
 joystick_state_t JOYSTICK_get_state() {
 	joystick_state_t state;
 	
 	// Position
-	uint8_t x_voltage = ADC_read(X_JOYSTICK_CHANNEL);
-	uint8_t y_voltage = ADC_read(Y_JOYSTICK_CHANNEL);
+	float x_voltage = (float)ADC_read(X_JOYSTICK_CHANNEL);
+	float y_voltage = (float)ADC_read(Y_JOYSTICK_CHANNEL);
 	
-	state.x = 2 * 100 * ((float)(x_voltage - 127) / (0xFF - 1));
-	state.y = 2 * 100 * ((float)(y_voltage - 127) / (0xFF - 1));
+	state.x = 2 * 100 * ((x_voltage - x_voltage_neutral) / (0xFF - 1));
+	state.y = 2 * 100 * ((y_voltage - y_voltage_neutral) / (0xFF - 1));
 	
 	if(state.x > 10) {
 		state.x_dirn = RIGHT;
