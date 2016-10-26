@@ -129,6 +129,18 @@
     <Compile Include="src\drivers\MCP2551.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\drivers\pwm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\pwm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\servo.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\servo.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\drivers\spi.c">
       <SubType>compile</SubType>
     </Compile>

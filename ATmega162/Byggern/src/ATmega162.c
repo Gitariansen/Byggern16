@@ -38,26 +38,11 @@ int main(void)
 		send_msg.data[0] = joystick_state.x;
 		send_msg.data[1] = joystick_state.y;
 		
-		printf("Sending message\n");
-		printf("x: %d y: %d\n\n", send_msg.data[0], send_msg.data[1]);
-		
 		CAN_message_send(&send_msg);
-		_delay_ms(1000);
+	
+		_delay_ms(1);
 	}
 	/*
-	const uint8_t data = 24;
-	struct can_message_t send_msg = {
-		.id = 1,
-		.data[0] = data,
-		.length = 1
-	};
-	struct can_message_t receive_msg;
-
-	CAN_message_send(&send_msg);
-	_delay_ms(1000);
-	receive_msg = CAN_data_receive();
-	printf("ID: %d, DATA: %d\n", receive_msg.id, receive_msg.data[0]);
-	
 	joystick_state_t joystick_state = JOYSTICK_get_state();
 	while(1){
 		joystick_state_t new_joystick_state = JOYSTICK_get_state();

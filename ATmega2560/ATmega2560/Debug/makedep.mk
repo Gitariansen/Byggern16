@@ -8,6 +8,10 @@ src\drivers\can.c
 
 src\drivers\MCP2551.c
 
+src\drivers\pwm.c
+
+src\drivers\servo.c
+
 src\drivers\spi.c
 
 src\drivers\uart.c

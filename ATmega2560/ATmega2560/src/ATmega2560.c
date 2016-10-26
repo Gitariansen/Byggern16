@@ -10,6 +10,8 @@
 #include <util/delay.h>
 #include "drivers/uart.h"
 #include "drivers/can.h"
+#include "drivers/servo.h"
+#include "drivers/MCP2551.h"
 
 int main(void)
 {
@@ -18,33 +20,17 @@ int main(void)
 
 	printf("Hello world!\n");
 
-	struct can_message_t receive_msg;
-	const uint8_t data = 42;
-	struct can_message_t send_msg = {
-		.id = 2,
-		.data = data,
-		.length = 1
-	};
-	while(1) {
-		_delay_ms(1000);
-		receive_msg = CAN_data_receive();
-		printf("Message received\n");
-		printf("ID: %d\n", receive_msg.id);
-		printf("x: %d y: %d\n\n", receive_msg.data[0], receive_msg.data[1]);
-	}
-	/*
-	const uint8_t data = 42;
-	struct can_message_t send_msg = {
-		.id = 2,
-		.data[0] = data,
-		.length = 1
-	};
-	struct can_message_t receive_msg;
-
-    CAN_message_send(&send_msg);
-    _delay_ms(1000);
+	SERVO_init();
+	SERVO_write(100);
 	
-    receive_msg = CAN_data_receive();
-    printf("ID: %d, DATA: %d\n", receive_msg.id, receive_msg.data[0]);
-	*/
+	struct can_message_t receive_msg;
+	
+	//printf("CANSTAT: 0x%0X\n", MCP2551_read_data(MCP_CANSTAT));
+	
+	while(1) {
+		_delay_ms(1);
+		receive_msg = CAN_data_receive();
+
+		SERVO_write(-receive_msg.data[0]);
+	}
 }

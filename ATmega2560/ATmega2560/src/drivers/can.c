@@ -13,17 +13,17 @@
 uint8_t rx_flag;
 
 void CAN_init() {
-	// Initialize MCP25**
+	// Initialize MCP2551
 	MCP2551_init();
-	// Set loopback mode
+	// Set normal mode
 	MCP2551_bit_modify(MCP_CANCTRL, MODE_MASK, MODE_NORMAL);
-	
+
 	uint8_t value = MCP2551_read_data(MCP_CANSTAT);
 	if ((value & MODE_MASK) != MODE_NORMAL) {
 		printf("MCP2551 is NOT in normal mode after reset!\n");
 		return 1;
 	}
-	
+
 	// Enable interrupts for receive and error
 	MCP2551_bit_modify(MCP_CANINTE, 0xFF, MCP_RX_INT | MCP_ERRIE);
 	
@@ -48,6 +48,9 @@ void CAN_int_vect() {
 }
 
 void CAN_message_send(struct can_message_t* msg){
+	
+	printf("Sending message %d\n",msg->id);
+	
 	int data_length = 5 + msg->length;
 	uint8_t data[data_length];
 	data[0] = msg->id >> 3; // Bit 0 to 2 to TXB0SIDH
@@ -70,13 +73,13 @@ void CAN_message_send(struct can_message_t* msg){
 struct can_message_t CAN_data_receive() {
 	// TODO: enable interrupts to use rx_flag
 	struct can_message_t msg;
-
+	rx_flag = 1;
 	if(rx_flag) {
 		msg.id = (MCP2551_read_data(MCP_RXB0SIDH) << 3) | (MCP2551_read_data(MCP_RXB0SIDL) >> 5);
 		msg.length = (0x0F) & MCP2551_read_data(MCP_RXB0DLC);
 		for(int i = 0; i < msg.length; i++) {
 			msg.data[i] = MCP2551_read_data(MCP_RXB0D0 + i);
-		} 
+		}
 		rx_flag = 0;
 	} else {
 		printf("(W) can.c: Buffer empty. Returning empty message\n");
