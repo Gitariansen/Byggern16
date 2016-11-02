@@ -48,9 +48,6 @@ void CAN_int_vect() {
 }
 
 void CAN_message_send(struct can_message_t* msg){
-	
-	printf("Sending message %d\n",msg->id);
-	
 	int data_length = 5 + msg->length;
 	uint8_t data[data_length];
 	data[0] = msg->id >> 3; // Bit 0 to 2 to TXB0SIDH

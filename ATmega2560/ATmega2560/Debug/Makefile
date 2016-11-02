@@ -40,11 +40,16 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../src/ATmega2560.c \
+../src/drivers/adc.c \
 ../src/drivers/can.c \
+../src/drivers/dac.c \
+../src/drivers/ir.c \
 ../src/drivers/MCP2551.c \
+../src/drivers/motor.c \
 ../src/drivers/pwm.c \
 ../src/drivers/servo.c \
 ../src/drivers/spi.c \
+../src/drivers/TWI_Master.c \
 ../src/drivers/uart.c
 
 
@@ -56,38 +61,58 @@ ASM_SRCS +=
 
 OBJS +=  \
 src/ATmega2560.o \
+src/drivers/adc.o \
 src/drivers/can.o \
+src/drivers/dac.o \
+src/drivers/ir.o \
 src/drivers/MCP2551.o \
+src/drivers/motor.o \
 src/drivers/pwm.o \
 src/drivers/servo.o \
 src/drivers/spi.o \
+src/drivers/TWI_Master.o \
 src/drivers/uart.o
 
 OBJS_AS_ARGS +=  \
 src/ATmega2560.o \
+src/drivers/adc.o \
 src/drivers/can.o \
+src/drivers/dac.o \
+src/drivers/ir.o \
 src/drivers/MCP2551.o \
+src/drivers/motor.o \
 src/drivers/pwm.o \
 src/drivers/servo.o \
 src/drivers/spi.o \
+src/drivers/TWI_Master.o \
 src/drivers/uart.o
 
 C_DEPS +=  \
 src/ATmega2560.d \
+src/drivers/adc.d \
 src/drivers/can.d \
+src/drivers/dac.d \
+src/drivers/ir.d \
 src/drivers/MCP2551.d \
+src/drivers/motor.d \
 src/drivers/pwm.d \
 src/drivers/servo.d \
 src/drivers/spi.d \
+src/drivers/TWI_Master.d \
 src/drivers/uart.d
 
 C_DEPS_AS_ARGS +=  \
 src/ATmega2560.d \
+src/drivers/adc.d \
 src/drivers/can.d \
+src/drivers/dac.d \
+src/drivers/ir.d \
 src/drivers/MCP2551.d \
+src/drivers/motor.d \
 src/drivers/pwm.d \
 src/drivers/servo.d \
 src/drivers/spi.d \
+src/drivers/TWI_Master.d \
 src/drivers/uart.d
 
 OUTPUT_FILE_PATH +=ATmega2560.elf
@@ -104,6 +129,16 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -15,7 +15,7 @@ uint8_t rx_flag;
 void CAN_init() {
 	// Initialize MCP25**
 	MCP_init();
-	// Set loopback mode
+	// Set normal mode
 	MCP_bit_modify(MCP_CANCTRL, MODE_MASK, MODE_NORMAL);
 	// Enable interrupts for receive and error
 	MCP_bit_modify(MCP_CANINTE, 0xFF, MCP_RX_INT | MCP_ERRIE);
@@ -71,8 +71,6 @@ struct can_message_t CAN_data_receive() {
 			msg.data[i] = MCP_read_data(MCP_RXB0D0 + i);
 		} 
 		rx_flag = 0;
-	} else {
-		printf("(W) can.c: Buffer empty. Returning empty message\n");
 	}
 	return msg;
 }

@@ -188,6 +188,12 @@
     <Compile Include="src\ATmega162.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\game.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\game.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\memory_layout.h">
       <SubType>compile</SubType>
     </Compile>

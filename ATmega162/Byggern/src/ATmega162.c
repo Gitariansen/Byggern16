@@ -7,6 +7,7 @@
 
 #include "ATmega162.h"
 #include "menu.h"
+#include "game.h"
 #include "drivers/sram.h"
 #include "drivers/joystick.h"
 #include "drivers/slider.h"
@@ -32,13 +33,32 @@ int main(void)
 		.id = 42,
 		.length = 2
 	};
+	struct can_message_t receive_msg;
+
+	GAME_new();
+
 	joystick_state_t joystick_state;
+	joystick_state_t old_joystick_state;
 	while(1) {
+		receive_msg = CAN_data_receive();
+		switch(receive_msg.id) {
+			case 2:
+				if(receive_msg.data[0] == 1) {
+					GAME_score();
+					printf("Score: %d\n", GAME_get_goals());
+				}
+				break;
+		}
+
 		joystick_state = JOYSTICK_get_state();
-		send_msg.data[0] = joystick_state.x;
-		send_msg.data[1] = joystick_state.y;
+		if(joystick_state.x != old_joystick_state.x) {
+			send_msg.id = 1;
+			send_msg.data[0] = joystick_state.x;
+			send_msg.data[1] = joystick_state.y;
+			send_msg.length = 2;
+			CAN_message_send(&send_msg);
+		}
 		
-		CAN_message_send(&send_msg);
 	
 		_delay_ms(1);
 	}
