@@ -8,6 +8,8 @@
 #include "MCP2515.h"
 #include "spi.h"
 
+#include <avr/interrupt.h>
+
 uint8_t MCP_init(){
 	volatile uint8_t value;
 	
@@ -26,15 +28,18 @@ uint8_t MCP_init(){
 
 uint8_t MCP_read_data(uint8_t address) {
 	uint8_t result;
+	cli();
 	SPI_SS_low(); // Select CAN controller
 	SPI_transcieve(MCP_READ);
 	SPI_transcieve(address);
 	result = SPI_transcieve(0);
 	SPI_SS_high(); // Deselect CAN controller
+	sei();
 	return result;
 }
 
 void MCP_write_data(uint8_t address, uint8_t* data, int data_size) {
+	cli();
 	SPI_SS_low(); // Select CAN controller
 	SPI_transcieve(MCP_WRITE);
 	SPI_transcieve(address);
@@ -42,35 +47,44 @@ void MCP_write_data(uint8_t address, uint8_t* data, int data_size) {
 		SPI_transcieve(data[i]);
 	}
 	SPI_SS_high(); // Deselect CAN controller
+	sei();
 }
 
 void MCP_request_to_send(uint8_t command) {
+	cli();
 	SPI_SS_low();
 	SPI_transcieve(MCP_RTS | (command & 0x07));
 	SPI_SS_high();
+	sei();
 }
 
 uint8_t MCP_read_status(uint8_t address) {
 	uint8_t result;
+	cli();
 	SPI_SS_low();
 	SPI_transcieve(MCP_READ_STATUS);
 	SPI_transcieve(address);
 	result = SPI_transcieve(0);
 	SPI_SS_high();
+	sei();
 	return result;
 }
 
 void MCP_bit_modify(uint8_t address, uint8_t mask, uint8_t data) {
+	sei();
 	SPI_SS_low();
 	SPI_transcieve(MCP_BITMOD);
 	SPI_transcieve(address);
 	SPI_transcieve(mask);
 	SPI_transcieve(data);
 	SPI_SS_high();
+	cli();
 }
 
 void MCP_reset() {
+	sei();
 	SPI_SS_low(); // Select CAN controller
 	SPI_transcieve(MCP_RESET);
 	SPI_SS_high(); // Deselect CAN controller
+	cli();
 }

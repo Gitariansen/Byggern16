@@ -23,6 +23,11 @@ void MOTOR_set_velocity(uint8_t vel) {
 
 void MOTOR_set_dir(uint8_t dirn) {
 	// TODO: Implement
+	if(dirn == 1) {
+		MJ1_PORT |= (1 << DIR);
+	} else {
+		MJ1_PORT &= ~(1 << DIR);
+	}
 }
 
 void MOTOR_stop() {

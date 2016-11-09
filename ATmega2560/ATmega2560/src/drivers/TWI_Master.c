@@ -90,9 +90,8 @@ void TWI_Start_Transceiver_With_Data( unsigned char *msg, unsigned char msgSize 
   TWI_state         = TWI_NO_STATE ;
   TWCR = (1<<TWEN)|                             // TWI Interface enabled.
          (1<<TWIE)|(1<<TWINT)|                  // Enable TWI Interupt and clear the flag.
-         (0<<TWEA)/*|(1<<TWSTA)*/|(0<<TWSTO)|       // Initiate a START condition.
+         (0<<TWEA)|(1<<TWSTA)|(0<<TWSTO)|       // Initiate a START condition.
          (0<<TWWC);                             //
-	printf("HOLMES\n");
 }
 
 /****************************************************************************
@@ -141,8 +140,8 @@ This function is the Interrupt Service Routine (ISR), and called when the TWI in
 that is whenever a TWI event has occurred. This function should not be called directly from the main
 application.
 ****************************************************************************/
-#pragma vector=TWI_vect
-void TWI_ISR(void)
+//#pragma vector=TWI_vect
+ISR(TWI_vect)
 {
   static unsigned char TWI_bufPtr;
   
