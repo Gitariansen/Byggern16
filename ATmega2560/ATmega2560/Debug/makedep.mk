@@ -12,7 +12,7 @@ src\drivers\dac.c
 
 src\drivers\ir.c
 
-src\drivers\MCP2551.c
+src\drivers\MCP2515.c
 
 src\drivers\motor.c
 

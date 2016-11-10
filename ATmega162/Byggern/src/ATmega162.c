@@ -28,13 +28,10 @@ int main(void)
 	SRAM_init();
 	MENU_init();
 	CAN_init();
-	
-	struct can_message_t send_msg = {
-		.id = 42,
-		.length = 2
-	};
-	struct can_message_t receive_msg;
 
+	struct can_message_t send_msg;
+	struct can_message_t receive_msg;
+	
 	GAME_new();
 
 	joystick_state_t joystick_state;
@@ -43,24 +40,23 @@ int main(void)
 		receive_msg = CAN_data_receive();
 		switch(receive_msg.id) {
 			case 2:
-				if(receive_msg.data[0] == 1) {
-					GAME_score();
-					printf("Score: %d\n", GAME_get_goals());
-				}
-				break;
+			if(receive_msg.data[0] == 1) {
+				GAME_score();
+				printf("Score: %d\n", GAME_get_goals());
+			}
+			break;
 		}
 
 		joystick_state = JOYSTICK_get_state();
-		if(joystick_state.x != old_joystick_state.x) {
+		if(joystick_state.x != old_joystick_state.x || joystick_state.y != old_joystick_state.y) {
 			send_msg.id = 1;
 			send_msg.data[0] = joystick_state.x;
 			send_msg.data[1] = joystick_state.y;
 			send_msg.length = 2;
 			CAN_message_send(&send_msg);
 		}
-		
 	
-		_delay_ms(1);
+		_delay_ms(10);
 	}
 	/*
 	joystick_state_t joystick_state = JOYSTICK_get_state();

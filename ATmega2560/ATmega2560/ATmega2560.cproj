@@ -141,10 +141,10 @@
     <Compile Include="src\drivers\ir.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\drivers\MCP2551.c">
+    <Compile Include="src\drivers\MCP2515.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\drivers\MCP2551.h">
+    <Compile Include="src\drivers\MCP2515.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\drivers\motor.c">
