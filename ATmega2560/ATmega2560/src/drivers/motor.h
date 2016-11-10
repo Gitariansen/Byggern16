@@ -22,8 +22,9 @@
 
 
 void MOTOR_init();
+void MOTOR_test();
 void MOTOR_set_velocity(uint8_t vel);
-void MOTOR_set_dir(uint8_t dir);
+void MOTOR_set_dir_right(uint8_t dir);
 void MOTOR_stop();
 
 #endif /* MOTOR_H_ */

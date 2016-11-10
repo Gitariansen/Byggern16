@@ -19,5 +19,4 @@ void DAC_write(uint8_t value) {
 		value
 	};
 	TWI_Start_Transceiver_With_Data(twi_msg, 3);
-	printf("HOLMES\n");
 }

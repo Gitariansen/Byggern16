@@ -44,7 +44,7 @@ C_SRCS +=  \
 ../src/drivers/can.c \
 ../src/drivers/dac.c \
 ../src/drivers/ir.c \
-../src/drivers/MCP2551.c \
+../src/drivers/MCP2515.c \
 ../src/drivers/motor.c \
 ../src/drivers/pwm.c \
 ../src/drivers/servo.c \
@@ -65,7 +65,7 @@ src/drivers/adc.o \
 src/drivers/can.o \
 src/drivers/dac.o \
 src/drivers/ir.o \
-src/drivers/MCP2551.o \
+src/drivers/MCP2515.o \
 src/drivers/motor.o \
 src/drivers/pwm.o \
 src/drivers/servo.o \
@@ -79,7 +79,7 @@ src/drivers/adc.o \
 src/drivers/can.o \
 src/drivers/dac.o \
 src/drivers/ir.o \
-src/drivers/MCP2551.o \
+src/drivers/MCP2515.o \
 src/drivers/motor.o \
 src/drivers/pwm.o \
 src/drivers/servo.o \
@@ -93,7 +93,7 @@ src/drivers/adc.d \
 src/drivers/can.d \
 src/drivers/dac.d \
 src/drivers/ir.d \
-src/drivers/MCP2551.d \
+src/drivers/MCP2515.d \
 src/drivers/motor.d \
 src/drivers/pwm.d \
 src/drivers/servo.d \
@@ -107,7 +107,7 @@ src/drivers/adc.d \
 src/drivers/can.d \
 src/drivers/dac.d \
 src/drivers/ir.d \
-src/drivers/MCP2551.d \
+src/drivers/MCP2515.d \
 src/drivers/motor.d \
 src/drivers/pwm.d \
 src/drivers/servo.d \

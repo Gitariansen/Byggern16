@@ -13,6 +13,7 @@ const float max = 2.1;
 
 void SERVO_init() {
 	PWM_set_period(20.0f);
+	SERVO_write((max + min)/2);
 }
 
 void SERVO_write(int8_t value) {

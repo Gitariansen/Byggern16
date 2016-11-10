@@ -11,8 +11,6 @@
 
 #include <stdio.h>
 
-#define THRESHOLD 127
-
 void IR_init();
 uint8_t IR_read();
 

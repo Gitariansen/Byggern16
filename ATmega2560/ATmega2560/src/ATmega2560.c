@@ -11,38 +11,37 @@
 #include "drivers/uart.h"
 #include "drivers/can.h"
 #include "drivers/servo.h"
-#include "drivers/MCP2551.h"
+#include "drivers/MCP2515.h"
 #include "drivers/ir.h"
 #include "drivers/motor.h"
+
+#include "drivers/pwm.h"
 
 int main(void)
 {
 	UART_init(MYUBRR);
 	CAN_init();
 	IR_init();
-
-	//SERVO_init();
+	SERVO_init();
 	MOTOR_init();
-	// Test motor
-	MOTOR_set_velocity(100);
-	printf("Hello world\n");
-	_delay_ms(2000);
-	MOTOR_stop();
-	
 
 	struct can_message_t send_msg;
 	struct can_message_t receive_msg;
-	
-	uint8_t ir_value;
-	uint8_t old_ir_value;
+
+	uint8_t ir_value = IR_read();
+	uint8_t old_ir_value = ir_value;
 	while(1) {
-		
 		receive_msg = CAN_data_receive();
 		if(receive_msg.id == 1) {
-			SERVO_write(-receive_msg.data[0]);
+			// Message is joystick data
+			int8_t x = receive_msg.data[0];
+			SERVO_write(-x);
+			MOTOR_set_dir_right(x > 0);
+			MOTOR_set_velocity(abs(x)/100.0f * 0xFF);
 		}
 		
 		ir_value = IR_read();
+		printf("IR value: %d\n", ir_value);
 		if(ir_value != old_ir_value) {
 			old_ir_value = ir_value;
 			// Send score to node 1
@@ -51,6 +50,6 @@ int main(void)
 			send_msg.length = 1;
 			CAN_message_send(&send_msg);
 		}
-		_delay_ms(1);
+		_delay_ms(10);
 	}
 }
