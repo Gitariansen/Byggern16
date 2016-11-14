@@ -24,7 +24,7 @@ uint8_t IR_read() {
 		filter[i - 1] = filter[i];
 	}
 	avg_value /= 3;
-	filter[3 - 1] = value;
+	filter[2] = value;
 
 	return (ADC_read(IR_CHANNEL) < threshold);
 }

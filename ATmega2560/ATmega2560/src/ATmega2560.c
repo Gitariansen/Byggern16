@@ -24,9 +24,24 @@ int main(void)
 	IR_init();
 	SERVO_init();
 	MOTOR_init();
-
+	
 	struct can_message_t send_msg;
 	struct can_message_t receive_msg;
+	
+	/*while(1) {
+		// Testing CAN
+		send_msg.id = 5;
+		send_msg.length = 1;
+		send_msg.data[0] = 15;
+		printf("Sending message\n");
+		printf("id: %d\ndata: %d\n\n", send_msg.id, send_msg.data[0]);
+		CAN_message_send(&send_msg);
+		_delay_ms(10);
+		receive_msg = CAN_data_receive();
+		printf("Received message\n");
+		printf("id: %d\ndata: %d\n\n", receive_msg.id, receive_msg.data[0]);
+		_delay_ms(10);
+	}*/
 
 	uint8_t ir_value = IR_read();
 	uint8_t old_ir_value = ir_value;
@@ -41,15 +56,19 @@ int main(void)
 		}
 		
 		ir_value = IR_read();
-		printf("IR value: %d\n", ir_value);
+		//printf("IR value: %d\n", ir_value);
 		if(ir_value != old_ir_value) {
 			old_ir_value = ir_value;
 			// Send score to node 1
-			send_msg.id = 2;
+			send_msg.id = 0;
 			send_msg.data[0] = ir_value;
 			send_msg.length = 1;
 			CAN_message_send(&send_msg);
 		}
+		
+		int16_t speed = MOTOR_read_encoder();
+		printf("Encoder data: %d\n", speed);
+		
 		_delay_ms(10);
 	}
 }

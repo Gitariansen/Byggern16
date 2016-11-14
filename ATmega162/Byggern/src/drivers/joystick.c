@@ -8,6 +8,7 @@
 #include "joystick.h"
 #include "adc.h"
 
+#include <math.h>
 #include <avr/io.h>
 
 uint8_t x_voltage_neutral, y_voltage_neutral;
@@ -38,8 +39,10 @@ joystick_state_t JOYSTICK_get_state() {
 	
 	if(state.x > 10) {
 		state.x_dirn = RIGHT;
+		state.x -= 1;
 	} else if(state.x < -10) {
 		state.x_dirn = LEFT;
+		state.x -= 1;
 	} else {
 		state.x_dirn = X_NEUTRAL;
 	}

@@ -32,6 +32,21 @@ int main(void)
 	struct can_message_t send_msg;
 	struct can_message_t receive_msg;
 	
+	/*while(1) {
+		// Testing CAN
+		send_msg.id = 10;
+		send_msg.length = 1;
+		send_msg.data[0] = 20;
+		printf("Sending message\n");
+		printf("id: %d\ndata: %d\n\n", send_msg.id, send_msg.data[0]);
+		CAN_message_send(&send_msg);
+		_delay_ms(10);
+		receive_msg = CAN_data_receive();
+		printf("Received message\n");
+		printf("id: %d\ndata: %d\n\n", receive_msg.id, receive_msg.data[0]);
+		_delay_ms(10);
+	}*/
+	
 	GAME_new();
 
 	joystick_state_t joystick_state;
@@ -53,10 +68,11 @@ int main(void)
 			send_msg.data[0] = joystick_state.x;
 			send_msg.data[1] = joystick_state.y;
 			send_msg.length = 2;
+			printf("id: %d\ndata: %d\n\n", send_msg.id, send_msg.data[0]);
 			CAN_message_send(&send_msg);
 		}
 	
-		_delay_ms(10);
+		_delay_ms(80);
 	}
 	/*
 	joystick_state_t joystick_state = JOYSTICK_get_state();
