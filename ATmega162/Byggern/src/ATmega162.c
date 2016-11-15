@@ -49,8 +49,12 @@ int main(void)
 	
 	GAME_new();
 
-	joystick_state_t joystick_state;
-	joystick_state_t old_joystick_state;
+	joystick_state_t joystick_state = JOYSTICK_get_state();
+	joystick_state_t old_joystick_state = joystick_state;
+	
+	slider_position_t slider_position = SLIDER_get_position();
+	slider_position_t old_slider_position = slider_position;
+	
 	while(1) {
 		receive_msg = CAN_data_receive();
 		switch(receive_msg.id) {
@@ -65,16 +69,29 @@ int main(void)
 		joystick_state = JOYSTICK_get_state();
 		if(joystick_state.x != old_joystick_state.x || joystick_state.y != old_joystick_state.y || joystick_state.click != old_joystick_state.click) {
 			send_msg.id = 1;
+			send_msg.length = 3;
 			send_msg.data[0] = joystick_state.x;
 			send_msg.data[1] = joystick_state.y;
 			send_msg.data[2] = joystick_state.click;
-			send_msg.length = 3;
-			printf("Sending message\n");
+			printf("Sending joystick message\n");
+			printf("id: %d\nx: %d\nclick: %d\n\n", send_msg.id, send_msg.data[0], send_msg.data[2]);
+			CAN_message_send(&send_msg);
+			old_joystick_state = joystick_state;
+		}
+		
+		slider_position = SLIDER_get_position();
+		if(slider_position.left != old_slider_position.left || slider_position.right != old_slider_position.right) {
+			send_msg.id = 3;
+			send_msg.length = 2;
+			send_msg.data[0] = slider_position.left;
+			send_msg.data[1] = slider_position.right;
+			printf("Sending slider message\n");
 			printf("id: %d\ndata: %d\n\n", send_msg.id, send_msg.data[0]);
 			CAN_message_send(&send_msg);
+			old_slider_position = slider_position;
 		}
 	
-		_delay_ms(80);
+		_delay_ms(10);
 	}
 	/*
 	joystick_state_t joystick_state = JOYSTICK_get_state();

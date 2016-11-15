@@ -117,6 +117,12 @@
     <Compile Include="src\ATmega2560.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\controller.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\controller.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\drivers\adc.c">
       <SubType>compile</SubType>
     </Compile>

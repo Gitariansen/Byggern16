@@ -12,9 +12,9 @@
 typedef struct {
 	int left;
 	int right;
-} slider_position;
+} slider_position_t;
 
 void SLIDER_init();
-slider_position SLIDER_get_position();
+slider_position_t SLIDER_get_position();
 
 #endif /* SLIDER_H_ */

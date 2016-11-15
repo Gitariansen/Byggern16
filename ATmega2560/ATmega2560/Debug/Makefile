@@ -40,6 +40,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../src/ATmega2560.c \
+../src/controller.c \
 ../src/drivers/adc.c \
 ../src/drivers/can.c \
 ../src/drivers/dac.c \
@@ -62,6 +63,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 src/ATmega2560.o \
+src/controller.o \
 src/drivers/adc.o \
 src/drivers/can.o \
 src/drivers/dac.o \
@@ -77,6 +79,7 @@ src/drivers/uart.o
 
 OBJS_AS_ARGS +=  \
 src/ATmega2560.o \
+src/controller.o \
 src/drivers/adc.o \
 src/drivers/can.o \
 src/drivers/dac.o \
@@ -92,6 +95,7 @@ src/drivers/uart.o
 
 C_DEPS +=  \
 src/ATmega2560.d \
+src/controller.d \
 src/drivers/adc.d \
 src/drivers/can.d \
 src/drivers/dac.d \
@@ -107,6 +111,7 @@ src/drivers/uart.d
 
 C_DEPS_AS_ARGS +=  \
 src/ATmega2560.d \
+src/controller.d \
 src/drivers/adc.d \
 src/drivers/can.d \
 src/drivers/dac.d \
@@ -134,6 +139,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

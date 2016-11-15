@@ -13,8 +13,8 @@ void SLIDER_init() {
 	ADC_init();
 }
 
-slider_position SLIDER_get_position(){
-	slider_position position;
+slider_position_t SLIDER_get_position(){
+	slider_position_t position;
 	
 	uint8_t left_slider_voltage = ADC_read(LEFT_SLIDER_CHANNEL);
 	uint8_t right_slider_voltage = ADC_read(RIGHT_SLIDER_CHANNEL);

@@ -11,6 +11,10 @@
 #include "../ATmega2560.h" // Need F_CPU
 #include <util/delay.h>
 
+const uint8_t max_velocity = 0.80;
+
+int16_t max_encoder_value;
+
 void MOTOR_init() {
 	DAC_init();
 	// Set MJ1_PORT to input
@@ -24,29 +28,50 @@ void MOTOR_init() {
 	_delay_ms(20);
 	MJ1_PORT |= (1 << RST);
 	
-	MOTOR_stop();
+	MOTOR_calibrate();
 }
 
-void MOTOR_test() {
-	MOTOR_set_velocity(100);
-	_delay_ms(500);
-	MOTOR_stop();
+void MOTOR_calibrate() {
 	MOTOR_set_dir_right(0);
-	MOTOR_set_velocity(100);
-	_delay_ms(500);
-	MOTOR_stop();
+	MOTOR_set_velocity(0x80);
+	_delay_ms(3000);
+	MOTOR_set_velocity(0);
+	_delay_ms(20);
+	
+	// Toggle !RST to reset encoder
+	MJ1_PORT &= ~(1 << RST);
+	_delay_ms(20);
+	MJ1_PORT |= (1 << RST);
+	
+	printf("Zero: %d\n", MOTOR_read_encoder());
+	
 	MOTOR_set_dir_right(1);
+	MOTOR_set_velocity(0x80);
+	_delay_ms(3000);
+	//MOTOR_set_velocity(0);
+
+	max_encoder_value = MOTOR_read_encoder();
+	
+	printf("Max: %d\n", max_encoder_value);
+	
+	_delay_ms(1000);
+}
+
+int16_t MOTOR_max_encoder_value() {
+	return max_encoder_value;
 }
 
 void MOTOR_set_velocity(uint8_t vel) {
-	DAC_write(vel);
+	vel > max_velocity ?
+		DAC_write(vel) :
+		DAC_write(max_velocity);
 }
 
-void MOTOR_set_dir_right(uint8_t dirn) {
-	if(dirn == 0) {
-		MJ1_PORT &= ~(1 << DIR);
-	} else {
+void MOTOR_set_dir_right(uint8_t dirn_is_right) {
+	if(dirn_is_right) {
 		MJ1_PORT |= (1 << DIR);
+	} else {
+		MJ1_PORT &= ~(1 << DIR);
 	}
 }
 
@@ -71,17 +96,18 @@ int16_t MOTOR_read_encoder() {
 
 	MJ1_PORT |= (1 << SEL); // Set SEL low to get low byte
 	_delay_ms(20);
-	encoder_value |= MJ2_DATA;
+	encoder_value |= (MJ2_DATA << 0);
 
 	MJ1_PORT &= ~(1 << SEL); // Set SEL high to get high byte
 	_delay_ms(20);
 	encoder_value |= (MJ2_DATA << 8);
 
-	MJ1_PORT &= ~(1 << RST); // Toggle !RST to reset encoder
+	/*MJ1_PORT &= ~(1 << RST); // Toggle !RST to reset encoder
 	_delay_ms(20);
-	MJ1_PORT |= (1 << RST);
+	MJ1_PORT |= (1 << RST);*/
 
 	MJ1_PORT |= (1 << OE); // Set !OE high to disable output of encoder
-
-	return encoder_value;
+	
+	// Return negative of encoder value as we want right to be the positive direction
+	return -encoder_value;
 }

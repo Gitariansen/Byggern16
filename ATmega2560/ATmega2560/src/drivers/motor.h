@@ -25,11 +25,12 @@
 
 
 void MOTOR_init();
-void MOTOR_test();
+void MOTOR_calibrate();
 void MOTOR_set_velocity(uint8_t vel);
 void MOTOR_set_dir_right(uint8_t dir);
 void MOTOR_stop();
 int16_t MOTOR_read_encoder();
+int16_t MOTOR_max_encoder_value();
 uint8_t reverse_byte(uint8_t byte);
 
 #endif /* MOTOR_H_ */

@@ -4,6 +4,8 @@
 
 src\ATmega2560.c
 
+src\controller.c
+
 src\drivers\adc.c
 
 src\drivers\can.c

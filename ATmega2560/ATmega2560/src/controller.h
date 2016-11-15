@@ -9,8 +9,7 @@
 #ifndef CONTROLLER_H_
 #define CONTROLLER_H_
 
-
-
-
+void CONTROLLER_set_reference(float ref);
+float CONTROLLER_actuate(float y);
 
 #endif /* CONTROLLER_H_ */
