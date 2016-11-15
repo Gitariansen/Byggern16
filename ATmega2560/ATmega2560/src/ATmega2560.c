@@ -45,6 +45,7 @@ int main(void)
 
 	uint8_t ir_value = IR_read();
 	uint8_t old_ir_value = ir_value;
+
 	while(1) {
 		receive_msg = CAN_data_receive();
 		if(receive_msg.id == 1) {
@@ -61,14 +62,14 @@ int main(void)
 		}
 		
 		ir_value = IR_read();
+		printf("%d %d\n", ir_value, old_ir_value);
 		if(ir_value != old_ir_value) {
-			old_ir_value = ir_value;
-			printf("%d\n", ir_value);
 			// Send score to node 1
-			send_msg.id = 0;
-			send_msg.data[0] = ir_value;
+			send_msg.id = 2;
 			send_msg.length = 1;
-				CAN_message_send(&send_msg);
+			send_msg.data[0] = ir_value;
+			CAN_message_send(&send_msg);
+			old_ir_value = ir_value;
 		}
 
 		// Apply controller

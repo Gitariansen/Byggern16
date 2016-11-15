@@ -28,6 +28,8 @@ int main(void)
 	SRAM_init();
 	MENU_init();
 	CAN_init();
+	
+	printf("HELLO WORLD\n");
 
 	struct can_message_t send_msg;
 	struct can_message_t receive_msg;
@@ -57,13 +59,13 @@ int main(void)
 	
 	while(1) {
 		receive_msg = CAN_data_receive();
-		switch(receive_msg.id) {
-			case 2:
-			if(receive_msg.data[0] == 1) {
-				GAME_score();
-				printf("Score: %d\n", GAME_get_goals());
+		
+		if(receive_msg.id == 2) {
+			int8_t hit = receive_msg.data[0];
+			if(hit) {
+				GAME_hit();
+				printf("%d\n", GAME_get_lives());
 			}
-			break;
 		}
 
 		joystick_state = JOYSTICK_get_state();
@@ -73,8 +75,6 @@ int main(void)
 			send_msg.data[0] = joystick_state.x;
 			send_msg.data[1] = joystick_state.y;
 			send_msg.data[2] = joystick_state.click;
-			printf("Sending joystick message\n");
-			printf("id: %d\nx: %d\nclick: %d\n\n", send_msg.id, send_msg.data[0], send_msg.data[2]);
 			CAN_message_send(&send_msg);
 			old_joystick_state = joystick_state;
 		}
@@ -85,8 +85,6 @@ int main(void)
 			send_msg.length = 2;
 			send_msg.data[0] = slider_position.left;
 			send_msg.data[1] = slider_position.right;
-			printf("Sending slider message\n");
-			printf("id: %d\ndata: %d\n\n", send_msg.id, send_msg.data[0]);
 			CAN_message_send(&send_msg);
 			old_slider_position = slider_position;
 		}

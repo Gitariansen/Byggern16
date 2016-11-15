@@ -11,7 +11,7 @@
 #include "../ATmega2560.h" // Need F_CPU
 #include <util/delay.h>
 
-const uint8_t max_velocity = 0.80;
+const uint8_t max_velocity = 0x80;
 
 int16_t max_encoder_value;
 
@@ -62,7 +62,7 @@ int16_t MOTOR_max_encoder_value() {
 }
 
 void MOTOR_set_velocity(uint8_t vel) {
-	vel > max_velocity ?
+	vel < max_velocity ?
 		DAC_write(vel) :
 		DAC_write(max_velocity);
 }
@@ -73,10 +73,6 @@ void MOTOR_set_dir_right(uint8_t dirn_is_right) {
 	} else {
 		MJ1_PORT &= ~(1 << DIR);
 	}
-}
-
-void MOTOR_stop() {
-	MOTOR_set_velocity(0);
 }
 
 uint8_t reverse_byte(uint8_t byte) {

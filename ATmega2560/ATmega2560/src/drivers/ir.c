@@ -8,7 +8,7 @@
 #include "ir.h"
 #include "adc.h"
 
-const uint8_t threshold = 0x0F;
+const uint8_t threshold = 0xF0;
 
 void IR_init() {
 	ADC_init();

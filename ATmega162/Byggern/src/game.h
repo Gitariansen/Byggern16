@@ -12,7 +12,8 @@
 #include <stdio.h>
 
 void GAME_new();
-void GAME_score();
-int GAME_get_goals();
+void GAME_lose();
+void GAME_hit();
+int GAME_get_lives();
 
 #endif /* GAME_H_ */

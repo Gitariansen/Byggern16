@@ -7,16 +7,24 @@
 
 #include "game.h"
 
-static int goals;
+const int max_lives = 3;
+static int lives;
 
 void GAME_new() {
-	goals = 0;
+	lives = max_lives;
 }
 
-void GAME_score() {
-	goals += 1;
+void GAME_end() {
+	printf("You lost!\n");
 }
 
-int GAME_get_goals() {
-	return goals;
+void GAME_hit() {
+	lives -= 1;
+	if(lives == 0) {
+		GAME_end();
+	}
+}
+
+int GAME_get_lives() {
+	return lives;
 }
