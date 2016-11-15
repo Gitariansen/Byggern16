@@ -39,10 +39,14 @@ joystick_state_t JOYSTICK_get_state() {
 	
 	if(state.x > 10) {
 		state.x_dirn = RIGHT;
-		state.x -= 1;
+		if(state.x > 100) {
+			state.x = 100;
+		}
 	} else if(state.x < -10) {
 		state.x_dirn = LEFT;
-		state.x -= 1;
+		if(state.x < -100) {
+			state.x = -100;
+		}
 	} else {
 		state.x_dirn = X_NEUTRAL;
 	}

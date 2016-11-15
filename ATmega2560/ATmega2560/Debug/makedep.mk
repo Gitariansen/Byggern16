@@ -20,6 +20,8 @@ src\drivers\pwm.c
 
 src\drivers\servo.c
 
+src\drivers\solenoid.c
+
 src\drivers\spi.c
 
 src\drivers\TWI_Master.c

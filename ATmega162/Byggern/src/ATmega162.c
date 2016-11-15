@@ -63,11 +63,13 @@ int main(void)
 		}
 
 		joystick_state = JOYSTICK_get_state();
-		if(joystick_state.x != old_joystick_state.x || joystick_state.y != old_joystick_state.y) {
+		if(joystick_state.x != old_joystick_state.x || joystick_state.y != old_joystick_state.y || joystick_state.click != old_joystick_state.click) {
 			send_msg.id = 1;
 			send_msg.data[0] = joystick_state.x;
 			send_msg.data[1] = joystick_state.y;
-			send_msg.length = 2;
+			send_msg.data[2] = joystick_state.click;
+			send_msg.length = 3;
+			printf("Sending message\n");
 			printf("id: %d\ndata: %d\n\n", send_msg.id, send_msg.data[0]);
 			CAN_message_send(&send_msg);
 		}

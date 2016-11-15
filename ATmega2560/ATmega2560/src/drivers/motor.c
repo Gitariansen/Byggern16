@@ -69,13 +69,13 @@ int16_t MOTOR_read_encoder() {
 
 	MJ1_PORT &= ~(1 << OE); // Set !OE low to enable output of encoder
 
-	MJ1_PORT |= (1 << SEL); // Set SEL low to get high byte
+	MJ1_PORT |= (1 << SEL); // Set SEL low to get low byte
 	_delay_ms(20);
-	encoder_value |= (reverse_byte(MJ2_DATA) << 8);
+	encoder_value |= MJ2_DATA;
 
 	MJ1_PORT &= ~(1 << SEL); // Set SEL high to get high byte
 	_delay_ms(20);
-	encoder_value |= reverse_byte(MJ2_DATA);
+	encoder_value |= (MJ2_DATA << 8);
 
 	MJ1_PORT &= ~(1 << RST); // Toggle !RST to reset encoder
 	_delay_ms(20);

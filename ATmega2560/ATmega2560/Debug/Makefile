@@ -48,6 +48,7 @@ C_SRCS +=  \
 ../src/drivers/motor.c \
 ../src/drivers/pwm.c \
 ../src/drivers/servo.c \
+../src/drivers/solenoid.c \
 ../src/drivers/spi.c \
 ../src/drivers/TWI_Master.c \
 ../src/drivers/uart.c
@@ -69,6 +70,7 @@ src/drivers/MCP2515.o \
 src/drivers/motor.o \
 src/drivers/pwm.o \
 src/drivers/servo.o \
+src/drivers/solenoid.o \
 src/drivers/spi.o \
 src/drivers/TWI_Master.o \
 src/drivers/uart.o
@@ -83,6 +85,7 @@ src/drivers/MCP2515.o \
 src/drivers/motor.o \
 src/drivers/pwm.o \
 src/drivers/servo.o \
+src/drivers/solenoid.o \
 src/drivers/spi.o \
 src/drivers/TWI_Master.o \
 src/drivers/uart.o
@@ -97,6 +100,7 @@ src/drivers/MCP2515.d \
 src/drivers/motor.d \
 src/drivers/pwm.d \
 src/drivers/servo.d \
+src/drivers/solenoid.d \
 src/drivers/spi.d \
 src/drivers/TWI_Master.d \
 src/drivers/uart.d
@@ -111,6 +115,7 @@ src/drivers/MCP2515.d \
 src/drivers/motor.d \
 src/drivers/pwm.d \
 src/drivers/servo.d \
+src/drivers/solenoid.d \
 src/drivers/spi.d \
 src/drivers/TWI_Master.d \
 src/drivers/uart.d
@@ -129,6 +134,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
