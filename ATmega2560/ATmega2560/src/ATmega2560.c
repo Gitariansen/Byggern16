@@ -15,6 +15,7 @@
 #include "drivers/motor.h"
 #include "drivers/solenoid.h"
 #include "controller.h"
+#include "../../../can_protocol.h"
 
 int main(void)
 {
@@ -48,35 +49,36 @@ int main(void)
 
 	while(1) {
 		receive_msg = CAN_data_receive();
-		if(receive_msg.id == 1) {
+
+		printf("%d %d %d %d %d\n", receive_msg.id, receive_msg.data[0], receive_msg.data[2], (uint8_t)receive_msg.data[3], (uint8_t)receive_msg.data[4]);
+
+		if(receive_msg.id == NODE_1_ID) {
 			// Message is joystick data
-			int8_t x = receive_msg.data[0];
-			int8_t click = receive_msg.data[2];
-			
+			int8_t x = receive_msg.data[X_INDEX];
+			int8_t click = receive_msg.data[CLICK_INDEX];
 			SERVO_write(-x);
 			SOLENOID_shoot(click);
-		} else if(receive_msg.id == 3) {
+
 			// Slider data
-			int8_t ref = receive_msg.data[1]; // Use right slider position as reference
+			uint8_t ref = receive_msg.data[RIGHT_INDEX]; // Use right slider position as reference
 			CONTROLLER_set_reference(ref);
 		}
 		
 		ir_value = IR_read();
-		printf("%d %d\n", ir_value, old_ir_value);
 		if(ir_value != old_ir_value) {
 			// Send score to node 1
-			send_msg.id = 2;
+			send_msg.id = NODE_2_ID;
 			send_msg.length = 1;
-			send_msg.data[0] = ir_value;
+			send_msg.data[IR_INDEX] = ir_value;
 			CAN_message_send(&send_msg);
 			old_ir_value = ir_value;
 		}
 
 		// Apply controller
-		float encoder_value = (100.0f * MOTOR_read_encoder())/MOTOR_max_encoder_value();
+		float encoder_value = 0xFF * ((float)MOTOR_read_encoder())/((float)MOTOR_max_encoder_value());
 		float vel = CONTROLLER_actuate(encoder_value);
 		MOTOR_set_dir_right(vel > 0);
-		MOTOR_set_velocity(vel/100.0f * 0xFF);
+		MOTOR_set_velocity(vel);
 
 		_delay_ms(10);
 	}

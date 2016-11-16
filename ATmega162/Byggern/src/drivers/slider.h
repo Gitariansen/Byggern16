@@ -15,6 +15,7 @@ typedef struct {
 } slider_position_t;
 
 void SLIDER_init();
+int SLIDER_compare();
 slider_position_t SLIDER_get_position();
 
 #endif /* SLIDER_H_ */

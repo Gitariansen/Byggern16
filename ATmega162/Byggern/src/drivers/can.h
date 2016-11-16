@@ -14,7 +14,7 @@
 struct can_message_t {
 	unsigned int id;
 	uint8_t length;
-	int8_t data[8];
+	uint8_t data[8];
 } can_message_t;
 
 void CAN_init();

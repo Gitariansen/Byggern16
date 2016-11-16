@@ -8,23 +8,23 @@
 #include "ir.h"
 #include "adc.h"
 
-const uint8_t threshold = 0xF0;
+const uint8_t threshold = 50;
 
 void IR_init() {
 	ADC_init();
 }
 
 uint8_t IR_read() {
-	// Using a 3rd order moving average filter
-	static uint8_t filter[3];
+	// Using a 4th order moving average filter
+	static uint8_t filter[4];
 	uint8_t value = ADC_read(IR_CHANNEL);
-	uint8_t avg_value = value;
-	for(int i = 1; i < 3; i++) {
+	uint16_t avg_value = value;
+	for(int i = 1; i < 4; i++) {
 		avg_value += filter[i];
 		filter[i - 1] = filter[i];
 	}
-	avg_value /= 3;
-	filter[2] = value;
+	avg_value /= 4;
+	filter[3] = value;
 
-	return (ADC_read(IR_CHANNEL) < threshold);
+	return (avg_value < threshold);
 }

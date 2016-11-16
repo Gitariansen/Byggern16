@@ -7,6 +7,7 @@
 
 
 #include "menu.h"
+#include "game.h"
 #include "drivers/oled.h"
 
 menu_t* current_menu;
@@ -14,31 +15,32 @@ int selected_index = 0;
 
 menu_t* main_menu_children[] = { &play_menu, &options_menu, &highscore_menu };
 menu_t main_menu = {
-	.name = "Main menu",//&menu_names[0],
+	.name = "Main menu",
 	.children = main_menu_children,
 	.num_children = sizeof(main_menu_children)/sizeof(menu_t*),
 };
 
 menu_t play_menu = {
-	.name = "Play game",//&menu_names[1]
+	.name = "Play game",
 	.parent = &main_menu,
+	.function_ptr = (&GAME_new),
 };
 
 menu_t* options_menu_children[] = { &contrast_menu };
 menu_t options_menu = {
-	.name = "Options",//&menu_names[2]
+	.name = "Options",
 	.parent = &main_menu,
 	.children = options_menu_children,
 	.num_children = sizeof(options_menu_children)/sizeof(menu_t*),
 };
 
 menu_t highscore_menu = {
-	.name = "Highscore",//&menu_names[3]
+	.name = "Highscore",
 	.parent = &main_menu,
 };
 
 menu_t contrast_menu = {
-	.name = "Set Contrast",//&menu_names[4],
+	.name = "Set Contrast",
 	.parent = &options_menu,
 };
 

@@ -27,6 +27,13 @@ void JOYSTICK_calibrate() {
 		y_voltage_neutral = ADC_read(Y_JOYSTICK_CHANNEL);
 }
 
+int JOYSTICK_compare(joystick_state_t joystick_a, joystick_state_t joystick_b) {
+	int x_cmp = (joystick_a.x == joystick_b.x) && (joystick_a.x_dirn == joystick_b.x_dirn);
+	int y_cmp = (joystick_a.y == joystick_b.y) && (joystick_a.y_dirn == joystick_b.y_dirn);
+	int click_cmp = joystick_a.click == joystick_b.click;
+	return x_cmp && y_cmp && click_cmp;
+}
+
 joystick_state_t JOYSTICK_get_state() {
 	joystick_state_t state;
 	

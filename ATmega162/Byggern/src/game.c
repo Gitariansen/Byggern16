@@ -6,16 +6,19 @@
  */ 
 
 #include "game.h"
+#include "options.h"
 
 const int max_lives = 3;
 static int lives;
 
 void GAME_new() {
 	lives = max_lives;
+	set_state(IN_GAME);
 }
 
 void GAME_end() {
-	printf("You lost!\n");
+	printf("Game over!\n");
+	set_state(MENU);
 }
 
 void GAME_hit() {

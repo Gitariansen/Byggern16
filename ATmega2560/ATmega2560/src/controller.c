@@ -11,7 +11,7 @@
 #include <avr/interrupt.h>
 
 const float Kp = 1.0;
-const float Ki = 1.0;
+const float Ki = 0.5;
 const float Kd = 0.0;
 
 float reference = 0.0;

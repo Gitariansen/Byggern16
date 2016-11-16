@@ -13,14 +13,18 @@ void SLIDER_init() {
 	ADC_init();
 }
 
+int SLIDER_compare(slider_position_t slider_a, slider_position_t slider_b) {
+	return (abs(slider_a.left -slider_b.left) < 2) && (abs(slider_a.right - slider_b.right) < 2);
+}
+
 slider_position_t SLIDER_get_position(){
 	slider_position_t position;
-	
+
 	uint8_t left_slider_voltage = ADC_read(LEFT_SLIDER_CHANNEL);
 	uint8_t right_slider_voltage = ADC_read(RIGHT_SLIDER_CHANNEL);
 	
-	position.left = 100 * ((float)left_slider_voltage / (0xFF - 1));
-	position.right = 100 * ((float)right_slider_voltage / (0xFF - 1));
+	position.left = left_slider_voltage;
+	position.right = right_slider_voltage;
 	
 	return position;
 }

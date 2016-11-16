@@ -11,7 +11,7 @@
 #include "../ATmega2560.h" // Need F_CPU
 #include <util/delay.h>
 
-const uint8_t max_velocity = 0x80;
+const uint8_t max_velocity = 0x70;
 
 int16_t max_encoder_value;
 
@@ -33,7 +33,7 @@ void MOTOR_init() {
 
 void MOTOR_calibrate() {
 	MOTOR_set_dir_right(0);
-	MOTOR_set_velocity(0x80);
+	MOTOR_set_velocity(max_velocity);
 	_delay_ms(3000);
 	MOTOR_set_velocity(0);
 	_delay_ms(20);
@@ -46,7 +46,7 @@ void MOTOR_calibrate() {
 	printf("Zero: %d\n", MOTOR_read_encoder());
 	
 	MOTOR_set_dir_right(1);
-	MOTOR_set_velocity(0x80);
+	MOTOR_set_velocity(max_velocity);
 	_delay_ms(3000);
 	//MOTOR_set_velocity(0);
 
