@@ -57,6 +57,7 @@ void OLED_printf(const char* fmt, ...);
 void OLED_clear();
 
 void OLED_home();
+void OLED_center();
 
 void OLED_goto_line(uint8_t line);
 void OLED_goto_column(uint8_t col);

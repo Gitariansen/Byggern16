@@ -10,6 +10,9 @@
 static state_t state = INITIAL;
 
 void set_state(state_t new_state) {
+	if(new_state == MENU) {
+		MENU_init();
+	}
 	state = new_state;
 }
 
