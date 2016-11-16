@@ -12,7 +12,8 @@
 typedef enum {
 	INITIAL,
 	MENU,
-	IN_GAME
+	IN_GAME,
+	SAVE_USER
 } state_t;
 
 void set_state(state_t new_state);

@@ -140,6 +140,12 @@
     <Compile Include="src\drivers\can.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\drivers\eeprom.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\eeprom.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\drivers\font5x7.h">
       <SubType>compile</SubType>
     </Compile>
@@ -179,6 +185,12 @@
     <Compile Include="src\drivers\sram.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\drivers\timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\timer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\drivers\uart.c">
       <SubType>compile</SubType>
     </Compile>
@@ -192,6 +204,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\game.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\highscore.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\highscore.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\memory_layout.h">

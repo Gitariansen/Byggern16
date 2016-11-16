@@ -25,7 +25,7 @@ void CONTROLLER_set_reference(float ref) {
 }
 
 float CONTROLLER_actuate(float y) {
-	float dt = ((float)*timer_source)/((float)F_CPU);
+	float dt = ((float)*timer_source)/(F_CPU);
 	*timer_source = 0;
 	
 	float err = reference - y;

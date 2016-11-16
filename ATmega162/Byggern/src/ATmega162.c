@@ -9,11 +9,13 @@
 #include "options.h"
 #include "menu.h"
 #include "game.h"
+#include "highscore.h"
 #include "drivers/sram.h"
 #include "drivers/joystick.h"
 #include "drivers/slider.h"
 #include "drivers/uart.h"
 #include "drivers/can.h"
+#include "drivers/timer.h"
 #include "../../../can_protocol.h"
 
 #include <stdio.h>
@@ -30,6 +32,26 @@ int main(void)
 	SRAM_init();
 	MENU_init();
 	CAN_init();
+	TIMER_init();
+	
+	// TESTING STARTS HERE
+	user_t add_user;
+	
+	add_user.name[0] = 'A';
+	add_user.name[1] = 'B';
+	add_user.name[2] = '\0';
+	add_user.score = 12;
+	printf("%s: %d\n", add_user.name, add_user.score);
+	HIGHSCORE_add_user(add_user);
+	
+	user_t* users = HIGHSCORE_get_users();
+	
+	user_t* get_user = HIGHSCORE_get_users();
+	printf("%s: %d\n", get_user[0].name, get_user[0].score);
+	
+	_delay_ms(10000);
+	return 0;
+	// AND ENDS HERE
 	
 	state_t state;
 
@@ -122,6 +144,10 @@ int main(void)
 				old_slider_position = slider_position;
 			}
 			break;
+			
+			case SAVE_USER:
+			
+
 			default:
 			set_state(INITIAL);
 		}

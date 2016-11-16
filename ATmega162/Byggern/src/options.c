@@ -6,6 +6,7 @@
  */ 
 
 #include "options.h"
+#include "menu.h"
 
 static state_t state = INITIAL;
 
