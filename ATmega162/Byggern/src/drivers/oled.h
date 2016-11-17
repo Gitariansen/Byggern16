@@ -25,7 +25,7 @@
 #define SET_COLUMN_ADDRESS				0x21 // range: 0-127
 #define SET_PAGE_ADDRESS				0x22 // range: 0-7
 #define SET_DISPLAY_START_LINE			0x40 // 40~7F
-#define SET_CONSTART_CONTROL			0x81 // select one of 256 contrast steps
+#define SET_CONTRAST_CONTROL			0x81 // select one of 256 contrast steps
 #define SET_SEGMENT_REMAP				0xA1 // alternative: A0
 #define DISPLAY_ON_FOLLOW_RAM			0xA4
 #define DISPLAY_ON_IGNORE_RAM			0xA5

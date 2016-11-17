@@ -8,47 +8,68 @@
 #include "highscore.h"
 #include "drivers/eeprom.h"
 
-int num_users = 0;
+int		num_users;
+user_t	user_array[MAX_NUM_USERS];
+
+void HIGHSCORE_load_from_EEPROM() {
+	num_users = EEPROM_read(NUM_USERS_ADDRESS);
+	
+	for(int i = 0; i < num_users; i++) {
+		int user_index = i*(sizeof(user_t) - 1);
+		// Read name
+		for(int c = 0; c < USERNAME_LENGTH; c++) {
+			user_array[i].name[c] = EEPROM_read(USER_START_ADDRESS + user_index + c);
+		}
+		user_array[i].name[USERNAME_LENGTH] = '\0';
+		// Read score
+		user_array[i].score = EEPROM_read(USER_START_ADDRESS + user_index + USERNAME_LENGTH);
+	}
+}
+
+void HIGHSCORE_store_to_EEPROM() {
+	EEPROM_write(USER_START_ADDRESS, num_users);
+	
+	for(int i = 0; i < num_users; i++) {
+		int user_index = i*4;
+		for(int c = 0; c < USERNAME_LENGTH; c++) {
+			EEPROM_write(USER_START_ADDRESS + c + user_index, user_array[i].name[c]);
+		}
+		EEPROM_write(USER_START_ADDRESS + user_index + USERNAME_LENGTH, user_array[i].score);
+	}
+}
+
+void HIGHSCORE_clear() {
+	for(int i = 0; i < num_users; i++) {
+		int user_index = i*(sizeof(user_t) - 1);
+		
+		for(int c = 0; c < USERNAME_LENGTH; c++) {
+			EEPROM_write(USER_START_ADDRESS + user_index + c, 0);
+		}
+		EEPROM_write(USER_START_ADDRESS + user_index + USERNAME_LENGTH, 0);
+		num_users--;
+	}
+	
+	if(num_users == 0) {
+		printf("Clear succeeded\n");
+		EEPROM_write(USER_START_ADDRESS, 0);
+	} else {
+		printf("Clear failed\n");
+	}
+}
 
 void HIGHSCORE_add_user(user_t user) {
-	// Get existing highscore list and add new user
-	user_t* old_users = HIGHSCORE_get_users();
-	user_t users[num_users];
-	for(int i = 0; i < num_users; i++) {
-		users[i] = old_users[i];
+	user_array[num_users] = user;
+	if(num_users < MAX_NUM_USERS) {
+		num_users++;
 	}
-	users[num_users] = user;
-	num_users++;
-	
-	// Sort highscore list
-	qsort(users, num_users, sizeof(user_t), compare);
-	
-	// Store users in EEPROM
-	for(int i = 0; i < num_users; i++) {
-		for(int j = 0; j < USERNAME_LENGTH; j++) {
-			printf("Writing %c\n", users[i].name[j]);
-			EEPROM_write(i + j, users[i].name[j]);
-		}
-		EEPROM_write(i + USERNAME_LENGTH, users[i].score);
-	}
+	qsort(user_array, num_users, sizeof(user_t), compare);
 }
 
 user_t* HIGHSCORE_get_users() {
-	user_t users[num_users];
-
-	for(int i = 0; i < num_users; i++) {
-		// Read name
-		for(int j = 0; j < USERNAME_LENGTH; j++) {
-			users[i].name[j] = EEPROM_read(i + j);
-		}
-		users[i].name[USERNAME_LENGTH] = '\0';
-		// Read score
-		users[i].score = EEPROM_read(i + USERNAME_LENGTH);
-	}
-	return users;
+	return user_array;
 }
 
-int HIGHSCORE_num_users() {
+int HIGHSCORE_get_num_users() {
 	return num_users;
 }
 

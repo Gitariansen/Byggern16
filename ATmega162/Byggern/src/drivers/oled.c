@@ -39,7 +39,7 @@ void OLED_init() {
 	OLED_set_command(SET_CLCK_DIV_RATIO_OSC_FREQ);
 	OLED_set_command(0x80); // Display divide ratio/osc. freq. mode
 
-	OLED_set_command(SET_CONSTART_CONTROL);
+	OLED_set_command(SET_CONTRAST_CONTROL);
 	OLED_set_command(0x50);
 
 	OLED_set_command(SET_PRECHARGE_PERIOD);
