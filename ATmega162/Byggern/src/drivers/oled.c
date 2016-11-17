@@ -40,7 +40,7 @@ void OLED_init() {
 	OLED_set_command(0x80); // Display divide ratio/osc. freq. mode
 
 	OLED_set_command(SET_CONTRAST_CONTROL);
-	OLED_set_command(0x50);
+	OLED_set_command(MEDIUM_CONTRAST);
 
 	OLED_set_command(SET_PRECHARGE_PERIOD);
 	OLED_set_command(0x21);
@@ -131,4 +131,9 @@ void OLED_clear() {
 	for(int line = 0; line < NUM_LINES; line++) {
 		OLED_clear_line(line);
 	}
+}
+
+void OLED_set_contrast(contrast_value value) {
+	OLED_set_command(SET_CONTRAST_CONTROL);
+	OLED_set_command(value);
 }

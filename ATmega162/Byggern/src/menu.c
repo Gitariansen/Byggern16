@@ -11,8 +11,8 @@
 #include "highscore.h"
 #include "drivers/oled.h"
 
-// Menus are statically allocated at compile time
-menu_t main_menu, play_menu, options_menu, highscore_menu, contrast_menu, clear_highscore_menu;
+// Menus are statically allocated at compile time to avoid overflow issues
+menu_t main_menu, play_menu, options_menu, highscore_menu, contrast_menu, contrast_high_menu, contrast_medium_menu, contrast_low_menu, clear_highscore_menu;
 
 menu_t* current_menu;
 int selected_index = 0;
@@ -44,9 +44,33 @@ menu_t highscore_menu = {
 	.function_ptr = &HIGHSCORE_print_to_oled,
 };
 
+menu_t* contrast_menu_children[] = { &contrast_high_menu, &contrast_medium_menu, &contrast_low_menu };
 menu_t contrast_menu = {
 	.name = "Set Contrast",
 	.parent = &options_menu,
+	.children = &contrast_menu_children,
+	.num_children = sizeof(contrast_menu_children)/sizeof(menu_t*),
+};
+
+void contrast_high_handler() { OLED_set_contrast(HIGH_CONTRAST); }
+menu_t contrast_high_menu = {
+	.name = "High",
+	.parent = &contrast_menu,
+	.function_ptr = &contrast_high_handler
+};
+
+void contrast_medium_handler() { OLED_set_contrast(MEDIUM_CONTRAST); }
+menu_t contrast_medium_menu = {
+	.name = "Medium",
+	.parent = &contrast_menu,
+	.function_ptr = &contrast_medium_handler
+};
+
+void contrast_low_handler() { OLED_set_contrast(LOW_CONTRAST); }
+menu_t contrast_low_menu = {
+	.name = "Low",
+	.parent = &contrast_menu,
+	.function_ptr = &contrast_low_handler
 };
 
 menu_t clear_highscore_menu = {

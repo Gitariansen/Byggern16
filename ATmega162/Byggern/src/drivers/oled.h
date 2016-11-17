@@ -46,11 +46,18 @@
 #define SET_COM_PIN_HARDWARE_CONF		0xDA
 #define SET_VCOM_DESELECT_LEVEL			0xDB
 
+typedef enum {
+	LOW_CONTRAST = 0x00,
+	MEDIUM_CONTRAST = 0x50,
+	HIGH_CONTRAST = 0xFF
+} contrast_value;
+
 void OLED_init();
 void OLED_reset();
 
 void OLED_set_command(uint8_t cmd);
 void OLED_write_data(uint8_t data);
+void OLED_set_contrast(contrast_value value);
 
 void OLED_print_char(char c);
 void OLED_printf(const char* fmt, ...);
