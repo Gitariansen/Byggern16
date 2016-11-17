@@ -1,45 +1,44 @@
-#ifndef ULTRASOUND_H_
-#define ULTRASOUND_H_
+#include "ultrasound.h"
 
 #include "../ATmega2560.h"
 #include <util/delay.h>
 
-#include "ultrasound.h"
+#include <avr/io.h>
+#include <avr/interrupt.h>
 
-static volatile int duration = 0;
-static volatile int prevOutput = 0;
+static volatile uint16_t duration = 0x000;
+static volatile uint8_t prevOutput = 0x00;
 
 void US_init(){
 	US_DDR |= (1 << US_TRIG_PIN);
 	US_DDR &= ~(1 << US_ECHO_PIN);
-	
-	SREG |= (1 << I); // SREG bit 7 must be enabled for global interrupts
-	EIMSK |=  (1 << INT5); // Enable interrupt at PE6->echo pin
-	EICRB |= (1 << ISC00); // Trigger interrupt at any logical change at PE6
 
+	EIMSK |= (1 << INT5); // Enable interrupt at PE5->echo pin
+	EICRB |= (1 << ISC50); // Trigger interrupt at any logical change at PE5
+
+	sei();
 }
 
 void US_distance(){
 	US_PORT |= (1 << US_TRIG_PIN);
 	_delay_us(15);
 	US_PORT &= ~(1 << US_TRIG_PIN);
-	int distance = duration/58; //Convert duration to distance in cm
-	printf("US Distance: %d", distance);
 }
 
-
-ISR(US_ECHO_INTR)
-{
-    if (prevOutput) // Falling edge
+ISR(US_ECHO_INTR) {
+    if (prevOutput) // Falling edge-> stop counter and read value
     {
-        TCCR1B=0; // Stop the counter
-        duration=TCNT1;
-        TCNT1=0; // Reset counter
-        i=0;
-    }
-    if (prevOutput==0) //Rising edge
+        TCCR3B = 0;//~(1 << CS30); // Stop the counter
+		
+        duration = TCNT3;
+		printf("Duration: %d\n", duration);
+        TCNT3 = 0x000; // Reset counter
+        prevOutput=0;
+    } 
+	else //Rising edge-> start counter
     {
-        TCCR1B|=(1<<CS10); // CS10 to start counter with no prescaler
-        i=1;
+        //TCCR3B |= (1 << CS31) | (1 << CS30); // CS30 to start counter with no prescaler
+		TCCR3B |= (1 << CS30);
+        prevOutput=1;
     }
 }

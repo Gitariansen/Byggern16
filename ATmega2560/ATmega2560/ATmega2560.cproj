@@ -195,6 +195,12 @@
     <Compile Include="src\drivers\uart.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\drivers\ultrasound.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\ultrasound.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src" />

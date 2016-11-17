@@ -18,7 +18,7 @@ float reference = 0.0;
 float prev_err = 0.0;
 float integral = 0.0;
 
-volatile uint16_t* timer_source = &TCNT1;
+volatile uint16_t* timer_source = &TCNT2;
 
 void CONTROLLER_set_reference(float ref) {
 	reference = ref;
@@ -27,6 +27,7 @@ void CONTROLLER_set_reference(float ref) {
 float CONTROLLER_actuate(float y) {
 	float dt = ((float)*timer_source)/(F_CPU);
 	*timer_source = 0;
+	
 	
 	float err = reference - y;
 	

@@ -14,6 +14,7 @@
 #include "drivers/ir.h"
 #include "drivers/motor.h"
 #include "drivers/solenoid.h"
+#include "drivers/ultrasound.h"
 #include "controller.h"
 #include "../../../can_protocol.h"
 
@@ -23,8 +24,14 @@ int main(void)
 	CAN_init();
 	IR_init();
 	SERVO_init();
-	MOTOR_init();
+	//MOTOR_init();
 	SOLENOID_init();
+	US_init();
+	
+	while(1) {
+		US_distance();
+		_delay_ms(10);
+	}
 
 	struct can_message_t send_msg;
 	struct can_message_t receive_msg;
