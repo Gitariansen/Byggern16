@@ -17,9 +17,6 @@ typedef struct menu_t {
 	void			(*function_ptr)(void);
 } menu_t;
 
-// Menus are statically allocated at compile time
-menu_t main_menu, play_menu, options_menu, highscore_menu, contrast_menu;
-
 void MENU_init();
 void MENU_open_menu(menu_t* menu);
 void MENU_print_menu();

@@ -9,8 +9,10 @@
 #include <util/delay.h>
 #include "game.h"
 #include "options.h"
+#include "highscore.h"
 #include "drivers/oled.h"
 #include "drivers/timer.h"
+#include "drivers/joystick.h"
 
 const int max_lives = 3;
 static int lives;
@@ -31,15 +33,71 @@ void GAME_new() {
 }
 
 void GAME_end() {
-	uint16_t score = TIMER_time() - start_time;
+	uint16_t time_in_ms = TIMER_time() - start_time;
 	
 	OLED_reset();
 	OLED_printf("GAME OVER!\n");
-	OLED_printf("You lasted %d seconds", score/1000);
+	OLED_printf("You lasted %d seconds", time_in_ms/1000);
 
 	_delay_ms(2000);
 
-	set_state(SAVE_USER);
+	GAME_save_score(time_in_ms / 1000);
+	
+	set_state(INITIAL);
+}
+
+void GAME_save_score(int score) {
+	OLED_reset();
+	OLED_printf("Save you score\n");
+
+	user_t user ;
+	user.score = score;
+
+	for(int i = 0; i < USERNAME_LENGTH; i++) {
+		char c = 'A';
+
+		joystick_state_t joystick_state = JOYSTICK_get_state();
+		joystick_state_t old_joystick_state = joystick_state;
+
+		while(1) {
+			joystick_state = JOYSTICK_get_state();
+			if(JOYSTICK_compare(joystick_state, old_joystick_state)) {
+				continue;
+			}
+
+			if(joystick_state.y_dirn != old_joystick_state.y_dirn) {
+				if(joystick_state.y_dirn == UP) {
+					if(c - 1 < 'A') {
+						c = 'Z';
+						} else {
+						c--;
+					}
+					} if(joystick_state.y_dirn == DOWN) {
+					if(c + 1 > 'Z') {
+						c = 'A';
+						} else {
+						c++;
+					}
+				}
+				old_joystick_state.y_dirn = joystick_state.y_dirn;
+			}
+
+			OLED_pos(1, i*5);
+			OLED_print_char(c);
+			
+			if(joystick_state.click != old_joystick_state.click && joystick_state.click) {
+				old_joystick_state.click = joystick_state.click;
+				user.name[i] = c;
+				break;
+			}
+
+			old_joystick_state = joystick_state;
+
+			_delay_ms(10);
+		}
+	}
+	HIGHSCORE_add_user(user);
+	HIGHSCORE_store_to_EEPROM();
 }
 
 void GAME_hit() {

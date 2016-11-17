@@ -5,8 +5,13 @@
  *  Author: elsala
  */ 
 
+#include "ATmega162.h"
+#include <util/delay.h>
+
 #include "highscore.h"
+#include "menu.h"
 #include "drivers/eeprom.h"
+#include "drivers/oled.h"
 
 int		num_users;
 user_t	user_array[MAX_NUM_USERS];
@@ -15,22 +20,22 @@ void HIGHSCORE_load_from_EEPROM() {
 	num_users = EEPROM_read(NUM_USERS_ADDRESS);
 	
 	for(int i = 0; i < num_users; i++) {
-		int user_index = i*(sizeof(user_t) - 1);
+		int user_index = i*sizeof(user_t);
 		// Read name
 		for(int c = 0; c < USERNAME_LENGTH; c++) {
 			user_array[i].name[c] = EEPROM_read(USER_START_ADDRESS + user_index + c);
 		}
-		user_array[i].name[USERNAME_LENGTH] = '\0';
+		//user_array[i].name[USERNAME_LENGTH] = '\0';
 		// Read score
 		user_array[i].score = EEPROM_read(USER_START_ADDRESS + user_index + USERNAME_LENGTH);
 	}
 }
 
 void HIGHSCORE_store_to_EEPROM() {
-	EEPROM_write(USER_START_ADDRESS, num_users);
+	EEPROM_write(NUM_USERS_ADDRESS, num_users);
 	
 	for(int i = 0; i < num_users; i++) {
-		int user_index = i*4;
+		int user_index = i*sizeof(user_t);
 		for(int c = 0; c < USERNAME_LENGTH; c++) {
 			EEPROM_write(USER_START_ADDRESS + c + user_index, user_array[i].name[c]);
 		}
@@ -40,7 +45,7 @@ void HIGHSCORE_store_to_EEPROM() {
 
 void HIGHSCORE_clear() {
 	for(int i = 0; i < num_users; i++) {
-		int user_index = i*(sizeof(user_t) - 1);
+		int user_index = i*sizeof(user_t);
 		
 		for(int c = 0; c < USERNAME_LENGTH; c++) {
 			EEPROM_write(USER_START_ADDRESS + user_index + c, 0);
@@ -51,18 +56,31 @@ void HIGHSCORE_clear() {
 	
 	if(num_users == 0) {
 		printf("Clear succeeded\n");
-		EEPROM_write(USER_START_ADDRESS, 0);
+		EEPROM_write(NUM_USERS_ADDRESS, 0);
 	} else {
 		printf("Clear failed\n");
 	}
 }
 
 void HIGHSCORE_add_user(user_t user) {
-	user_array[num_users] = user;
 	if(num_users < MAX_NUM_USERS) {
 		num_users++;
 	}
+	user_array[num_users - 1] = user;
+
 	qsort(user_array, num_users, sizeof(user_t), compare);
+}
+
+void HIGHSCORE_print_to_oled() {
+	OLED_reset();
+	OLED_printf("Nr    Name  Time\n");
+	for(int i = 0; i < num_users; i++) {
+		OLED_printf("%d.    ", i + 1);
+		OLED_printf("%c%c%c   ", user_array[i].name[0], user_array[i].name[1], user_array[i].name[2]);
+		OLED_printf("%d\n", user_array[i].score);
+	}
+	_delay_ms(2000);
+	MENU_print_menu();
 }
 
 user_t* HIGHSCORE_get_users() {

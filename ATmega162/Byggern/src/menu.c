@@ -8,7 +8,11 @@
 
 #include "menu.h"
 #include "game.h"
+#include "highscore.h"
 #include "drivers/oled.h"
+
+// Menus are statically allocated at compile time
+menu_t main_menu, play_menu, options_menu, highscore_menu, contrast_menu, clear_highscore_menu;
 
 menu_t* current_menu;
 int selected_index = 0;
@@ -26,7 +30,7 @@ menu_t play_menu = {
 	.function_ptr = (&GAME_new),
 };
 
-menu_t* options_menu_children[] = { &contrast_menu };
+menu_t* options_menu_children[] = { &contrast_menu, &clear_highscore_menu };
 menu_t options_menu = {
 	.name = "Options",
 	.parent = &main_menu,
@@ -37,11 +41,18 @@ menu_t options_menu = {
 menu_t highscore_menu = {
 	.name = "Highscore",
 	.parent = &main_menu,
+	.function_ptr = &HIGHSCORE_print_to_oled,
 };
 
 menu_t contrast_menu = {
 	.name = "Set Contrast",
 	.parent = &options_menu,
+};
+
+menu_t clear_highscore_menu = {
+	.name = "Clear Highscore",
+	.parent = &options_menu,
+	.function_ptr = &HIGHSCORE_clear
 };
 
 void MENU_init() {

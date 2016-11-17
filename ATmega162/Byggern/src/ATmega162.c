@@ -25,7 +25,7 @@
 #include <avr/io.h>
 
 int main(void)
-{	
+{
 	UART_init(MYUBRR);
 	JOYSTICK_init();
 	SLIDER_init();
@@ -34,29 +34,27 @@ int main(void)
 	CAN_init();
 	TIMER_init();
 	
-	// TESTING STARTS HERE
-	user_t add_user;
-	
-	add_user.name[0] = 'A';
-	add_user.name[1] = 'B';
-	add_user.name[2] = '\0';
-	add_user.score = 12;
-	printf("%s: %d\n", add_user.name, add_user.score);
-	HIGHSCORE_add_user(add_user);
-	
-	user_t* users = HIGHSCORE_get_users();
-	
-	user_t* get_user = HIGHSCORE_get_users();
-	printf("%s: %d\n", get_user[0].name, get_user[0].score);
-	
-	_delay_ms(10000);
-	return 0;
-	// AND ENDS HERE
+	HIGHSCORE_load_from_EEPROM();
 	
 	state_t state;
 
 	struct can_message_t send_msg;
 	struct can_message_t receive_msg;
+
+	/*while(1) {
+		// Testing CAN
+		send_msg.id = 10;
+		send_msg.length = 1;
+		send_msg.data[0] = 25;
+		printf("Sending message\n");
+		printf("id: %d\ndata: %d\n\n", send_msg.id, send_msg.data[0]);
+		CAN_message_send(&send_msg);
+		_delay_ms(10);
+		receive_msg = CAN_data_receive();
+		printf("Received message\n");
+		printf("id: %d\ndata: %d\n\n", receive_msg.id, receive_msg.data[0]);
+		_delay_ms(10);
+	}*/
 
 	joystick_state_t joystick_state = JOYSTICK_get_state();
 	joystick_state_t old_joystick_state = joystick_state;
@@ -73,6 +71,8 @@ int main(void)
 		switch(state) {
 			
 			case INITIAL:
+			old_joystick_state = joystick_state;
+			old_slider_position = slider_position;
 			set_state(MENU);
 			break;
 			
