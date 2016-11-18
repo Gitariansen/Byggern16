@@ -9,13 +9,13 @@
 #include "ATmega2560.h"
 #include <util/delay.h>
 #include "drivers/uart.h"
-#include "drivers/can.h"
 #include "drivers/servo.h"
 #include "drivers/ir.h"
 #include "drivers/motor.h"
 #include "drivers/solenoid.h"
+#include "drivers/can.h"
 #include "controller.h"
-#include "../../../can_protocol.h"
+#include "../../../can/can_protocol.h"
 
 int main(void)
 {
@@ -28,21 +28,6 @@ int main(void)
 
 	struct can_message_t send_msg;
 	struct can_message_t receive_msg;
-	
-	/*while(1) {
-		// Testing CAN
-		send_msg.id = 5;
-		send_msg.length = 1;
-		send_msg.data[0] = 15;
-		printf("Sending message\n");
-		printf("id: %d\ndata: %d\n\n", send_msg.id, send_msg.data[0]);
-		CAN_message_send(&send_msg);
-		_delay_ms(10);
-		receive_msg = CAN_data_receive();
-		printf("Received message\n");
-		printf("id: %d\ndata: %d\n\n", receive_msg.id, receive_msg.data[0]);
-		_delay_ms(10);
-	}*/
 
 	uint8_t ir_value = IR_read();
 	uint8_t old_ir_value = ir_value;
@@ -50,13 +35,11 @@ int main(void)
 	while(1) {
 		receive_msg = CAN_data_receive();
 
-		printf("%d %d %d %d %d\n", receive_msg.id, receive_msg.data[0], receive_msg.data[2], (uint8_t)receive_msg.data[3], (uint8_t)receive_msg.data[4]);
-
 		if(receive_msg.id == NODE_1_ID) {
 			// Message is joystick data
 			int8_t x = receive_msg.data[X_INDEX];
 			int8_t click = receive_msg.data[CLICK_INDEX];
-			SERVO_write(-x);
+			SERVO_write(x);
 			SOLENOID_shoot(click);
 
 			// Slider data

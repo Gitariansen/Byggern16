@@ -36,8 +36,7 @@ int JOYSTICK_compare(joystick_state_t joystick_a, joystick_state_t joystick_b) {
 
 joystick_state_t JOYSTICK_get_state() {
 	joystick_state_t state;
-	
-	// Position
+
 	uint8_t x_voltage = ADC_read(X_JOYSTICK_CHANNEL);
 	uint8_t y_voltage = ADC_read(Y_JOYSTICK_CHANNEL);
 	
@@ -58,7 +57,7 @@ joystick_state_t JOYSTICK_get_state() {
 		state.x_dirn = X_NEUTRAL;
 	}
 	
-	if(state.y > 10) {
+	if(state.y > 60) {
 		state.y_dirn = UP;
 	} else if(state.y < -60) {
 		state.y_dirn = DOWN;
@@ -66,7 +65,6 @@ joystick_state_t JOYSTICK_get_state() {
 		state.y_dirn = Y_NEUTRAL;
 	}
 	
-	// Click
 	state.click = (PINB & 1) == 0;
 	
 	return state;
