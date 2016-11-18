@@ -9,6 +9,8 @@
 #define US_ECHO_EDGE_DETECT		INT5_vect
 #define US_ECHO_TIMER_OVERFLOW	TIMER3_OVF_vect
 
+//#define 
+
 /*
 	-EXTRA-
 	This module uses an ultrasonic sensor to measure distance in centimeters

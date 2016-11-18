@@ -35,7 +35,7 @@ void US_init(){
 void US_trigger(){
 	if(working == 0)
 	{
-		/* 60ms measurement cycle is suggested by the data sheet to prevent trigger signal to the echo signal*/
+		/* 60ms measurement cycle is suggested by the data sheet to prevent trigger signal to the echo signal */
 		_delay_ms(60);
 		/* Ensure the pin is low before sending the trigger*/
 		US_PORT &=~ (1 << US_TRIG_PIN);
@@ -70,8 +70,8 @@ ISR (US_ECHO_EDGE_DETECT)
 		{	
 			/* 3th order moving average filter */
 			static int filter[3];
-			int new_val = (timer_value*30.5 + TCNT3)/2/58;
-			distance_cm_avg = (timer_value*30.5 + TCNT3)/2/58;
+			int new_val = (timer_value*30.5 + TCNT3)/2/58 + 5; //(2MHz/16bit = 30.5)
+			distance_cm_avg = (timer_value*30.5 + TCNT3)/2/58 + 5;
 			for(int i = 1; i < 3; i++) {
 				distance_cm_avg += filter[i];
 				filter[i - 1] = filter[i];
