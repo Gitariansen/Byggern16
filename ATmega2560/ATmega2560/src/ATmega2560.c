@@ -26,11 +26,14 @@ int main(void)
 	SERVO_init();
 	//MOTOR_init();
 	SOLENOID_init();
+	
 	US_init();
+	Initialize_timer3();
 	
 	while(1) {
-		US_distance();
-		_delay_ms(10);
+		US_trigger();
+		int distance = US_get_distance();
+		printf("Distance: %d\n", distance);
 	}
 
 	struct can_message_t send_msg;
