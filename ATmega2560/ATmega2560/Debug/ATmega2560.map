@@ -7,13 +7,15 @@ c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-t
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
                               src/drivers/servo.o (__ltsf2)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3.o)
-                              src/controller.o (__divsf3)
+                              src/ATmega2560.o (__divsf3)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3x.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3.o) (__divsf3x)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
+                              src/drivers/ultrasound.o (__fixsfsi)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
-                              src/drivers/pwm.o (__fixunssfsi)
+                              src/ATmega2560.o (__fixunssfsi)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(floatsisf.o)
-                              src/controller.o (__floatunsisf)
+                              src/ATmega2560.o (__floatunsisf)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(cmpsf2.o) (__fp_cmp)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_inf.o)
@@ -31,9 +33,9 @@ c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-t
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_zero.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(addsf3x.o) (__fp_zero)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(gesf2.o)
-                              src/drivers/servo.o (__gtsf2)
+                              src/ATmega2560.o (__gtsf2)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(mulsf3.o)
-                              src/controller.o (__mulsf3)
+                              src/ATmega2560.o (__mulsf3)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(mulsf3.o) (__mulsf3x)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr6\libgcc.a(_exit.o)
@@ -41,7 +43,7 @@ c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-t
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr6\libgcc.a(_tablejump.o)
                               src/drivers/TWI_Master.o (__tablejump2__)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr6\libgcc.a(_copy_data.o)
-                              src/controller.o (__do_copy_data)
+                              src/ATmega2560.o (__do_copy_data)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr6\libgcc.a(_clear_bss.o)
                               src/ATmega2560.o (__do_clear_bss)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(fdevopen.o)
@@ -49,7 +51,7 @@ c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-t
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(iob.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(fdevopen.o) (__iob)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(printf.o)
-                              src/drivers/motor.o (printf)
+                              src/ATmega2560.o (printf)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(puts.o)
                               src/drivers/can.o (puts)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
@@ -72,9 +74,15 @@ c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-t
 Allocating common symbols
 Common symbol       size              file
 
+working             0x1               src/drivers/ultrasound.o
 __brkval            0x2               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(malloc.o)
+timer_value         0x2               src/drivers/ultrasound.o
+rising_edge         0x1               src/drivers/ultrasound.o
+max_distance        0x1               src/drivers/ultrasound.o
+error               0x1               src/drivers/ultrasound.o
 max_encoder_value   0x2               src/drivers/motor.o
 __flp               0x2               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(malloc.o)
+distance_cm_avg     0x2               src/drivers/ultrasound.o
 __iob               0x6               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(iob.o)
 rx_flag             0x1               src/drivers/can.o
 can_message_t       0xb               src/ATmega2560.o
@@ -90,140 +98,56 @@ Discarded input sections
  .text          0x00000000        0x0 src/controller.o
  .data          0x00000000        0x0 src/controller.o
  .bss           0x00000000        0x0 src/controller.o
- .text.CONTROLLER_set_reference
-                0x00000000       0x12 src/controller.o
- .text.CONTROLLER_actuate
-                0x00000000      0x11c src/controller.o
- .data.timer_source
-                0x00000000        0x2 src/controller.o
- .bss.integral  0x00000000        0x4 src/controller.o
- .bss.prev_err  0x00000000        0x4 src/controller.o
- .bss.reference
-                0x00000000        0x4 src/controller.o
  .rodata.Kd     0x00000000        0x4 src/controller.o
  .rodata.Ki     0x00000000        0x4 src/controller.o
  .rodata.Kp     0x00000000        0x4 src/controller.o
- .debug_info    0x00000000      0x19c src/controller.o
- .debug_abbrev  0x00000000       0xe4 src/controller.o
- .debug_loc     0x00000000      0x169 src/controller.o
- .debug_aranges
-                0x00000000       0x28 src/controller.o
- .debug_ranges  0x00000000       0x18 src/controller.o
- .debug_line    0x00000000       0xf8 src/controller.o
- .debug_str     0x00000000      0x1cb src/controller.o
- .comment       0x00000000       0x31 src/controller.o
- .debug_frame   0x00000000       0x7c src/controller.o
  .text          0x00000000        0x0 src/drivers/adc.o
  .data          0x00000000        0x0 src/drivers/adc.o
  .bss           0x00000000        0x0 src/drivers/adc.o
- .text.ADC_read
-                0x00000000       0x1e src/drivers/adc.o
  .text          0x00000000        0x0 src/drivers/can.o
  .data          0x00000000        0x0 src/drivers/can.o
  .bss           0x00000000        0x0 src/drivers/can.o
- .text.CAN_message_send
-                0x00000000       0xa4 src/drivers/can.o
- .text.CAN_data_receive
-                0x00000000       0xde src/drivers/can.o
- .data.empty_msg
-                0x00000000        0xb src/drivers/can.o
  .text          0x00000000        0x0 src/drivers/dac.o
  .data          0x00000000        0x0 src/drivers/dac.o
  .bss           0x00000000        0x0 src/drivers/dac.o
- .text.DAC_init
-                0x00000000        0x6 src/drivers/dac.o
- .text.DAC_write
-                0x00000000       0x28 src/drivers/dac.o
- .debug_info    0x00000000      0x129 src/drivers/dac.o
- .debug_abbrev  0x00000000       0xf1 src/drivers/dac.o
- .debug_loc     0x00000000       0x75 src/drivers/dac.o
- .debug_aranges
-                0x00000000       0x28 src/drivers/dac.o
- .debug_ranges  0x00000000       0x18 src/drivers/dac.o
- .debug_line    0x00000000       0xeb src/drivers/dac.o
- .debug_str     0x00000000      0x1c4 src/drivers/dac.o
- .comment       0x00000000       0x31 src/drivers/dac.o
- .debug_frame   0x00000000       0x44 src/drivers/dac.o
  .text          0x00000000        0x0 src/drivers/ir.o
  .data          0x00000000        0x0 src/drivers/ir.o
  .bss           0x00000000        0x0 src/drivers/ir.o
- .text.IR_read  0x00000000       0x3c src/drivers/ir.o
- .bss.filter.1625
-                0x00000000        0x4 src/drivers/ir.o
  .rodata.threshold
                 0x00000000        0x1 src/drivers/ir.o
  .text          0x00000000        0x0 src/drivers/MCP2515.o
  .data          0x00000000        0x0 src/drivers/MCP2515.o
  .bss           0x00000000        0x0 src/drivers/MCP2515.o
- .text.MCP2515_write_data
-                0x00000000       0x50 src/drivers/MCP2515.o
- .text.MCP2515_request_to_send
-                0x00000000       0x1e src/drivers/MCP2515.o
  .text.MCP2515_read_status
                 0x00000000       0x2a src/drivers/MCP2515.o
  .text          0x00000000        0x0 src/drivers/motor.o
  .data          0x00000000        0x0 src/drivers/motor.o
  .bss           0x00000000        0x0 src/drivers/motor.o
- .text.MOTOR_max_encoder_value
-                0x00000000        0xa src/drivers/motor.o
- .text.MOTOR_set_velocity
-                0x00000000       0x12 src/drivers/motor.o
- .text.MOTOR_set_dir_right
-                0x00000000       0x1c src/drivers/motor.o
  .text.reverse_byte
                 0x00000000       0x4c src/drivers/motor.o
- .text.MOTOR_read_encoder
-                0x00000000       0x80 src/drivers/motor.o
- .rodata.str1.1
-                0x00000000       0x13 src/drivers/motor.o
- .text.MOTOR_calibrate
-                0x00000000       0xca src/drivers/motor.o
- .text.MOTOR_init
-                0x00000000       0x40 src/drivers/motor.o
  .rodata.max_velocity
                 0x00000000        0x1 src/drivers/motor.o
- .debug_info    0x00000000      0x53b src/drivers/motor.o
- .debug_abbrev  0x00000000      0x272 src/drivers/motor.o
- .debug_loc     0x00000000      0x1d6 src/drivers/motor.o
- .debug_aranges
-                0x00000000       0x50 src/drivers/motor.o
- .debug_ranges  0x00000000       0x58 src/drivers/motor.o
- .debug_line    0x00000000      0x2f9 src/drivers/motor.o
- .debug_str     0x00000000      0x293 src/drivers/motor.o
- .comment       0x00000000       0x31 src/drivers/motor.o
- .debug_frame   0x00000000       0xbc src/drivers/motor.o
- COMMON         0x00000000        0x2 src/drivers/motor.o
  .text          0x00000000        0x0 src/drivers/pwm.o
  .data          0x00000000        0x0 src/drivers/pwm.o
  .bss           0x00000000        0x0 src/drivers/pwm.o
  .text          0x00000000        0x0 src/drivers/servo.o
  .data          0x00000000        0x0 src/drivers/servo.o
  .bss           0x00000000        0x0 src/drivers/servo.o
- .text.SERVO_write
-                0x00000000       0x9c src/drivers/servo.o
  .rodata.max    0x00000000        0x4 src/drivers/servo.o
  .rodata.min    0x00000000        0x4 src/drivers/servo.o
  .text          0x00000000        0x0 src/drivers/solenoid.o
  .data          0x00000000        0x0 src/drivers/solenoid.o
  .bss           0x00000000        0x0 src/drivers/solenoid.o
- .text.SOLENOID_shoot
-                0x00000000       0x24 src/drivers/solenoid.o
- .bss.enabled.1597
-                0x00000000        0x1 src/drivers/solenoid.o
  .text          0x00000000        0x0 src/drivers/spi.o
  .data          0x00000000        0x0 src/drivers/spi.o
  .bss           0x00000000        0x0 src/drivers/spi.o
  .text          0x00000000        0x0 src/drivers/TWI_Master.o
  .data          0x00000000        0x0 src/drivers/TWI_Master.o
  .bss           0x00000000        0x0 src/drivers/TWI_Master.o
- .text.TWI_Master_Initialise
-                0x00000000       0x14 src/drivers/TWI_Master.o
  .text.TWI_Transceiver_Busy
                 0x00000000        0x8 src/drivers/TWI_Master.o
  .text.TWI_Get_State_Info
                 0x00000000       0x10 src/drivers/TWI_Master.o
- .text.TWI_Start_Transceiver_With_Data
-                0x00000000       0x44 src/drivers/TWI_Master.o
  .text.TWI_Start_Transceiver
                 0x00000000       0x1c src/drivers/TWI_Master.o
  .text.TWI_Get_Data_From_Transceiver
@@ -234,44 +158,41 @@ Discarded input sections
  .text          0x00000000        0x0 src/drivers/ultrasound.o
  .data          0x00000000        0x0 src/drivers/ultrasound.o
  .bss           0x00000000        0x0 src/drivers/ultrasound.o
+ .text.US_trigger
+                0x00000000       0x42 src/drivers/ultrasound.o
+ .rodata.str1.1
+                0x00000000       0x27 src/drivers/ultrasound.o
+ .text.US_calibrate
+                0x00000000       0x32 src/drivers/ultrasound.o
+ .text.US_get_distance
+                0x00000000        0xe src/drivers/ultrasound.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(addsf3.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(addsf3.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(addsf3.o)
- .text.avr-libc.fplib
-                0x00000000        0xa c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(addsf3.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(addsf3x.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(addsf3x.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(addsf3x.o)
- .text.avr-libc.fplib
-                0x00000000       0xc0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(addsf3x.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
- .text.avr-libc.fplib
-                0x00000000        0x8 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3.o)
- .text.avr-libc.fplib
-                0x00000000        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3x.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3x.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3x.o)
- .text.avr-libc.fplib
-                0x00000000       0xcc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3x.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(floatsisf.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(floatsisf.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(floatsisf.o)
- .text.avr-libc.fplib
-                0x00000000       0x7a c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(floatsisf.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
- .text.avr-libc.fplib
-                0x00000000       0x48 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_inf.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_inf.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_inf.o)
@@ -296,8 +217,6 @@ Discarded input sections
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(gesf2.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(gesf2.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(gesf2.o)
- .text.avr-libc.fplib
-                0x00000000        0x8 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(gesf2.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(mulsf3.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(mulsf3.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(mulsf3.o)
@@ -533,7 +452,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1088
+.text           0x00000000     0x1b8e
  *(.vectors)
  .vectors       0x00000000       0xe4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6/crtm2560.o
                 0x00000000                __vector_default
@@ -588,216 +507,312 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x000001c0        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6/crtm2560.o
+ .init9         0x000001c0        0x6 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6/crtm2560.o
  *(.init9)
  *(.text)
- .text          0x000001c4        0x2 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6/crtm2560.o
-                0x000001c4                __vector_38
-                0x000001c4                __vector_22
-                0x000001c4                __vector_28
-                0x000001c4                __vector_1
-                0x000001c4                __vector_32
-                0x000001c4                __vector_34
-                0x000001c4                __vector_24
-                0x000001c4                __vector_12
-                0x000001c4                __vector_55
-                0x000001c4                __vector_46
-                0x000001c4                __bad_interrupt
-                0x000001c4                __vector_31
-                0x000001c4                __vector_35
-                0x000001c4                __vector_23
-                0x000001c4                __vector_30
-                0x000001c4                __vector_45
-                0x000001c4                __vector_25
-                0x000001c4                __vector_11
-                0x000001c4                __vector_54
-                0x000001c4                __vector_13
-                0x000001c4                __vector_17
-                0x000001c4                __vector_19
-                0x000001c4                __vector_56
-                0x000001c4                __vector_7
-                0x000001c4                __vector_49
-                0x000001c4                __vector_41
-                0x000001c4                __vector_43
-                0x000001c4                __vector_27
-                0x000001c4                __vector_5
-                0x000001c4                __vector_33
-                0x000001c4                __vector_47
-                0x000001c4                __vector_52
-                0x000001c4                __vector_37
-                0x000001c4                __vector_4
-                0x000001c4                __vector_44
-                0x000001c4                __vector_51
-                0x000001c4                __vector_9
-                0x000001c4                __vector_2
-                0x000001c4                __vector_21
-                0x000001c4                __vector_15
-                0x000001c4                __vector_36
-                0x000001c4                __vector_29
-                0x000001c4                __vector_40
-                0x000001c4                __vector_8
-                0x000001c4                __vector_26
-                0x000001c4                __vector_48
-                0x000001c4                __vector_14
-                0x000001c4                __vector_53
-                0x000001c4                __vector_10
-                0x000001c4                __vector_50
-                0x000001c4                __vector_16
-                0x000001c4                __vector_18
-                0x000001c4                __vector_20
-                0x000001c4                __vector_42
-                0x000001c6                . = ALIGN (0x2)
+ .text          0x000001c6        0x2 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6/crtm2560.o
+                0x000001c6                __vector_38
+                0x000001c6                __vector_22
+                0x000001c6                __vector_28
+                0x000001c6                __vector_1
+                0x000001c6                __vector_32
+                0x000001c6                __vector_34
+                0x000001c6                __vector_24
+                0x000001c6                __vector_12
+                0x000001c6                __vector_55
+                0x000001c6                __vector_46
+                0x000001c6                __bad_interrupt
+                0x000001c6                __vector_31
+                0x000001c6                __vector_23
+                0x000001c6                __vector_30
+                0x000001c6                __vector_45
+                0x000001c6                __vector_25
+                0x000001c6                __vector_11
+                0x000001c6                __vector_54
+                0x000001c6                __vector_13
+                0x000001c6                __vector_17
+                0x000001c6                __vector_19
+                0x000001c6                __vector_56
+                0x000001c6                __vector_7
+                0x000001c6                __vector_49
+                0x000001c6                __vector_41
+                0x000001c6                __vector_43
+                0x000001c6                __vector_27
+                0x000001c6                __vector_5
+                0x000001c6                __vector_33
+                0x000001c6                __vector_47
+                0x000001c6                __vector_52
+                0x000001c6                __vector_37
+                0x000001c6                __vector_4
+                0x000001c6                __vector_44
+                0x000001c6                __vector_51
+                0x000001c6                __vector_9
+                0x000001c6                __vector_2
+                0x000001c6                __vector_21
+                0x000001c6                __vector_15
+                0x000001c6                __vector_36
+                0x000001c6                __vector_29
+                0x000001c6                __vector_40
+                0x000001c6                __vector_8
+                0x000001c6                __vector_26
+                0x000001c6                __vector_48
+                0x000001c6                __vector_14
+                0x000001c6                __vector_53
+                0x000001c6                __vector_10
+                0x000001c6                __vector_50
+                0x000001c6                __vector_16
+                0x000001c6                __vector_18
+                0x000001c6                __vector_20
+                0x000001c6                __vector_42
+                0x000001c8                . = ALIGN (0x2)
  *(.text.*)
- .text.main     0x000001c6       0x20 src/ATmega2560.o
-                0x000001c6                main
+ .text.main     0x000001c8      0x15a src/ATmega2560.o
+                0x000001c8                main
+ .text.CONTROLLER_set_reference
+                0x00000322       0x12 src/controller.o
+                0x00000322                CONTROLLER_set_reference
+ .text.CONTROLLER_actuate
+                0x00000334      0x106 src/controller.o
+                0x00000334                CONTROLLER_actuate
  .text.ADC_init
-                0x000001e6       0x12 src/drivers/adc.o
-                0x000001e6                ADC_init
+                0x0000043a       0x12 src/drivers/adc.o
+                0x0000043a                ADC_init
+ .text.ADC_read
+                0x0000044c       0x1e src/drivers/adc.o
+                0x0000044c                ADC_read
  .text.CAN_init
-                0x000001f8       0x32 src/drivers/can.o
-                0x000001f8                CAN_init
+                0x0000046a       0x32 src/drivers/can.o
+                0x0000046a                CAN_init
+ .text.CAN_message_send
+                0x0000049c       0xa0 src/drivers/can.o
+                0x0000049c                CAN_message_send
+ .text.CAN_data_receive
+                0x0000053c       0xd6 src/drivers/can.o
+                0x0000053c                CAN_data_receive
  .text.CAN_error
-                0x0000022a       0x20 src/drivers/can.o
-                0x0000022a                CAN_error
+                0x00000612       0x20 src/drivers/can.o
+                0x00000612                CAN_error
  .text.CAN_int_vect
-                0x0000024a       0x22 src/drivers/can.o
-                0x0000024a                CAN_int_vect
+                0x00000632       0x22 src/drivers/can.o
+                0x00000632                CAN_int_vect
  .text.__vector_3
-                0x0000026c       0x4e src/drivers/can.o
-                0x0000026c                __vector_3
- .text.IR_init  0x000002ba        0x4 src/drivers/ir.o
-                0x000002ba                IR_init
+                0x00000654       0x4e src/drivers/can.o
+                0x00000654                __vector_3
+ .text.DAC_init
+                0x000006a2        0x4 src/drivers/dac.o
+                0x000006a2                DAC_init
+ .text.DAC_write
+                0x000006a6       0x26 src/drivers/dac.o
+                0x000006a6                DAC_write
+ .text.IR_init  0x000006cc        0x4 src/drivers/ir.o
+                0x000006cc                IR_init
+ .text.IR_read  0x000006d0       0x3a src/drivers/ir.o
+                0x000006d0                IR_read
  .text.MCP2515_read_data
-                0x000002be       0x20 src/drivers/MCP2515.o
-                0x000002be                MCP2515_read_data
+                0x0000070a       0x20 src/drivers/MCP2515.o
+                0x0000070a                MCP2515_read_data
+ .text.MCP2515_write_data
+                0x0000072a       0x46 src/drivers/MCP2515.o
+                0x0000072a                MCP2515_write_data
+ .text.MCP2515_request_to_send
+                0x00000770       0x18 src/drivers/MCP2515.o
+                0x00000770                MCP2515_request_to_send
  .text.MCP2515_bit_modify
-                0x000002de       0x2c src/drivers/MCP2515.o
-                0x000002de                MCP2515_bit_modify
+                0x00000788       0x2c src/drivers/MCP2515.o
+                0x00000788                MCP2515_bit_modify
  .text.MCP2515_reset
-                0x0000030a        0xe src/drivers/MCP2515.o
-                0x0000030a                MCP2515_reset
+                0x000007b4        0xe src/drivers/MCP2515.o
+                0x000007b4                MCP2515_reset
  .text.MCP2515_init
-                0x00000318       0x3c src/drivers/MCP2515.o
-                0x00000318                MCP2515_init
+                0x000007c2       0x3c src/drivers/MCP2515.o
+                0x000007c2                MCP2515_init
+ .text.MOTOR_max_encoder_value
+                0x000007fe        0xa src/drivers/motor.o
+                0x000007fe                MOTOR_max_encoder_value
+ .text.MOTOR_set_velocity
+                0x00000808        0xe src/drivers/motor.o
+                0x00000808                MOTOR_set_velocity
+ .text.MOTOR_set_dir_right
+                0x00000816       0x1c src/drivers/motor.o
+                0x00000816                MOTOR_set_dir_right
+ .text.MOTOR_read_encoder
+                0x00000832       0x80 src/drivers/motor.o
+                0x00000832                MOTOR_read_encoder
+ .text.MOTOR_calibrate
+                0x000008b2       0xb8 src/drivers/motor.o
+                0x000008b2                MOTOR_calibrate
+ .text.MOTOR_init
+                0x0000096a       0x3c src/drivers/motor.o
+                0x0000096a                MOTOR_init
  .text.PWM_set_period
-                0x00000354       0x34 src/drivers/pwm.o
-                0x00000354                PWM_set_period
+                0x000009a6       0x34 src/drivers/pwm.o
+                0x000009a6                PWM_set_period
  .text.PWM_set_pulse_width
-                0x00000388       0x16 src/drivers/pwm.o
-                0x00000388                PWM_set_pulse_width
+                0x000009da       0x16 src/drivers/pwm.o
+                0x000009da                PWM_set_pulse_width
  .text.SERVO_init
-                0x0000039e       0x16 src/drivers/servo.o
-                0x0000039e                SERVO_init
+                0x000009f0       0x16 src/drivers/servo.o
+                0x000009f0                SERVO_init
+ .text.SERVO_write
+                0x00000a06       0x8e src/drivers/servo.o
+                0x00000a06                SERVO_write
  .text.SOLENOID_init
-                0x000003b4        0x4 src/drivers/solenoid.o
-                0x000003b4                SOLENOID_init
+                0x00000a94        0x4 src/drivers/solenoid.o
+                0x00000a94                SOLENOID_init
+ .text.SOLENOID_shoot
+                0x00000a98       0x24 src/drivers/solenoid.o
+                0x00000a98                SOLENOID_shoot
  .text.SPI_master_init
-                0x000003b8        0xe src/drivers/spi.o
-                0x000003b8                SPI_master_init
+                0x00000abc        0xe src/drivers/spi.o
+                0x00000abc                SPI_master_init
  .text.SPI_transcieve
-                0x000003c6        0xc src/drivers/spi.o
-                0x000003c6                SPI_transcieve
+                0x00000aca        0xc src/drivers/spi.o
+                0x00000aca                SPI_transcieve
  .text.SPI_SS_low
-                0x000003d2        0x4 src/drivers/spi.o
-                0x000003d2                SPI_SS_low
+                0x00000ad6        0x4 src/drivers/spi.o
+                0x00000ad6                SPI_SS_low
  .text.SPI_SS_high
-                0x000003d6        0x4 src/drivers/spi.o
-                0x000003d6                SPI_SS_high
+                0x00000ada        0x4 src/drivers/spi.o
+                0x00000ada                SPI_SS_high
+ .text.TWI_Master_Initialise
+                0x00000ade       0x14 src/drivers/TWI_Master.o
+                0x00000ade                TWI_Master_Initialise
+ .text.TWI_Start_Transceiver_With_Data
+                0x00000af2       0x44 src/drivers/TWI_Master.o
+                0x00000af2                TWI_Start_Transceiver_With_Data
  .text.__vector_39
-                0x000003da      0x106 src/drivers/TWI_Master.o
-                0x000003da                __vector_39
+                0x00000b36      0x106 src/drivers/TWI_Master.o
+                0x00000b36                __vector_39
  .text.UART_transmit
-                0x000004e0       0x14 src/drivers/uart.o
-                0x000004e0                UART_transmit
+                0x00000c3c       0x14 src/drivers/uart.o
+                0x00000c3c                UART_transmit
  .text.UART_receive
-                0x000004f4       0x10 src/drivers/uart.o
-                0x000004f4                UART_receive
+                0x00000c50       0x10 src/drivers/uart.o
+                0x00000c50                UART_receive
  .text.UART_init
-                0x00000504       0x24 src/drivers/uart.o
-                0x00000504                UART_init
- .text.US_init  0x00000528       0x14 src/drivers/ultrasound.o
-                0x00000528                US_init
- .text.US_distance
-                0x0000053c        0xc src/drivers/ultrasound.o
-                0x0000053c                US_distance
+                0x00000c60       0x24 src/drivers/uart.o
+                0x00000c60                UART_init
+ .text.Initialize_timer3
+                0x00000c84       0x1e src/drivers/ultrasound.o
+                0x00000c84                Initialize_timer3
+ .text.US_init  0x00000ca2       0x16 src/drivers/ultrasound.o
+                0x00000ca2                US_init
  .text.__vector_6
-                0x00000548       0xa8 src/drivers/ultrasound.o
-                0x00000548                __vector_6
+                0x00000cb8      0x192 src/drivers/ultrasound.o
+                0x00000cb8                __vector_6
+ .text.__vector_35
+                0x00000e4a       0x36 src/drivers/ultrasound.o
+                0x00000e4a                __vector_35
  .text.avr-libc.fplib
-                0x000005f0       0x58 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
-                0x000005f0                __fixunssfsi
+                0x00000e80        0xa c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(addsf3.o)
+                0x00000e80                __subsf3
+                0x00000e82                __addsf3
  .text.avr-libc.fplib
-                0x00000648        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_inf.o)
-                0x00000648                __fp_inf
+                0x00000e8a       0xc0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(addsf3x.o)
+                0x00000ea4                __addsf3x
  .text.avr-libc.fplib
-                0x00000654        0x6 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_nan.o)
-                0x00000654                __fp_nan
+                0x00000f4a        0x8 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
+                0x00000f4a                __nesf2
+                0x00000f4a                __eqsf2
+                0x00000f4a                __cmpsf2
+                0x00000f4a                __ltsf2
+                0x00000f4a                __lesf2
  .text.avr-libc.fplib
-                0x0000065a        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
-                0x0000065a                __fp_pscA
+                0x00000f52        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3.o)
+                0x00000f52                __divsf3
  .text.avr-libc.fplib
-                0x00000668        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
-                0x00000668                __fp_pscB
+                0x00000f56       0xcc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(divsf3x.o)
+                0x00000f6c                __divsf3x
+                0x00000f70                __divsf3_pse
  .text.avr-libc.fplib
-                0x00000676       0x22 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_round.o)
-                0x00000676                __fp_round
+                0x00001022        0xa c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
+                0x00001022                __fixsfsi
  .text.avr-libc.fplib
-                0x00000698       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_split3.o)
-                0x00000698                __fp_split3
-                0x000006a8                __fp_splitA
+                0x0000102c       0x58 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
+                0x0000102c                __fixunssfsi
  .text.avr-libc.fplib
-                0x000006dc        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_zero.o)
-                0x000006dc                __fp_zero
-                0x000006de                __fp_szero
+                0x00001084       0x7a c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(floatsisf.o)
+                0x00001084                __floatunsisf
+                0x00001088                __floatsisf
  .text.avr-libc.fplib
-                0x000006ea        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(mulsf3.o)
-                0x000006ea                __mulsf3
+                0x000010fe       0x48 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
+                0x000010fe                __fp_cmp
  .text.avr-libc.fplib
-                0x000006ee       0xc2 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
-                0x00000702                __mulsf3x
-                0x00000706                __mulsf3_pse
- .text.libgcc   0x000007b0        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr6\libgcc.a(_tablejump.o)
-                0x000007b0                __tablejump2__
-                0x000007b4                __tablejump__
+                0x00001146        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_inf.o)
+                0x00001146                __fp_inf
+ .text.avr-libc.fplib
+                0x00001152        0x6 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_nan.o)
+                0x00001152                __fp_nan
+ .text.avr-libc.fplib
+                0x00001158        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
+                0x00001158                __fp_pscA
+ .text.avr-libc.fplib
+                0x00001166        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
+                0x00001166                __fp_pscB
+ .text.avr-libc.fplib
+                0x00001174       0x22 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_round.o)
+                0x00001174                __fp_round
+ .text.avr-libc.fplib
+                0x00001196       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_split3.o)
+                0x00001196                __fp_split3
+                0x000011a6                __fp_splitA
+ .text.avr-libc.fplib
+                0x000011da        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(fp_zero.o)
+                0x000011da                __fp_zero
+                0x000011dc                __fp_szero
+ .text.avr-libc.fplib
+                0x000011e8        0x8 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(gesf2.o)
+                0x000011e8                __gesf2
+                0x000011e8                __gtsf2
+ .text.avr-libc.fplib
+                0x000011f0        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(mulsf3.o)
+                0x000011f0                __mulsf3
+ .text.avr-libc.fplib
+                0x000011f4       0xc2 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
+                0x00001208                __mulsf3x
+                0x0000120c                __mulsf3_pse
+ .text.libgcc   0x000012b6        0xc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr6\libgcc.a(_tablejump.o)
+                0x000012b6                __tablejump2__
+                0x000012ba                __tablejump__
  .text.avr-libc
-                0x000007bc       0x94 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(fdevopen.o)
-                0x000007bc                fdevopen
+                0x000012c2       0x94 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(fdevopen.o)
+                0x000012c2                fdevopen
  .text.avr-libc
-                0x00000850       0x22 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(printf.o)
-                0x00000850                printf
+                0x00001356       0x22 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(printf.o)
+                0x00001356                printf
  .text.avr-libc
-                0x00000872       0x5a c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(puts.o)
-                0x00000872                puts
+                0x00001378       0x5a c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(puts.o)
+                0x00001378                puts
  .text.avr-libc
-                0x000008cc      0x3dc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
-                0x000008cc                vfprintf
+                0x000013d2      0x3dc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+                0x000013d2                vfprintf
  .text.avr-libc
-                0x00000ca8       0x34 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(calloc.o)
-                0x00000ca8                calloc
+                0x000017ae       0x34 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(calloc.o)
+                0x000017ae                calloc
  .text.avr-libc
-                0x00000cdc      0x24e c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(malloc.o)
-                0x00000cdc                malloc
-                0x00000e0c                free
+                0x000017e2      0x24e c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(malloc.o)
+                0x000017e2                malloc
+                0x00001912                free
  .text.avr-libc
-                0x00000f2a       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
-                0x00000f2a                strnlen_P
+                0x00001a30       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+                0x00001a30                strnlen_P
  .text.avr-libc
-                0x00000f40        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(memset.o)
-                0x00000f40                memset
+                0x00001a46        0xe c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(memset.o)
+                0x00001a46                memset
  .text.avr-libc
-                0x00000f4e       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(strnlen.o)
-                0x00000f4e                strnlen
+                0x00001a54       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(strnlen.o)
+                0x00001a54                strnlen
  .text.avr-libc
-                0x00000f64       0x64 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(fputc.o)
-                0x00000f64                fputc
+                0x00001a6a       0x64 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(fputc.o)
+                0x00001a6a                fputc
  .text.avr-libc
-                0x00000fc8       0xbc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
-                0x00000fc8                __ultoa_invert
-                0x00001084                . = ALIGN (0x2)
+                0x00001ace       0xbc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+                0x00001ace                __ultoa_invert
+                0x00001b8a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001084        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr6\libgcc.a(_exit.o)
-                0x00001084                _exit
-                0x00001084                exit
+ .fini9         0x00001b8a        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr6\libgcc.a(_exit.o)
+                0x00001b8a                _exit
+                0x00001b8a                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -816,11 +831,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001084        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr6\libgcc.a(_exit.o)
+ .fini0         0x00001b8a        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr6\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001088                _etext = .
+                0x00001b8e                _etext = .
 
-.data           0x00800200       0xaa load address 0x00001088
+.data           0x00800200       0xd4 load address 0x00001b8e
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800200        0x6 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(malloc.o)
@@ -828,55 +843,82 @@ END GROUP
                 0x00800202                __malloc_heap_start
                 0x00800204                __malloc_margin
  *(.data*)
+ .data.timer_source
+                0x00800206        0x2 src/controller.o
+                0x00800206                timer_source
+ .data.empty_msg
+                0x00800208        0xb src/drivers/can.o
+                0x00800208                empty_msg
  .data.TWI_state
-                0x00800206        0x1 src/drivers/TWI_Master.o
+                0x00800213        0x1 src/drivers/TWI_Master.o
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800207       0x62 src/drivers/can.o
+                0x00800214       0x18 src/ATmega2560.o
  .rodata.str1.1
-                0x00800269       0x32 src/drivers/MCP2515.o
+                0x0080022c       0x62 src/drivers/can.o
  .rodata.str1.1
-                0x0080029b        0xe src/drivers/ultrasound.o
+                0x0080028e       0x32 src/drivers/MCP2515.o
+ .rodata.str1.1
+                0x008002c0       0x13 src/drivers/motor.o
  *(.gnu.linkonce.d*)
-                0x008002aa                . = ALIGN (0x2)
- *fill*         0x008002a9        0x1 
-                0x008002aa                _edata = .
-                0x008002aa                PROVIDE (__data_end, .)
+                0x008002d4                . = ALIGN (0x2)
+ *fill*         0x008002d3        0x1 
+                0x008002d4                _edata = .
+                0x008002d4                PROVIDE (__data_end, .)
 
-.bss            0x008002aa       0x15
-                0x008002aa                PROVIDE (__bss_start, .)
+.bss            0x008002d4       0x33
+                0x008002d4                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
+ .bss.integral  0x008002d4        0x4 src/controller.o
+                0x008002d4                integral
+ .bss.prev_err  0x008002d8        0x4 src/controller.o
+                0x008002d8                prev_err
+ .bss.reference
+                0x008002dc        0x4 src/controller.o
+                0x008002dc                reference
+ .bss.filter.1625
+                0x008002e0        0x4 src/drivers/ir.o
+ .bss.enabled.1597
+                0x008002e4        0x1 src/drivers/solenoid.o
  .bss.TWI_bufPtr.1535
-                0x008002aa        0x1 src/drivers/TWI_Master.o
+                0x008002e5        0x1 src/drivers/TWI_Master.o
  .bss.TWI_statusReg
-                0x008002ab        0x1 src/drivers/TWI_Master.o
-                0x008002ab                TWI_statusReg
+                0x008002e6        0x1 src/drivers/TWI_Master.o
+                0x008002e6                TWI_statusReg
  .bss.TWI_msgSize
-                0x008002ac        0x1 src/drivers/TWI_Master.o
- .bss.TWI_buf   0x008002ad        0x4 src/drivers/TWI_Master.o
- .bss.prevOutput
-                0x008002b1        0x1 src/drivers/ultrasound.o
- .bss.duration  0x008002b2        0x2 src/drivers/ultrasound.o
+                0x008002e7        0x1 src/drivers/TWI_Master.o
+ .bss.TWI_buf   0x008002e8        0x4 src/drivers/TWI_Master.o
+ .bss.filter.1615
+                0x008002ec        0x6 src/drivers/ultrasound.o
  *(COMMON)
- COMMON         0x008002b4        0x1 src/drivers/can.o
-                0x008002b4                rx_flag
- COMMON         0x008002b5        0x6 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(iob.o)
-                0x008002b5                __iob
- COMMON         0x008002bb        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(malloc.o)
-                0x008002bb                __brkval
-                0x008002bd                __flp
-                0x008002bf                PROVIDE (__bss_end, .)
-                0x00001088                __data_load_start = LOADADDR (.data)
-                0x00001132                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x008002f2        0x1 src/drivers/can.o
+                0x008002f2                rx_flag
+ COMMON         0x008002f3        0x2 src/drivers/motor.o
+                0x008002f3                max_encoder_value
+ COMMON         0x008002f5        0x8 src/drivers/ultrasound.o
+                0x008002f5                working
+                0x008002f6                timer_value
+                0x008002f8                rising_edge
+                0x008002f9                max_distance
+                0x008002fa                error
+                0x008002fb                distance_cm_avg
+ COMMON         0x008002fd        0x6 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(iob.o)
+                0x008002fd                __iob
+ COMMON         0x00800303        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr6\libc.a(malloc.o)
+                0x00800303                __brkval
+                0x00800305                __flp
+                0x00800307                PROVIDE (__bss_end, .)
+                0x00001b8e                __data_load_start = LOADADDR (.data)
+                0x00001c62                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008002bf        0x0
-                0x008002bf                PROVIDE (__noinit_start, .)
+.noinit         0x00800307        0x0
+                0x00800307                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x008002bf                PROVIDE (__noinit_end, .)
-                0x008002bf                _end = .
-                0x008002bf                PROVIDE (__heap_start, .)
+                0x00800307                PROVIDE (__noinit_end, .)
+                0x00800307                _end = .
+                0x00800307                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -919,10 +961,13 @@ END GROUP
  *(.comment)
  .comment       0x00000000       0x30 src/ATmega2560.o
                                  0x31 (size before relaxing)
+ .comment       0x00000000       0x31 src/controller.o
  .comment       0x00000000       0x31 src/drivers/adc.o
  .comment       0x00000000       0x31 src/drivers/can.o
+ .comment       0x00000000       0x31 src/drivers/dac.o
  .comment       0x00000000       0x31 src/drivers/ir.o
  .comment       0x00000000       0x31 src/drivers/MCP2515.o
+ .comment       0x00000000       0x31 src/drivers/motor.o
  .comment       0x00000000       0x31 src/drivers/pwm.o
  .comment       0x00000000       0x31 src/drivers/servo.o
  .comment       0x00000000       0x31 src/drivers/solenoid.o
@@ -955,136 +1000,164 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x268
+.debug_aranges  0x00000000      0x328
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x20 src/ATmega2560.o
  .debug_aranges
-                0x00000020       0x28 src/drivers/adc.o
+                0x00000020       0x28 src/controller.o
  .debug_aranges
-                0x00000048       0x48 src/drivers/can.o
+                0x00000048       0x28 src/drivers/adc.o
  .debug_aranges
-                0x00000090       0x28 src/drivers/ir.o
+                0x00000070       0x48 src/drivers/can.o
  .debug_aranges
-                0x000000b8       0x50 src/drivers/MCP2515.o
+                0x000000b8       0x28 src/drivers/dac.o
  .debug_aranges
-                0x00000108       0x28 src/drivers/pwm.o
+                0x000000e0       0x28 src/drivers/ir.o
  .debug_aranges
-                0x00000130       0x28 src/drivers/servo.o
+                0x00000108       0x50 src/drivers/MCP2515.o
  .debug_aranges
-                0x00000158       0x28 src/drivers/solenoid.o
+                0x00000158       0x50 src/drivers/motor.o
  .debug_aranges
-                0x00000180       0x38 src/drivers/spi.o
+                0x000001a8       0x28 src/drivers/pwm.o
  .debug_aranges
-                0x000001b8       0x50 src/drivers/TWI_Master.o
+                0x000001d0       0x28 src/drivers/servo.o
  .debug_aranges
-                0x00000208       0x30 src/drivers/uart.o
+                0x000001f8       0x28 src/drivers/solenoid.o
  .debug_aranges
-                0x00000238       0x30 src/drivers/ultrasound.o
+                0x00000220       0x38 src/drivers/spi.o
+ .debug_aranges
+                0x00000258       0x50 src/drivers/TWI_Master.o
+ .debug_aranges
+                0x000002a8       0x30 src/drivers/uart.o
+ .debug_aranges
+                0x000002d8       0x50 src/drivers/ultrasound.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1892
+.debug_info     0x00000000     0x2533
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x26c src/ATmega2560.o
- .debug_info    0x0000026c       0xb2 src/drivers/adc.o
- .debug_info    0x0000031e      0x475 src/drivers/can.o
- .debug_info    0x00000793      0x166 src/drivers/ir.o
- .debug_info    0x000008f9      0x4d0 src/drivers/MCP2515.o
- .debug_info    0x00000dc9       0xcf src/drivers/pwm.o
- .debug_info    0x00000e98      0x1ba src/drivers/servo.o
- .debug_info    0x00001052      0x137 src/drivers/solenoid.o
- .debug_info    0x00001189       0xe1 src/drivers/spi.o
- .debug_info    0x0000126a      0x27d src/drivers/TWI_Master.o
- .debug_info    0x000014e7      0x1eb src/drivers/uart.o
- .debug_info    0x000016d2      0x1c0 src/drivers/ultrasound.o
+ .debug_info    0x00000000      0x4cd src/ATmega2560.o
+ .debug_info    0x000004cd      0x19c src/controller.o
+ .debug_info    0x00000669       0xb2 src/drivers/adc.o
+ .debug_info    0x0000071b      0x475 src/drivers/can.o
+ .debug_info    0x00000b90      0x129 src/drivers/dac.o
+ .debug_info    0x00000cb9      0x166 src/drivers/ir.o
+ .debug_info    0x00000e1f      0x4d0 src/drivers/MCP2515.o
+ .debug_info    0x000012ef      0x53b src/drivers/motor.o
+ .debug_info    0x0000182a       0xcf src/drivers/pwm.o
+ .debug_info    0x000018f9      0x1ba src/drivers/servo.o
+ .debug_info    0x00001ab3      0x137 src/drivers/solenoid.o
+ .debug_info    0x00001bea       0xe1 src/drivers/spi.o
+ .debug_info    0x00001ccb      0x27d src/drivers/TWI_Master.o
+ .debug_info    0x00001f48      0x1eb src/drivers/uart.o
+ .debug_info    0x00002133      0x400 src/drivers/ultrasound.o
 
-.debug_abbrev   0x00000000      0xde1
+.debug_abbrev   0x00000000     0x136b
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x17b src/ATmega2560.o
- .debug_abbrev  0x0000017b       0x78 src/drivers/adc.o
- .debug_abbrev  0x000001f3      0x1e8 src/drivers/can.o
- .debug_abbrev  0x000003db      0x11d src/drivers/ir.o
- .debug_abbrev  0x000004f8      0x1e9 src/drivers/MCP2515.o
- .debug_abbrev  0x000006e1       0x7a src/drivers/pwm.o
- .debug_abbrev  0x0000075b      0x128 src/drivers/servo.o
- .debug_abbrev  0x00000883       0xeb src/drivers/solenoid.o
- .debug_abbrev  0x0000096e       0x7a src/drivers/spi.o
- .debug_abbrev  0x000009e8      0x18f src/drivers/TWI_Master.o
- .debug_abbrev  0x00000b77      0x115 src/drivers/uart.o
- .debug_abbrev  0x00000c8c      0x155 src/drivers/ultrasound.o
+ .debug_abbrev  0x00000000      0x207 src/ATmega2560.o
+ .debug_abbrev  0x00000207       0xe4 src/controller.o
+ .debug_abbrev  0x000002eb       0x78 src/drivers/adc.o
+ .debug_abbrev  0x00000363      0x1e8 src/drivers/can.o
+ .debug_abbrev  0x0000054b       0xf1 src/drivers/dac.o
+ .debug_abbrev  0x0000063c      0x11d src/drivers/ir.o
+ .debug_abbrev  0x00000759      0x1e9 src/drivers/MCP2515.o
+ .debug_abbrev  0x00000942      0x272 src/drivers/motor.o
+ .debug_abbrev  0x00000bb4       0x7a src/drivers/pwm.o
+ .debug_abbrev  0x00000c2e      0x128 src/drivers/servo.o
+ .debug_abbrev  0x00000d56       0xeb src/drivers/solenoid.o
+ .debug_abbrev  0x00000e41       0x7a src/drivers/spi.o
+ .debug_abbrev  0x00000ebb      0x18f src/drivers/TWI_Master.o
+ .debug_abbrev  0x0000104a      0x115 src/drivers/uart.o
+ .debug_abbrev  0x0000115f      0x20c src/drivers/ultrasound.o
 
-.debug_line     0x00000000     0x1369
+.debug_line     0x00000000     0x1a0a
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x1b5 src/ATmega2560.o
- .debug_line    0x000001b5       0xf1 src/drivers/adc.o
- .debug_line    0x000002a6      0x25f src/drivers/can.o
- .debug_line    0x00000505      0x113 src/drivers/ir.o
- .debug_line    0x00000618      0x2fd src/drivers/MCP2515.o
- .debug_line    0x00000915       0xed src/drivers/pwm.o
- .debug_line    0x00000a02      0x104 src/drivers/servo.o
- .debug_line    0x00000b06      0x16d src/drivers/solenoid.o
- .debug_line    0x00000c73      0x11d src/drivers/spi.o
- .debug_line    0x00000d90      0x2d1 src/drivers/TWI_Master.o
- .debug_line    0x00001061      0x13f src/drivers/uart.o
- .debug_line    0x000011a0      0x1c9 src/drivers/ultrasound.o
+ .debug_line    0x00000000      0x257 src/ATmega2560.o
+ .debug_line    0x00000257       0xf8 src/controller.o
+ .debug_line    0x0000034f       0xf1 src/drivers/adc.o
+ .debug_line    0x00000440      0x25f src/drivers/can.o
+ .debug_line    0x0000069f       0xeb src/drivers/dac.o
+ .debug_line    0x0000078a      0x113 src/drivers/ir.o
+ .debug_line    0x0000089d      0x2fd src/drivers/MCP2515.o
+ .debug_line    0x00000b9a      0x2f9 src/drivers/motor.o
+ .debug_line    0x00000e93       0xed src/drivers/pwm.o
+ .debug_line    0x00000f80      0x104 src/drivers/servo.o
+ .debug_line    0x00001084      0x16d src/drivers/solenoid.o
+ .debug_line    0x000011f1      0x11d src/drivers/spi.o
+ .debug_line    0x0000130e      0x2d1 src/drivers/TWI_Master.o
+ .debug_line    0x000015df      0x13f src/drivers/uart.o
+ .debug_line    0x0000171e      0x2ec src/drivers/ultrasound.o
 
-.debug_frame    0x00000000      0x534
+.debug_frame    0x00000000      0x744
  *(.debug_frame)
- .debug_frame   0x00000000       0x24 src/ATmega2560.o
- .debug_frame   0x00000024       0x34 src/drivers/adc.o
- .debug_frame   0x00000058      0x128 src/drivers/can.o
- .debug_frame   0x00000180       0x34 src/drivers/ir.o
- .debug_frame   0x000001b4       0xdc src/drivers/MCP2515.o
- .debug_frame   0x00000290       0x34 src/drivers/pwm.o
- .debug_frame   0x000002c4       0x48 src/drivers/servo.o
- .debug_frame   0x0000030c       0x34 src/drivers/solenoid.o
- .debug_frame   0x00000340       0x54 src/drivers/spi.o
- .debug_frame   0x00000394       0xb8 src/drivers/TWI_Master.o
- .debug_frame   0x0000044c       0x44 src/drivers/uart.o
- .debug_frame   0x00000490       0xa4 src/drivers/ultrasound.o
+ .debug_frame   0x00000000       0x34 src/ATmega2560.o
+ .debug_frame   0x00000034       0x7c src/controller.o
+ .debug_frame   0x000000b0       0x34 src/drivers/adc.o
+ .debug_frame   0x000000e4      0x128 src/drivers/can.o
+ .debug_frame   0x0000020c       0x44 src/drivers/dac.o
+ .debug_frame   0x00000250       0x34 src/drivers/ir.o
+ .debug_frame   0x00000284       0xdc src/drivers/MCP2515.o
+ .debug_frame   0x00000360       0xbc src/drivers/motor.o
+ .debug_frame   0x0000041c       0x34 src/drivers/pwm.o
+ .debug_frame   0x00000450       0x48 src/drivers/servo.o
+ .debug_frame   0x00000498       0x34 src/drivers/solenoid.o
+ .debug_frame   0x000004cc       0x54 src/drivers/spi.o
+ .debug_frame   0x00000520       0xb8 src/drivers/TWI_Master.o
+ .debug_frame   0x000005d8       0x44 src/drivers/uart.o
+ .debug_frame   0x0000061c      0x128 src/drivers/ultrasound.o
 
-.debug_str      0x00000000      0x74b
+.debug_str      0x00000000      0x910
  *(.debug_str)
- .debug_str     0x00000000      0x1f4 src/ATmega2560.o
-                                0x249 (size before relaxing)
- .debug_str     0x000001f4       0x50 src/drivers/adc.o
+ .debug_str     0x00000000      0x2db src/ATmega2560.o
+                                0x346 (size before relaxing)
+ .debug_str     0x000002db       0x47 src/controller.o
+                                0x1cb (size before relaxing)
+ .debug_str     0x00000322       0x50 src/drivers/adc.o
                                 0x161 (size before relaxing)
- .debug_str     0x00000244      0x123 src/drivers/can.o
+ .debug_str     0x00000372      0x101 src/drivers/can.o
                                 0x278 (size before relaxing)
- .debug_str     0x00000367       0x40 src/drivers/ir.o
+ .debug_str     0x00000473       0xa4 src/drivers/dac.o
+                                0x1c4 (size before relaxing)
+ .debug_str     0x00000517       0x2f src/drivers/ir.o
                                 0x1b0 (size before relaxing)
- .debug_str     0x000003a7       0xd5 src/drivers/MCP2515.o
+ .debug_str     0x00000546       0x97 src/drivers/MCP2515.o
                                 0x2ad (size before relaxing)
- .debug_str     0x0000047c       0xa9 src/drivers/pwm.o
+ .debug_str     0x000005dd       0x5d src/drivers/motor.o
+                                0x293 (size before relaxing)
+ .debug_str     0x0000063a       0xa3 src/drivers/pwm.o
                                 0x1be (size before relaxing)
- .debug_str     0x00000525       0x23 src/drivers/servo.o
+ .debug_str     0x000006dd       0x17 src/drivers/servo.o
                                 0x1af (size before relaxing)
- .debug_str     0x00000548       0x38 src/drivers/solenoid.o
+ .debug_str     0x000006f4       0x29 src/drivers/solenoid.o
                                 0x1d4 (size before relaxing)
- .debug_str     0x00000580       0x15 src/drivers/spi.o
+ .debug_str     0x0000071d       0x15 src/drivers/spi.o
                                 0x1b3 (size before relaxing)
- .debug_str     0x00000595      0x10d src/drivers/TWI_Master.o
+ .debug_str     0x00000732       0xd7 src/drivers/TWI_Master.o
                                 0x268 (size before relaxing)
- .debug_str     0x000006a2       0x58 src/drivers/uart.o
+ .debug_str     0x00000809       0x58 src/drivers/uart.o
                                 0x1b3 (size before relaxing)
- .debug_str     0x000006fa       0x51 src/drivers/ultrasound.o
-                                0x1f2 (size before relaxing)
+ .debug_str     0x00000861       0xaf src/drivers/ultrasound.o
+                                0x288 (size before relaxing)
 
-.debug_loc      0x00000000      0xc34
+.debug_loc      0x00000000     0x13f5
  *(.debug_loc)
- .debug_loc     0x00000000       0x21 src/drivers/adc.o
- .debug_loc     0x00000021      0x386 src/drivers/can.o
- .debug_loc     0x000003a7       0xed src/drivers/ir.o
- .debug_loc     0x00000494      0x384 src/drivers/MCP2515.o
- .debug_loc     0x00000818       0x5c src/drivers/pwm.o
- .debug_loc     0x00000874       0x9e src/drivers/servo.o
- .debug_loc     0x00000912       0x48 src/drivers/solenoid.o
- .debug_loc     0x0000095a       0x1f src/drivers/spi.o
- .debug_loc     0x00000979      0x150 src/drivers/TWI_Master.o
- .debug_loc     0x00000ac9       0x45 src/drivers/uart.o
- .debug_loc     0x00000b0e      0x126 src/drivers/ultrasound.o
+ .debug_loc     0x00000000      0x1cb src/ATmega2560.o
+ .debug_loc     0x000001cb      0x169 src/controller.o
+ .debug_loc     0x00000334       0x21 src/drivers/adc.o
+ .debug_loc     0x00000355      0x386 src/drivers/can.o
+ .debug_loc     0x000006db       0x75 src/drivers/dac.o
+ .debug_loc     0x00000750       0xed src/drivers/ir.o
+ .debug_loc     0x0000083d      0x384 src/drivers/MCP2515.o
+ .debug_loc     0x00000bc1      0x1d6 src/drivers/motor.o
+ .debug_loc     0x00000d97       0x5c src/drivers/pwm.o
+ .debug_loc     0x00000df3       0x9e src/drivers/servo.o
+ .debug_loc     0x00000e91       0x48 src/drivers/solenoid.o
+ .debug_loc     0x00000ed9       0x1f src/drivers/spi.o
+ .debug_loc     0x00000ef8      0x150 src/drivers/TWI_Master.o
+ .debug_loc     0x00001048       0x45 src/drivers/uart.o
+ .debug_loc     0x0000108d      0x368 src/drivers/ultrasound.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1104,20 +1177,23 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x1c0
+.debug_ranges   0x00000000      0x298
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x10 src/ATmega2560.o
- .debug_ranges  0x00000010       0x18 src/drivers/adc.o
- .debug_ranges  0x00000028       0x38 src/drivers/can.o
- .debug_ranges  0x00000060       0x30 src/drivers/ir.o
- .debug_ranges  0x00000090       0x40 src/drivers/MCP2515.o
- .debug_ranges  0x000000d0       0x18 src/drivers/pwm.o
- .debug_ranges  0x000000e8       0x18 src/drivers/servo.o
- .debug_ranges  0x00000100       0x18 src/drivers/solenoid.o
- .debug_ranges  0x00000118       0x28 src/drivers/spi.o
- .debug_ranges  0x00000140       0x40 src/drivers/TWI_Master.o
- .debug_ranges  0x00000180       0x20 src/drivers/uart.o
- .debug_ranges  0x000001a0       0x20 src/drivers/ultrasound.o
+ .debug_ranges  0x00000000       0x28 src/ATmega2560.o
+ .debug_ranges  0x00000028       0x18 src/controller.o
+ .debug_ranges  0x00000040       0x18 src/drivers/adc.o
+ .debug_ranges  0x00000058       0x38 src/drivers/can.o
+ .debug_ranges  0x00000090       0x18 src/drivers/dac.o
+ .debug_ranges  0x000000a8       0x30 src/drivers/ir.o
+ .debug_ranges  0x000000d8       0x40 src/drivers/MCP2515.o
+ .debug_ranges  0x00000118       0x58 src/drivers/motor.o
+ .debug_ranges  0x00000170       0x18 src/drivers/pwm.o
+ .debug_ranges  0x00000188       0x18 src/drivers/servo.o
+ .debug_ranges  0x000001a0       0x18 src/drivers/solenoid.o
+ .debug_ranges  0x000001b8       0x28 src/drivers/spi.o
+ .debug_ranges  0x000001e0       0x40 src/drivers/TWI_Master.o
+ .debug_ranges  0x00000220       0x20 src/drivers/uart.o
+ .debug_ranges  0x00000240       0x58 src/drivers/ultrasound.o
 
 .debug_macro
  *(.debug_macro)

@@ -12,6 +12,8 @@ uint16_t timer_value;
 unsigned int distance_cm_avg;
 uint8_t error;
 
+uint8_t max_distance;
+
 void Initialize_timer3()
 {
 	TCCR3B &= ~(1 << CS30);		// clk_io/8 prescaler
@@ -30,6 +32,12 @@ void US_init(){
 	EICRB |= (1 << ISC50);		// Trigger interrupt at any logical change at PE5
 
 	sei();
+}
+
+void US_calibrate() {
+	printf("Calibrating max distance in 10 seconds");
+	_delay_ms(10000);
+	max_distance = US_get_distance();
 }
 
 void US_trigger(){
@@ -52,6 +60,7 @@ void US_trigger(){
 }
 
 int US_get_distance(){
+	US_trigger();
 	return distance_cm_avg;
 }
 

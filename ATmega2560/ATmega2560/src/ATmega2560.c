@@ -24,17 +24,11 @@ int main(void)
 	CAN_init();
 	IR_init();
 	SERVO_init();
-	//MOTOR_init();
+	MOTOR_init();
 	SOLENOID_init();
 	
 	US_init();
 	Initialize_timer3();
-	
-	while(1) {
-		US_trigger();
-		int distance = US_get_distance();
-		printf("Distance: %d [cm]\n", distance);
-	}
 
 	struct can_message_t send_msg;
 	struct can_message_t receive_msg;
@@ -60,9 +54,9 @@ int main(void)
 	while(1) {
 		receive_msg = CAN_data_receive();
 
-		printf("%d %d %d %d %d\n", receive_msg.id, receive_msg.data[0], receive_msg.data[2], (uint8_t)receive_msg.data[3], (uint8_t)receive_msg.data[4]);
 
 		if(receive_msg.id == NODE_1_ID) {
+			printf("%d %d %d %d %d\n", receive_msg.id, receive_msg.data[0], receive_msg.data[2], (uint8_t)receive_msg.data[3], (uint8_t)receive_msg.data[4]);
 			// Message is joystick data
 			int8_t x = receive_msg.data[X_INDEX];
 			int8_t click = receive_msg.data[CLICK_INDEX];
@@ -87,6 +81,7 @@ int main(void)
 		// Apply controller
 		float encoder_value = 0xFF * ((float)MOTOR_read_encoder())/((float)MOTOR_max_encoder_value());
 		float vel = CONTROLLER_actuate(encoder_value);
+		printf("vel %d\n", vel);
 		MOTOR_set_dir_right(vel > 0);
 		MOTOR_set_velocity(vel);
 
