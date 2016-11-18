@@ -33,7 +33,7 @@ int main(void)
 	while(1) {
 		US_trigger();
 		int distance = US_get_distance();
-		printf("Distance: %d\n", distance);
+		printf("Distance: %d [cm]\n", distance);
 	}
 
 	struct can_message_t send_msg;

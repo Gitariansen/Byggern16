@@ -6,15 +6,11 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-//static volatile uint16_t duration = 0x000;
-//static volatile uint8_t prevOutput = 0x00;
-
 uint8_t working;
 uint8_t rising_edge;
 uint16_t timer_value;
-int distance_cm_avg;
+unsigned int distance_cm_avg;
 uint8_t error;
-static int filter[4];
 
 void Initialize_timer3()
 {
@@ -37,13 +33,16 @@ void US_init(){
 }
 
 void US_trigger(){
-	if(working == 0)			// Check if previous conversation is done
+	if(working == 0)
 	{
-		_delay_ms(50);
+		/* 60ms measurement cycle is suggested by the data sheet to prevent trigger signal to the echo signal*/
+		_delay_ms(60);
+		/* Ensure the pin is low before sending the trigger*/
 		US_PORT &=~ (1 << US_TRIG_PIN);
 		_delay_us(1);
+		/* 10us trigger input */
 		US_PORT |= (1 << US_TRIG_PIN); 
-		_delay_us(12);
+		_delay_us(10);
 		US_PORT &=~ (1 << US_TRIG_PIN);
 		working = 1;
 		error = 0;
@@ -56,7 +55,7 @@ int US_get_distance(){
 	return distance_cm_avg;
 }
 
-ISR (US_ECHO_EDGE)
+ISR (US_ECHO_EDGE_DETECT)
 {
 	if(working = 1)		// Trigger has been sent, 
 						// this is the returning signal proportional to the range
@@ -67,18 +66,19 @@ ISR (US_ECHO_EDGE)
 			TCCR3B |= (1 << CS31);
 			timer_value = 0;
 		}
-		else if (rising_edge == 1)	// Echo is finished, calculate distance
+		else if (rising_edge == 1)	// Echo is finished
 		{	
 			/* 3th order moving average filter */
 			static int filter[3];
-			int new_val = (timer_value*256 + TCNT3)/58;
-			distance_cm_avg = (timer_value*256 + TCNT3)/2/58;
+			int new_val = (timer_value*30.5 + TCNT3)/2/58;
+			distance_cm_avg = (timer_value*30.5 + TCNT3)/2/58;
 			for(int i = 1; i < 3; i++) {
 				distance_cm_avg += filter[i];
 				filter[i - 1] = filter[i];
 			}
 			distance_cm_avg /= 4;
 			filter[2] = new_val;
+			 
 			 
 			//printf("timer_value: %d", timer_value);
 			rising_edge = 0;
@@ -95,8 +95,8 @@ ISR (US_ECHO_TIMER_OVERFLOW)
 	if(rising_edge == 1) //Check if the echo signal is active
 	{
 		timer_value++;
-		/* Check if isnt out of range */
-		if(timer_value > 10000)
+		/* Check if not out of range wrt to some user defined tresholds */
+		if(timer_value > 100000)
 		{
 			working = 0;
 			rising_edge = 0;
