@@ -8,15 +8,24 @@
 #include "options.h"
 #include "menu.h"
 
-static state_t state = INITIAL;
+state_t state = INITIAL;
+int use_ultrasound = 0;
 
-void set_state(state_t new_state) {
+void OPTIONS_set_state(state_t new_state) {
 	if(new_state == MENU) {
 		MENU_init();
 	}
 	state = new_state;
 }
 
-state_t get_state() {
+state_t OPTIONS_get_state() {
 	return state;
+}
+
+void OPTIONS_set_use_ultrasound(int value) {
+	use_ultrasound = value;
+}
+
+int OPTIONS_use_ultrasound() {
+	return use_ultrasound;
 }

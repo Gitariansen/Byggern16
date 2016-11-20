@@ -50,15 +50,9 @@ void HIGHSCORE_clear() {
 			EEPROM_write(USER_START_ADDRESS + user_index + c, 0);
 		}
 		EEPROM_write(USER_START_ADDRESS + user_index + USERNAME_LENGTH, 0);
-		num_users--;
 	}
-	
-	if(num_users == 0) {
-		printf("Clear succeeded\n");
-		EEPROM_write(NUM_USERS_ADDRESS, 0);
-	} else {
-		printf("Clear failed\n");
-	}
+	num_users = 0;
+	EEPROM_write(NUM_USERS_ADDRESS, 0);
 }
 
 void HIGHSCORE_add_user(user_t user) {

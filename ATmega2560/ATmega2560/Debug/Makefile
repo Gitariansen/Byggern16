@@ -52,7 +52,8 @@ C_SRCS +=  \
 ../src/drivers/solenoid.c \
 ../src/drivers/spi.c \
 ../src/drivers/TWI_Master.c \
-../src/drivers/uart.c
+../src/drivers/uart.c \
+../src/drivers/ultrasound.c
 
 
 PREPROCESSING_SRCS += 
@@ -75,7 +76,8 @@ src/drivers/servo.o \
 src/drivers/solenoid.o \
 src/drivers/spi.o \
 src/drivers/TWI_Master.o \
-src/drivers/uart.o
+src/drivers/uart.o \
+src/drivers/ultrasound.o
 
 OBJS_AS_ARGS +=  \
 src/ATmega2560.o \
@@ -91,7 +93,8 @@ src/drivers/servo.o \
 src/drivers/solenoid.o \
 src/drivers/spi.o \
 src/drivers/TWI_Master.o \
-src/drivers/uart.o
+src/drivers/uart.o \
+src/drivers/ultrasound.o
 
 C_DEPS +=  \
 src/ATmega2560.d \
@@ -107,7 +110,8 @@ src/drivers/servo.d \
 src/drivers/solenoid.d \
 src/drivers/spi.d \
 src/drivers/TWI_Master.d \
-src/drivers/uart.d
+src/drivers/uart.d \
+src/drivers/ultrasound.d
 
 C_DEPS_AS_ARGS +=  \
 src/ATmega2560.d \
@@ -123,7 +127,8 @@ src/drivers/servo.d \
 src/drivers/solenoid.d \
 src/drivers/spi.d \
 src/drivers/TWI_Master.d \
-src/drivers/uart.d
+src/drivers/uart.d \
+src/drivers/ultrasound.d
 
 OUTPUT_FILE_PATH +=ATmega2560.elf
 
@@ -139,6 +144,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

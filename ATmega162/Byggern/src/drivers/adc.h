@@ -19,9 +19,6 @@
 #define RIGHT_SLIDER_CHANNEL	3
 
 int ADC_init(void);
-uint8_t ADC_test(void);
 uint8_t ADC_read(uint8_t chan);
-int ADC_JoystickPos(void);
-int ADC_SliderPos(void);
 
 #endif /* ADC_H_ */

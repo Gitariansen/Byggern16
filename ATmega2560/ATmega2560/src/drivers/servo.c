@@ -24,6 +24,5 @@ void SERVO_write(int8_t value) {
 	if(pulse_width < min) {
 		pulse_width = min;
 	}
-	printf("Pulse width %d\n");
 	PWM_set_pulse_width(pulse_width);
 }

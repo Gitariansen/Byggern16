@@ -53,8 +53,11 @@ int main(void)
 	slider_position_t slider_position = SLIDER_get_position();
 	slider_position_t old_slider_position = slider_position;
 	
+	int use_ultrasound = OPTIONS_use_ultrasound();
+	int old_use_ultrasound = use_ultrasound;
+	
 	while(1) {
-		state = get_state();
+		state = OPTIONS_get_state();
 		
 		joystick_state = JOYSTICK_get_state();
 		slider_position = SLIDER_get_position();
@@ -64,37 +67,32 @@ int main(void)
 			case INITIAL:
 			old_joystick_state = joystick_state;
 			old_slider_position = slider_position;
-			set_state(MENU);
+			OPTIONS_set_state(MENU);
 			break;
 			
 			case MENU:
 			joystick_state = JOYSTICK_get_state();
+			use_ultrasound = OPTIONS_use_ultrasound();
 			if(joystick_state.y_dirn != old_joystick_state.y_dirn) {
 				switch(joystick_state.y_dirn) {
 					case UP:
-					printf("UP\n");
 					MENU_decrease_index();
 					break;
 					case DOWN:
-					printf("DOWN\n");
 					MENU_increase_index();
 					break;
 					case Y_NEUTRAL:
-					printf("NEUTRAL\n");
 					break;
 				}
 			}
 			if(joystick_state.x_dirn != old_joystick_state.x_dirn) {
 				switch(joystick_state.x_dirn) {
 					case LEFT:
-					printf("LEFT\n");
 					MENU_return_to_parent();
 					break;
 					case RIGHT:
-					printf("RIGHT\n");
 					break;
 					case X_NEUTRAL:
-					printf("NEUTRAL\n");
 					break;
 				}
 			}
@@ -104,21 +102,30 @@ int main(void)
 				}
 			}
 			old_joystick_state = joystick_state;
+			
+			use_ultrasound = OPTIONS_use_ultrasound();
+			if(use_ultrasound != old_use_ultrasound) {
+				send_msg.id = OPTIONS_MSG_ID;
+				send_msg.length = 1;
+				send_msg.data[ULTRASOUND_INDEX] = use_ultrasound;
+				CAN_message_send(&send_msg);
+				old_use_ultrasound = use_ultrasound;
+			}
+			
 			break;
 			
 			case IN_GAME:
-			receive_msg = CAN_data_receive();
+			receive_msg = CAN_message_receive();
 		
 			if(receive_msg.id == NODE_2_ID) {
 				int8_t hit = receive_msg.data[IR_INDEX];
 				if(hit) {
 					GAME_hit();
-					printf("%d\n", GAME_get_lives());
 				}
 			}
 
 			if(JOYSTICK_compare(joystick_state, old_joystick_state) == 0 || SLIDER_compare(slider_position, old_slider_position) == 0) {
-				send_msg.id = NODE_1_ID;
+				send_msg.id = GAME_MSG_ID;
 				send_msg.length = 5;
 				// Joystick data
 				send_msg.data[X_INDEX]		= joystick_state.x;
@@ -139,7 +146,7 @@ int main(void)
 			
 
 			default:
-			set_state(INITIAL);
+			OPTIONS_set_state(INITIAL);
 		}
 	
 		_delay_ms(10);

@@ -9,10 +9,11 @@
 #include "menu.h"
 #include "game.h"
 #include "highscore.h"
+#include "options.h"
 #include "drivers/oled.h"
 
 // Menus are statically allocated at compile time to avoid overflow issues
-menu_t main_menu, play_menu, options_menu, highscore_menu, contrast_menu, contrast_high_menu, contrast_medium_menu, contrast_low_menu, clear_highscore_menu;
+menu_t main_menu, play_menu, options_menu, highscore_menu, contrast_menu, contrast_high_menu, contrast_medium_menu, contrast_low_menu, clear_highscore_menu, ultrasound_menu, ultrasound_on_menu, ultrasound_off_menu;
 
 menu_t* current_menu;
 int selected_index = 0;
@@ -30,18 +31,19 @@ menu_t play_menu = {
 	.function_ptr = (&GAME_new),
 };
 
-menu_t* options_menu_children[] = { &contrast_menu, &clear_highscore_menu };
-menu_t options_menu = {
-	.name = "Options",
-	.parent = &main_menu,
-	.children = options_menu_children,
-	.num_children = sizeof(options_menu_children)/sizeof(menu_t*),
-};
 
 menu_t highscore_menu = {
 	.name = "Highscore",
 	.parent = &main_menu,
 	.function_ptr = &HIGHSCORE_print_to_oled,
+};
+
+menu_t* options_menu_children[] = { &contrast_menu, &clear_highscore_menu, &ultrasound_menu };
+menu_t options_menu = {
+	.name = "Options",
+	.parent = &main_menu,
+	.children = options_menu_children,
+	.num_children = sizeof(options_menu_children)/sizeof(menu_t*),
 };
 
 menu_t* contrast_menu_children[] = { &contrast_high_menu, &contrast_medium_menu, &contrast_low_menu };
@@ -79,6 +81,28 @@ menu_t clear_highscore_menu = {
 	.function_ptr = &HIGHSCORE_clear
 };
 
+menu_t* ultrasound_menu_children[] = { &ultrasound_on_menu, &ultrasound_off_menu };
+menu_t ultrasound_menu = {
+	.name = "Ultrasound",
+	.parent = &options_menu,
+	.children = &ultrasound_menu_children,
+	.num_children = sizeof(ultrasound_menu_children)/sizeof(menu_t*),
+};
+
+void ultrasound_on_handler() { OPTIONS_set_use_ultrasound(1); }
+menu_t ultrasound_on_menu = {
+	.name = "Ultrasound on",
+	.parent = &ultrasound_menu,
+	.function_ptr = &ultrasound_on_handler
+};
+
+void ultrasound_off_handler() { OPTIONS_set_use_ultrasound(0); }
+menu_t ultrasound_off_menu = {
+	.name = "Ultrasound off",
+	.parent = &ultrasound_menu,
+	.function_ptr = &ultrasound_off_handler
+};
+
 void MENU_init() {
 	OLED_init();
 	MENU_open_menu(&main_menu);
@@ -109,7 +133,6 @@ void MENU_print_menu() {
 
 void MENU_increase_index() {
 	selected_index = (selected_index + 1) % (current_menu->num_children);
-	printf("%d\n%d\n", selected_index, current_menu->num_children);
 	MENU_print_menu();
 }
 
@@ -118,7 +141,6 @@ void MENU_decrease_index() {
 	if(selected_index < 0) {
 		selected_index = current_menu->num_children + selected_index;
 	}
-	printf("%d\n%d\n", selected_index, current_menu->num_children);
 	MENU_print_menu();
 }
 

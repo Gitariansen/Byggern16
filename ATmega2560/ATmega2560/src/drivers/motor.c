@@ -43,16 +43,15 @@ void MOTOR_calibrate() {
 	_delay_ms(20);
 	MJ1_PORT |= (1 << RST);
 	
-	printf("Zero: %d\n", MOTOR_read_encoder());
+	printf("Encoder min: %d\n", MOTOR_read_encoder());
 	
 	MOTOR_set_dir_right(1);
 	MOTOR_set_velocity(max_velocity);
 	_delay_ms(3000);
-	//MOTOR_set_velocity(0);
 
 	max_encoder_value = MOTOR_read_encoder();
 	
-	printf("Max: %d\n", max_encoder_value);
+	printf("Encoder max: %d\n", max_encoder_value);
 	
 	_delay_ms(1000);
 }
@@ -97,10 +96,6 @@ int16_t MOTOR_read_encoder() {
 	MJ1_PORT &= ~(1 << SEL); // Set SEL high to get high byte
 	_delay_ms(20);
 	encoder_value |= (MJ2_DATA << 8);
-
-	/*MJ1_PORT &= ~(1 << RST); // Toggle !RST to reset encoder
-	_delay_ms(20);
-	MJ1_PORT |= (1 << RST);*/
 
 	MJ1_PORT |= (1 << OE); // Set !OE high to disable output of encoder
 	

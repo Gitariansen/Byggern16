@@ -43,12 +43,12 @@ joystick_state_t JOYSTICK_get_state() {
 	state.x = 2 * 100 * (x_voltage - x_voltage_neutral) / (0xFF - 1);
 	state.y = 2 * 100 * (y_voltage - y_voltage_neutral) / (0xFF - 1);
 	
-	if(state.x > 10) {
+	if(state.x > 60) {
 		state.x_dirn = RIGHT;
 		if(state.x > 100) {
 			state.x = 100;
 		}
-	} else if(state.x < -10) {
+	} else if(state.x < -60) {
 		state.x_dirn = LEFT;
 		if(state.x < -100) {
 			state.x = -100;

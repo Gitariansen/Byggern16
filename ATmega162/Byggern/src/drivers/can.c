@@ -72,7 +72,7 @@ void CAN_message_send(struct can_message_t* msg){
 	MCP2515_request_to_send(1);
 }
 
-struct can_message_t CAN_data_receive() {
+struct can_message_t CAN_message_receive() {
 	struct can_message_t msg;
 
 	if(rx_flag) {

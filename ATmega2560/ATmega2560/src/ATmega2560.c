@@ -13,9 +13,11 @@
 #include "drivers/ir.h"
 #include "drivers/motor.h"
 #include "drivers/solenoid.h"
+#include "drivers/ultrasound.h"
 #include "drivers/can.h"
 #include "controller.h"
 #include "../../../can_protocol.h"
+
 
 int main(void)
 {
@@ -25,6 +27,7 @@ int main(void)
 	SERVO_init();
 	MOTOR_init();
 	SOLENOID_init();
+	US_init();
 
 	struct can_message_t send_msg;
 	struct can_message_t receive_msg;
@@ -32,17 +35,27 @@ int main(void)
 	uint8_t ir_value = IR_read();
 	uint8_t old_ir_value = ir_value;
 
+	int use_ultrasound = 0;
+
 	while(1) {
 		receive_msg = CAN_data_receive();
 
-		if(receive_msg.id == NODE_1_ID) {
+		if(receive_msg.id == GAME_MSG_ID) {
 			// Message is joystick data
 			int8_t x = receive_msg.data[X_INDEX];
 			int8_t click = receive_msg.data[CLICK_INDEX];
 			SERVO_write(x);
 			SOLENOID_shoot(click);
-			// Slider data
-			uint8_t ref = receive_msg.data[RIGHT_INDEX]; // Use right slider position as reference
+			if(use_ultrasound == 0) {
+				uint8_t ref = receive_msg.data[RIGHT_INDEX]; // Use right slider position as reference
+				CONTROLLER_set_reference(ref);
+			}
+		} else if(receive_msg.id == OPTIONS_MSG_ID) {
+			use_ultrasound = receive_msg.data[ULTRASOUND_INDEX];
+		}
+		
+		if(use_ultrasound) {
+			uint8_t ref = 0xFF * ((float)US_get_distance())/((float)US_max_distance());
 			CONTROLLER_set_reference(ref);
 		}
 		

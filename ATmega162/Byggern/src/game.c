@@ -29,7 +29,7 @@ void GAME_new() {
 	// Start timer
 	start_time = TIMER_time();
 	
-	set_state(IN_GAME);
+	OPTIONS_set_state(IN_GAME);
 }
 
 void GAME_end() {
@@ -43,7 +43,7 @@ void GAME_end() {
 
 	GAME_save_score(time_in_ms / 1000);
 	
-	set_state(INITIAL);
+	OPTIONS_set_state(INITIAL);
 }
 
 void GAME_save_score(int score) {

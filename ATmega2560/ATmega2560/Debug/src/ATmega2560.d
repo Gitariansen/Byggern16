@@ -20,8 +20,8 @@ src/ATmega2560.d src/ATmega2560.o: ../src/ATmega2560.c \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\lib\gcc\avr\4.8.1\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\lib\gcc\avr\4.8.1\include\stddef.h \
  ../src/drivers/ir.h ../src/drivers/motor.h ../src/drivers/solenoid.h \
- ../src/drivers/can.h ../src/controller.h \
- ../src/../../../can/can_protocol.h
+ ../src/drivers/ultrasound.h ../src/drivers/can.h ../src/controller.h \
+ ../src/../../../can_protocol.h
 
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -71,8 +71,10 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 
 ../src/drivers/solenoid.h:
 
+../src/drivers/ultrasound.h:
+
 ../src/drivers/can.h:
 
 ../src/controller.h:
 
-../src/../../../can/can_protocol.h:
+../src/../../../can_protocol.h:
