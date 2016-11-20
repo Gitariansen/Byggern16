@@ -10,9 +10,9 @@ uint8_t working;
 uint8_t rising_edge;
 uint16_t timer_value;
 unsigned int distance_cm_avg;
+unsigned int max_distance;
 uint8_t error;
 
-uint8_t max_distance;
 
 void Initialize_timer3()
 {
@@ -35,9 +35,12 @@ void US_init(){
 }
 
 void US_calibrate() {
-	printf("Calibrating max distance in 10 seconds");
-	_delay_ms(10000);
+	for(int i = 0; i < 10; i++) {
+		US_get_distance();
+		_delay_ms(10);
+	}
 	max_distance = US_get_distance();
+	printf("Max distance is %d\n", max_distance);
 }
 
 void US_trigger(){
@@ -61,7 +64,12 @@ void US_trigger(){
 
 int US_get_distance(){
 	US_trigger();
+	//_delay_ms(10);
 	return distance_cm_avg;
+}
+
+int US_max_distance() {
+	return max_distance;
 }
 
 ISR (US_ECHO_EDGE_DETECT)
@@ -79,8 +87,8 @@ ISR (US_ECHO_EDGE_DETECT)
 		{	
 			/* 3th order moving average filter */
 			static int filter[3];
-			int new_val = (timer_value*30.5 + TCNT3)/2/58 + 5; //(2MHz/16bit = 30.5)
-			distance_cm_avg = (timer_value*30.5 + TCNT3)/2/58 + 5;
+			int new_val = (timer_value*30.5 + TCNT3)/2/*/58*/; //(2MHz/16bit = 30.5)
+			distance_cm_avg = (timer_value*30.5 + TCNT3)/2/*/58*/;
 			for(int i = 1; i < 3; i++) {
 				distance_cm_avg += filter[i];
 				filter[i - 1] = filter[i];

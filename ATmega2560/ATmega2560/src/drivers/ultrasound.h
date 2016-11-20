@@ -25,9 +25,11 @@
 void Initialize_timer3();
 /* PIN setup and interrupt enable for any logical change */
 void US_init();
+void US_calibrate();
 /* Triggers range measurement on the ultrasonic sensor */
 void US_trigger();
 /* Returns the distance in [cm] */
 int US_get_distance();
+int US_max_distance();
 
 #endif /* ULTRASOUND_H_ */

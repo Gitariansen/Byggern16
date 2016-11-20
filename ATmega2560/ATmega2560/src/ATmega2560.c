@@ -28,7 +28,17 @@ int main(void)
 	SOLENOID_init();
 	
 	US_init();
-	Initialize_timer3();
+	US_calibrate();
+	
+	/*while(1) {
+		uint8_t ref = 0xFF * ((float)US_get_distance())/((float)US_max_distance());
+		CONTROLLER_set_reference(ref);
+		float encoder_value = 0xFF * ((float)MOTOR_read_encoder())/((float)MOTOR_max_encoder_value());
+		float vel = CONTROLLER_actuate(encoder_value);
+		printf("%d\n", vel);
+		MOTOR_set_velocity(vel);
+		_delay_ms(10);
+	}*/
 
 	struct can_message_t send_msg;
 	struct can_message_t receive_msg;
@@ -54,9 +64,8 @@ int main(void)
 	while(1) {
 		receive_msg = CAN_data_receive();
 
-
 		if(receive_msg.id == NODE_1_ID) {
-			printf("%d %d %d %d %d\n", receive_msg.id, receive_msg.data[0], receive_msg.data[2], (uint8_t)receive_msg.data[3], (uint8_t)receive_msg.data[4]);
+			//printf("%d %d %d %d %d\n", receive_msg.id, receive_msg.data[0], receive_msg.data[2], (uint8_t)receive_msg.data[3], (uint8_t)receive_msg.data[4]);
 			// Message is joystick data
 			int8_t x = receive_msg.data[X_INDEX];
 			int8_t click = receive_msg.data[CLICK_INDEX];
@@ -64,9 +73,12 @@ int main(void)
 			SOLENOID_shoot(click);
 
 			// Slider data
-			uint8_t ref = receive_msg.data[RIGHT_INDEX]; // Use right slider position as reference
-			CONTROLLER_set_reference(ref);
+			//uint8_t ref = receive_msg.data[RIGHT_INDEX]; // Use right slider position as reference
+			//CONTROLLER_set_reference(ref);
 		}
+
+		uint8_t ref = 0xFF * ((float)US_get_distance())/((float)US_max_distance());
+		CONTROLLER_set_reference(ref);
 		
 		ir_value = IR_read();
 		if(ir_value != old_ir_value) {
@@ -81,7 +93,6 @@ int main(void)
 		// Apply controller
 		float encoder_value = 0xFF * ((float)MOTOR_read_encoder())/((float)MOTOR_max_encoder_value());
 		float vel = CONTROLLER_actuate(encoder_value);
-		printf("vel %d\n", vel);
 		MOTOR_set_dir_right(vel > 0);
 		MOTOR_set_velocity(vel);
 
