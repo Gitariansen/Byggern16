@@ -15,7 +15,7 @@
 #include "drivers/solenoid.h"
 #include "drivers/can.h"
 #include "controller.h"
-#include "../../../can/can_protocol.h"
+#include "../../../can_protocol.h"
 
 int main(void)
 {
@@ -41,7 +41,6 @@ int main(void)
 			int8_t click = receive_msg.data[CLICK_INDEX];
 			SERVO_write(x);
 			SOLENOID_shoot(click);
-
 			// Slider data
 			uint8_t ref = receive_msg.data[RIGHT_INDEX]; // Use right slider position as reference
 			CONTROLLER_set_reference(ref);
